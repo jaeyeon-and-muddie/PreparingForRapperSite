@@ -3,6 +3,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: create-drop
+    defer-datasource-initialization: true # h2 scheme ????? import.sql ??? ??? ? ?? ???? ??? ??
   h2:
     console:
       enabled: true
