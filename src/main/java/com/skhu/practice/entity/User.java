@@ -1,6 +1,7 @@
 package com.skhu.practice.entity;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +12,8 @@ import javax.persistence.Table;
 
 @Entity
 @Getter
-@Table(name = "USER") // Table = User 로 설정
+@ToString
+@Table(name = "USERS") // Table = User 로 설정
 public class User {
 
     @Id
