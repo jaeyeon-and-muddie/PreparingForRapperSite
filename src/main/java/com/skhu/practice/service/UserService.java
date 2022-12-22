@@ -13,7 +13,7 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final String LOGIN_SUCCESS = "review.html";
+    private final String LOGIN_SUCCESS = "review";
     private final String LOGIN_FAILED = "login";
 
     public List<User> findAll() {

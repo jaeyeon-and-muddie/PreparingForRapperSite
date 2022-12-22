@@ -14,7 +14,7 @@ public class UserController {
     private final UserService userService;
     
     @RequestMapping("")
-    public ModelAndView firstPage() { // 그냥 바로 login 화면으로
+    public ModelAndView loadLoginPage() { // 그냥 바로 login 화면으로
         return new ModelAndView("login");
     }
 

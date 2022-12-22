@@ -19,7 +19,7 @@ public class ReviewController {
 
     @GetMapping("{id}") // review.html id
     public ModelAndView postByReviewId(@PathVariable(name = "id") Long reviewId) {
-        return null;
+        return new ModelAndView("post");
     }
 
     @PostMapping("") //
