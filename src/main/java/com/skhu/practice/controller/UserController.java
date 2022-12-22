@@ -20,7 +20,6 @@ public class UserController {
 
     @RequestMapping("login")
     public ModelAndView login(UserLoginDto userLoginDto) {
-        // login -> board
         ModelAndView redirect = new ModelAndView(userService.login(userLoginDto)); // 일단 board 로 설정
 
         return redirect;
