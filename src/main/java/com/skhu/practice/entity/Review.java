@@ -14,17 +14,17 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @ToString
-@Table(name = "USERS") // Table = User 로 설정
-public class User extends BaseEntity {
+@Table(name = "REVIEW") // Table = User 로 설정
+public class Review extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "EMAIL")
-    private String email;
+    @Column(name = "hits")
+    private Long hits;
 
-    @Column(name = "PASSWORD")
-    private String password;
+    @Column(columnDefinition = "LONGTEXT", name = "content")
+    private String content;
 }
