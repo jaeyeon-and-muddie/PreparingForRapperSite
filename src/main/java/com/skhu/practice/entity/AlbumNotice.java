@@ -57,4 +57,9 @@ public class AlbumNotice extends BaseEntity {
     public void visit() {
         this.hits++;
     }
+
+    public void modified(String content) {
+        this.content = content;
+        this.updateTime = LocalDateTime.now();
+    }
 }

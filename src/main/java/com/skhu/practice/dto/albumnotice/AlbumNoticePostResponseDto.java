@@ -1,5 +1,6 @@
 package com.skhu.practice.dto.albumnotice;
 
+import com.skhu.practice.entity.User;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,9 +19,11 @@ import java.util.List;
 public class AlbumNoticePostResponseDto {
 
     // 검증 로직은 리팩토링 시간에
+    private Long postNumber;
+
     private Long hits;
 
-    private String author;
+    private User author;
 
     private String albumName;
 
@@ -35,8 +38,9 @@ public class AlbumNoticePostResponseDto {
     private LocalDateTime modifiedTime;
 
     @Builder
-    public AlbumNoticePostResponseDto(Long hits, String author, String albumName, String artistName, String content,
+    public AlbumNoticePostResponseDto(Long postNumber, Long hits, User author, String albumName, String artistName, String content,
                                  List<String> songsInAlbum, LocalDate dateOfIssue, LocalDateTime modifiedTime) {
+        this.postNumber = postNumber;
         this.hits = hits;
         this.author = author;
         this.albumName = albumName;

@@ -22,6 +22,8 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
+    // 게시물 번호 부분을 수정해야할 것 같음, 게시물이 삭제되었을 경우 게시물 번호가 꼬여버림
+
     @GetMapping("")
     public ModelAndView loadReviewPage(ModelAndView modelAndView) {
         modelAndView.addObject("albumNoticeReview", reviewService.getAllReview());
@@ -37,22 +39,48 @@ public class ReviewController {
     }
 
     @GetMapping("{id}") // review.html id
-    public ModelAndView postByReviewId(ModelAndView modelAndView, @PathVariable(name = "id") Long reviewId) {
+    public ModelAndView postByReviewId(ModelAndView modelAndView, HttpSession session, @PathVariable(name = "id") Long reviewId) {
         modelAndView.setViewName("post");
+        modelAndView.addObject("user", getUser(session));
         modelAndView.addObject("albumNoticePost", reviewService.getPostByPostNumber(reviewId));
+
+        return modelAndView;
+    }
+
+    @GetMapping("rewrite/{id}")
+    public ModelAndView loadRewriteReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id) {
+        modelAndView.setViewName("rewrite-review-page.html");
+        modelAndView.addObject("id", id);
+        modelAndView.addObject("content", reviewService.getContentByPostNumber(id));
+
+        return modelAndView;
+    }
+
+    @GetMapping("delete/{id}")
+    public ModelAndView deleteReview(ModelAndView modelAndView, @PathVariable(name = "id") Long id) {
+        modelAndView.setViewName("redirect:/review");
+        reviewService.delete(id);
 
         return modelAndView;
     }
 
     @PostMapping("")
     public ModelAndView saveContent(ModelAndView modelAndView, HttpSession session, AlbumNoticeRequestDto albumNoticeRequestDto) {
-        reviewService.saveAlbumAndNotice(getUserInformation(session), albumNoticeRequestDto);
+        reviewService.saveAlbumAndNotice(getUser(session), albumNoticeRequestDto);
         modelAndView.setViewName("redirect:review"); // 기존 url 로
 
         return modelAndView;
     }
 
-    private User getUserInformation(HttpSession session) {
+    @PostMapping("rewrite/{id}")
+    public ModelAndView afterRewriteLoadReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id, String content) {
+        reviewService.update(id, content);
+        modelAndView.setViewName("redirect:/review");
+
+        return modelAndView;
+    }
+
+    private User getUser(HttpSession session) {
         return (User) session.getAttribute("user");
     }
 }

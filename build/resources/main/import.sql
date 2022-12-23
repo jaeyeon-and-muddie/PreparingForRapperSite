@@ -1,1 +1,2 @@
 INSERT INTO USERS (EMAIL, PASSWORD) VALUES('jakind@naver.com', 'Sksk5839!');
+INSERT INTO USERS (EMAIL, PASSWORD) VALUES('kpeel5839@naver.com', 'Sksk5839!');

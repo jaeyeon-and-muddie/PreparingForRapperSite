@@ -9,10 +9,12 @@
     <title>Document</title>
 </head>
 <body>
+    <a th:href = "@{'/review/rewrite/' + ${albumNoticePost.postNumber}}" th:if = "${user.id == albumNoticePost.author.id}">수정하기</a>
+    <a th:href = "@{'/review/delete/' + ${albumNoticePost.postNumber}}" th:if = "${user.id == albumNoticePost.author.id}">삭제하기</a>
     <span>조회수</span>
     <div th:text = "${albumNoticePost.hits}"></div>
     <span>작성자</span>
-    <div th:text = "${albumNoticePost.author}"></div>
+    <div th:text = "${albumNoticePost.author.email}"></div>
     <span>수정시간</span>
     <div th:text = "${albumNoticePost.modifiedTime}"></div>
     <span>앨범 이름</span>

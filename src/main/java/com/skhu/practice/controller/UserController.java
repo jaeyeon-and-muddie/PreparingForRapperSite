@@ -32,7 +32,7 @@ public class UserController {
         }
 
         if (user == null) {
-            redirect.setViewName("redirect:login");
+            redirect.setViewName("redirect:");
         }
 
         return redirect;
