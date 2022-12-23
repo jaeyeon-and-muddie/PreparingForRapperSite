@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
@@ -29,9 +29,9 @@ public class AlbumNoticeRequestDto { // 그냥 이렇게 request dto 는 받자
 
     private String content;
 
-    public Set<String> wrapSongsInAlbum() {
+    public List<String> wrapSongsInAlbum() {
         return Arrays.stream(songsInAlbum.split(","))
                 .map(String::trim)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 } // 현재로선 {아티스트 이름, 앨범 이름, 수록곡(, 로 구분 되어 있을 것임), 발매일, 리뷰내용

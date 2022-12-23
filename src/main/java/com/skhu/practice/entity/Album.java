@@ -17,7 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
@@ -43,13 +43,13 @@ public class Album extends BaseEntity {
             joinColumns = @JoinColumn(name = "ID")
     )
     @Column(name = "SONGS_IN_ALBUM")
-    private Set<String> songsInAlbum;
+    private List<String> songsInAlbum;
 
     @Column(name = "ARTIST_NAME")
     private String artistName;
 
     @Builder
-    public Album(String name, LocalDate dateOfIssue, Set<String> songsInAlbum, String artistName) {
+    public Album(String name, LocalDate dateOfIssue, List<String> songsInAlbum, String artistName) {
         this.name = name;
         this.dateOfIssue = dateOfIssue;
         this.songsInAlbum = songsInAlbum;
