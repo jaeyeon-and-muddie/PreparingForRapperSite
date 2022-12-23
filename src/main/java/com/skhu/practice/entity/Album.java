@@ -1,7 +1,10 @@
 package com.skhu.practice.entity;
 
 import com.skhu.practice.entity.base.BaseEntity;
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.CollectionTable;
@@ -19,6 +22,7 @@ import java.util.Set;
 @Entity
 @Getter
 @ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "ALBUM")
 public class Album extends BaseEntity {
 
@@ -43,4 +47,12 @@ public class Album extends BaseEntity {
 
     @Column(name = "ARTIST_NAME")
     private String artistName;
+
+    @Builder
+    public Album(String name, LocalDate dateOfIssue, Set<String> songsInAlbum, String artistName) {
+        this.name = name;
+        this.dateOfIssue = dateOfIssue;
+        this.songsInAlbum = songsInAlbum;
+        this.artistName = artistName;
+    }
 }

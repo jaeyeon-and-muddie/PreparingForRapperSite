@@ -22,21 +22,20 @@
                 <td>작성날짜</td>
             </tr>
         </thead>
-
         <tbody>
             <tr th:each = 'review : ${albumNoticeReview}'>
-                <td th:text = "${albumNoticeReview.postNumber}"></td>
-                <td th:text = "${albumNoticeReview.authorName}"></td>
-                <td th:text = "${albumNoticeReview.artistName}"></td>
-                <td th:text = "${albumNoticeReview.albumName}"></td>
-                <td th:text = "${albumNoticeReview.numberOfSongsInAlbum}"></td>
-                <td th:text = "${albumNoticeReview.dateOfIssue}"></td>
-                <td th:text = "${albumNoticeReview.hits}"></td>
-                <td th:text = "${#dates.format(albumNoticeReview.createdDate, 'yyyy-mm-dd')}"></td>
+                <td th:text = "${review.postNumber}"></td>
+                <td th:text = "${review.authorName}"></td>
+                <td th:text = "${review.artistName}"></td>
+                <td th:text = "${review.albumName}"></td>
+                <td th:text = "${review.numberOfSongsInAlbum}"></td>
+                <td th:text = "${review.dateOfIssue}"></td>
+                <td th:text = "${review.hits}"></td>
+                <td th:text = "${review.createdDate}"></td>
             </tr>
         </tbody>
-
-        <a th:href = "@{'/review/write'}">글 작성</a>
     </table>
+
+    <a th:href = "@{'/review/write'}">글 작성</a>
 </body>
 </html>

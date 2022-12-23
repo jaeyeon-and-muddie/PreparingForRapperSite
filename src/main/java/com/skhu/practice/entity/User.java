@@ -1,7 +1,8 @@
 package com.skhu.practice.entity;
 
-import com.skhu.practice.entity.base.BaseEntity;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "USERS") // Table = User 로 설정
 public class User {
 

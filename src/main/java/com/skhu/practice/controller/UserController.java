@@ -16,13 +16,14 @@ public class UserController {
     private final UserService userService;
     
     @RequestMapping("")
-    public ModelAndView loadLoginPage() { // 그냥 바로 login 화면으로
-        return new ModelAndView("login");
+    public ModelAndView loadLoginPage(ModelAndView modelAndView) { // 그냥 바로 login 화면으로
+        modelAndView.setViewName("login");
+        return modelAndView;
     }
 
     @RequestMapping("login")
-    public ModelAndView login(UserLoginDto userLoginDto, HttpSession session) {
-        ModelAndView redirect = new ModelAndView(userService.login(userLoginDto)); // 일단 board 로 설정
+    public ModelAndView login(ModelAndView redirect, UserLoginDto userLoginDto, HttpSession session) {
+        redirect.setViewName(userService.login(userLoginDto)); // 일단 board 로 설정
         saveSessionOnSuccess(userLoginDto, redirect, session);
 
         return redirect;
