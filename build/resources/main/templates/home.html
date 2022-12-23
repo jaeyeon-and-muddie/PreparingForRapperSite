@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>앨범</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>앨범 제목</th>
+            <th>수록곡 수</th>
+            <th>발매일자</th>
+            <th>아티스트명</th>
+            <th>장르</th>
+        </tr>
+        <tr th:each="album : ${albums}">
+            <td th:text="${album.title}"></td>
+            <td th:text="${album.numberOfSongs}"></td>
+            <td th:text="${album.releaseDate}"></td>
+            <td th:text="${album.artist.artistName}"></td>
+            <td th:text="${album.artist.Genre}"></td>
+        </tr>
+
+    </table>
+</body>
+</html>
