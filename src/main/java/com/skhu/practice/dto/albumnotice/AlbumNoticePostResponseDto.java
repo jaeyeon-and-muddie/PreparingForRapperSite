@@ -26,18 +26,22 @@ public class AlbumNoticePostResponseDto {
 
     private String artistName;
 
+    private String content;
+
     private List<String> songsInAlbum;
 
     private LocalDate dateOfIssue;
 
+
     private LocalDateTime modifiedTime;
 
     @Builder
-    public AlbumNoticePostResponseDto(Long hits, String author, String albumName, String artistName,
+    public AlbumNoticePostResponseDto(Long hits, String author, String albumName, String artistName, String content,
                                  List<String> songsInAlbum, LocalDate dateOfIssue, LocalDateTime modifiedTime) {
         this.hits = hits;
         this.author = author;
         this.albumName = albumName;
+        this.content = content;
         this.artistName = artistName;
         this.songsInAlbum = songsInAlbum;
         this.dateOfIssue = dateOfIssue;

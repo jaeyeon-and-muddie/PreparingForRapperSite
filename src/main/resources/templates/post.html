@@ -5,9 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{common.css}" rel = "stylesheet"/>
     <title>Document</title>
 </head>
 <body>
-
+    <span>조회수</span>
+    <div th:text = "${albumNoticePost.hits}"></div>
+    <span>작성자</span>
+    <div th:text = "${albumNoticePost.author}"></div>
+    <span>수정시간</span>
+    <div th:text = "${albumNoticePost.modifiedTime}"></div>
+    <span>앨범 이름</span>
+    <div th:text = "${albumNoticePost.albumName}"></div>
+    <span>아티스트 이름</span>
+    <div th:text = "${albumNoticePost.artistName}"></div>
+    <span>발매일</span>
+    <div th:text = "${albumNoticePost.dateOfIssue}"></div>
+    <span>수록곡</span>
+    <div th:each = 'songsInAlbum : ${albumNoticePost.songsInAlbum}'>
+        <div th:text = "${songsInAlbum}"></div>
+    </div>
+    <span>내용</span>
+    <div th:text = "${albumNoticePost.content}"></div>
 </body>
 </html>

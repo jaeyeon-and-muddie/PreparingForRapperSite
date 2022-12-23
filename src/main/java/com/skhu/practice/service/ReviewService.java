@@ -68,6 +68,7 @@ public class ReviewService {
                 .albumName(albumNotice.getAlbum().getName())
                 .author(albumNotice.getAuthor())
                 .hits(albumNotice.getHits())
+                .content(albumNotice.getContent())
                 .songsInAlbum(new ArrayList<>(albumNotice.getAlbum().getSongsInAlbum()))
                 .modifiedTime(albumNotice.getModifiedDate())
                 .artistName(albumNotice.getAlbum().getArtistName())
