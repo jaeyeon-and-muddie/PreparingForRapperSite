@@ -7,23 +7,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
-    private final String LOGIN_SUCCESS = "review";
-    private final String LOGIN_FAILED = "login";
 
-    public String login(UserLoginDto userLoginDto) {
-        User user = userRepository.findByEmailAndPassword(userLoginDto.getEmail(), userLoginDto.getPassword())
+    public User login(UserLoginDto userLoginDto) {
+        return userRepository.findByEmailAndPassword(userLoginDto.getEmail(), userLoginDto.getPassword())
                 .orElse(null);
-
-        if (user == null) {
-            return LOGIN_FAILED;
-        }
-
-        return "redirect:" + LOGIN_SUCCESS;
     }
 }

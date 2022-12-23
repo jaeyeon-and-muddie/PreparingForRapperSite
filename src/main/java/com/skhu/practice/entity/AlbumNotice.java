@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -31,18 +32,22 @@ public class AlbumNotice extends BaseEntity {
     @Column(name = "HITS")
     private Long hits;
 
-    @Column(name = "AUTHOR") // 작성자
-    private String author;
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(name = "USER_ID")
+    private User author;
 
-    @Column(columnDefinition = "LONGTEXT", name = "content")
+    @Column(columnDefinition = "LONGTEXT", name = "CONTENT")
     private String content;
 
     @ManyToOne(targetEntity = Album.class)
-    @JoinColumn(name = "album_id")
+    @JoinColumn(name = "ALBUM_ID")
     private Album album;
 
+    @Column(name = "UPDATE_TIME")
+    private LocalDateTime updateTime;
+
     @Builder
-    public AlbumNotice(Long hits, String author, String content, Album album) {
+    public AlbumNotice(Long hits, User author, String content, Album album) {
         this.hits = hits;
         this.author = author;
         this.content = content;

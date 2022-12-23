@@ -31,7 +31,7 @@ public class Album extends BaseEntity {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
 
     @Column(name = "DATE_OF_ISSUE")
@@ -39,7 +39,7 @@ public class Album extends BaseEntity {
 
     @ElementCollection
     @CollectionTable(
-            name = "song",
+            name = "SONG",
             joinColumns = @JoinColumn(name = "ID")
     )
     @Column(name = "SONGS_IN_ALBUM")

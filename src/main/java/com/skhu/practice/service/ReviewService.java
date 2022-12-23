@@ -3,15 +3,14 @@ package com.skhu.practice.service;
 import com.skhu.practice.dto.albumnotice.AlbumNoticePostResponseDto;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeReviewResponseDto;
-import com.skhu.practice.dto.UserLoginDto;
 import com.skhu.practice.entity.Album;
 import com.skhu.practice.entity.AlbumNotice;
+import com.skhu.practice.entity.User;
 import com.skhu.practice.repository.AlbumRepository;
 import com.skhu.practice.repository.AlbumNoticeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -23,7 +22,7 @@ public class ReviewService {
     private final AlbumRepository albumRepository;
     private final AlbumNoticeRepository albumNoticeRepository;
 
-    public void saveAlbumAndNotice(UserLoginDto userLoginDto, AlbumNoticeRequestDto albumNoticeRequestDto) {
+    public void saveAlbumAndNotice(User user, AlbumNoticeRequestDto albumNoticeRequestDto) {
         // 자 이제 builder 를 이용해서 생성할 것임
         Album album = Album.builder()
                 .name(albumNoticeRequestDto.getAlbumName())
@@ -35,7 +34,7 @@ public class ReviewService {
 
         AlbumNotice albumNotice = AlbumNotice.builder()
                 .album(album)
-                .author(userLoginDto.getEmail())
+                .author(user)
                 .hits(0L)
                 .content(albumNoticeRequestDto.getContent())
                 .build();
@@ -49,7 +48,7 @@ public class ReviewService {
                         .postNumber(albumNotice.getId())
                         .albumName(albumNotice.getAlbum().getName())
                         .artistName(albumNotice.getAlbum().getArtistName())
-                        .authorName(albumNotice.getAuthor())
+                        .authorName(albumNotice.getAuthor().getEmail())
                         .dateOfIssue(albumNotice.getAlbum().getDateOfIssue())
                         .hits(albumNotice.getHits())
                         .createdDate(albumNotice.getCreatedDate())
@@ -66,7 +65,7 @@ public class ReviewService {
 
         return AlbumNoticePostResponseDto.builder()
                 .albumName(albumNotice.getAlbum().getName())
-                .author(albumNotice.getAuthor())
+                .author(albumNotice.getAuthor().getEmail())
                 .hits(albumNotice.getHits())
                 .content(albumNotice.getContent())
                 .songsInAlbum(albumNotice.getAlbum().getSongsInAlbum())

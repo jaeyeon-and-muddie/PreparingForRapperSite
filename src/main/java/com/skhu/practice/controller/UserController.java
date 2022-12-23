@@ -1,6 +1,7 @@
 package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.UserLoginDto;
+import com.skhu.practice.entity.User;
 import com.skhu.practice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -23,15 +24,21 @@ public class UserController {
 
     @RequestMapping("login")
     public ModelAndView login(ModelAndView redirect, UserLoginDto userLoginDto, HttpSession session) {
-        redirect.setViewName(userService.login(userLoginDto)); // 일단 board 로 설정
-        saveSessionOnSuccess(userLoginDto, redirect, session);
+        User user = userService.login(userLoginDto); // 일단 board 로 설정
+
+        if (user != null) {
+            redirect.setViewName("redirect:review");
+            saveSessionOnSuccess(user, session);
+        }
+
+        if (user == null) {
+            redirect.setViewName("redirect:login");
+        }
 
         return redirect;
     }
 
-    private void saveSessionOnSuccess(UserLoginDto userLoginDto, ModelAndView redirect, HttpSession session) {
-        if (redirect.getViewName().equals("redirect:review")) {
-            session.setAttribute("user", userLoginDto); // 나중에는 뭐 더 완벽한 userLogin 객체로 할 수도 있을 듯
-        }
+    private void saveSessionOnSuccess(User user, HttpSession session) {
+        session.setAttribute("user", user);
     }
 }

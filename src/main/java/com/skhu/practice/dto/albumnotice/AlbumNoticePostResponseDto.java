@@ -32,7 +32,6 @@ public class AlbumNoticePostResponseDto {
 
     private LocalDate dateOfIssue;
 
-
     private LocalDateTime modifiedTime;
 
     @Builder

@@ -3,6 +3,7 @@ package com.skhu.practice.controller;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
 import com.skhu.practice.dto.UserLoginDto;
 
+import com.skhu.practice.entity.User;
 import com.skhu.practice.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -51,7 +52,7 @@ public class ReviewController {
         return modelAndView;
     }
 
-    private UserLoginDto getUserInformation(HttpSession session) {
-        return (UserLoginDto) session.getAttribute("user");
+    private User getUserInformation(HttpSession session) {
+        return (User) session.getAttribute("user");
     }
 }
