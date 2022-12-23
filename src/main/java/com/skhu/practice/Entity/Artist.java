@@ -1,4 +1,4 @@
-package com.skhu.practice.DTO;
+package com.skhu.practice.Entity;
 
 import lombok.Data;
 
