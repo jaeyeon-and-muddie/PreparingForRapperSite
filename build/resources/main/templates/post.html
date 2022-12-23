@@ -22,8 +22,8 @@
     <span>발매일</span>
     <div th:text = "${albumNoticePost.dateOfIssue}"></div>
     <span>수록곡</span>
-    <div th:each = 'songsInAlbum : ${albumNoticePost.songsInAlbum}'>
-        <div th:text = "${songsInAlbum}"></div>
+    <div th:each = 'song : ${albumNoticePost.songsInAlbum}'>
+        <div th:text = "${song}"></div>
     </div>
     <span>내용</span>
     <div th:text = "${albumNoticePost.content}"></div>
