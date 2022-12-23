@@ -16,10 +16,6 @@ public class UserService {
     private final String LOGIN_SUCCESS = "review";
     private final String LOGIN_FAILED = "login";
 
-    public List<User> findAll() {
-        return userRepository.findAll();
-    }
-
     public String login(UserLoginDto userLoginDto) {
         User user = userRepository.findByEmailAndPassword(userLoginDto.getEmail(), userLoginDto.getPassword())
                 .orElse(null);
@@ -28,6 +24,6 @@ public class UserService {
             return LOGIN_FAILED;
         }
 
-        return LOGIN_SUCCESS;
+        return "redirect:" + LOGIN_SUCCESS;
     }
 }

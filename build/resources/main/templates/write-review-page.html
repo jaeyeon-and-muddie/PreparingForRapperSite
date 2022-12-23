@@ -8,7 +8,29 @@
     <title>Document</title>
 </head>
 <body>
-
+    <form role="form" th:action="@{/review}" action="#" id="postForm" method="post">
+        <div class="form-group">
+            <label for = "artistName">아티스트 이름</label>
+            <input type = "text" id = "artistName" name = "artistName"/>
+        </div>
+        <div class="form-group">
+            <label for = "albumName">앨범 이름</label>
+            <input type = "text" id = "albumName" name = "albumName"/>
+        </div>
+        <div class="form-group">
+            <label for = "songsInAlbum">수록곡 (여러 곡이라면 ',' 로 구분하여 작성해주세요)</label>
+            <input type = "text" id = "songsInAlbum" name = "songsInAlbum"/>
+        </div>
+        <div class="form-group">
+            <label for = "dateOfIssue">발매일</label>
+            <input type = "date" id = "dateOfIssue" name = "dateOfIssue"/>
+        </div>
+        <div class="form-group">
+            <label for = "content">리뷰 내용</label>
+            <input type = "text" id = "content" name = "content"/>
+        </div>
+        <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+    </form>
 </body>
 </html>
 

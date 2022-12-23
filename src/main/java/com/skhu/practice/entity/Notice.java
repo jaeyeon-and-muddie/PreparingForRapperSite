@@ -20,7 +20,7 @@ public class Notice extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long id;
+    private Long id; // 이게 postNumber 임
 
     @Column(name = "HITS")
     private Long hits;
