@@ -25,7 +25,7 @@ public class Notice extends BaseEntity {
     @Column(name = "HITS")
     private Long hits;
 
-    @Column(name = "AUTHOR")
+    @Column(name = "AUTHOR") // 작성자
     private String author;
 
     @Column(columnDefinition = "LONGTEXT", name = "content")

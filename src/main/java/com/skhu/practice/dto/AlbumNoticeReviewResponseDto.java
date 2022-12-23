@@ -14,11 +14,13 @@ import java.time.LocalDate;
 public class AlbumNoticeReviewResponseDto {
 
     // 검증 로직은 리팩토링 시간에
+    private Long postNumber;
+
     private Long hits;
 
     private Long numberOfSongsInAlbum;
 
-    private String author;
+    private String authorName;
 
     private String albumName;
 
@@ -29,11 +31,12 @@ public class AlbumNoticeReviewResponseDto {
     private LocalDate createdDate;
 
     @Builder
-    public AlbumNoticeReviewResponseDto(Long hits, Long numberOfSongsInAlbum, String author, String albumName,
+    public AlbumNoticeReviewResponseDto(Long postNumber, Long hits, Long numberOfSongsInAlbum, String authorName, String albumName,
                                         String artistName, LocalDate dateOfIssue, LocalDate createdDate) {
+        this.postNumber = postNumber;
         this.hits = hits;
         this.numberOfSongsInAlbum = numberOfSongsInAlbum;
-        this.author = author;
+        this.authorName = authorName;
         this.albumName = albumName;
         this.artistName = artistName;
         this.dateOfIssue = dateOfIssue;

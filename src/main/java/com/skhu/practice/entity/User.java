@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Getter
 @ToString
 @Table(name = "USERS") // Table = User 로 설정
-public class User extends BaseEntity {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
