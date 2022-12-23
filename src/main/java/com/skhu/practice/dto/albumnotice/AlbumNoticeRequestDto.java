@@ -31,6 +31,7 @@ public class AlbumNoticeRequestDto { // 그냥 이렇게 request dto 는 받자
 
     public Set<String> wrapSongsInAlbum() {
         return Arrays.stream(songsInAlbum.split(","))
+                .map(String::trim)
                 .collect(Collectors.toSet());
     }
 } // 현재로선 {아티스트 이름, 앨범 이름, 수록곡(, 로 구분 되어 있을 것임), 발매일, 리뷰내용

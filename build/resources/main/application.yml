@@ -10,16 +10,13 @@ spring:
   h2:
     console:
       enabled: true
-#      path: /h2-console
+      path: /h2-console
   datasource:
     driver-class-name: org.h2.Driver
-#    url: jdbc:h2:mem:test
-    url: jdbc:h2:file:./test
+    url: jdbc:h2:mem:test
+#    url: jdbc:h2:file:./test # 이걸로 하면 ERD 만들 수 있음ㄴ
     username: sa
     password:
-  logging:
-  level:
-    org.hibernate.SQL: debug
 server:
   port: 8088
 

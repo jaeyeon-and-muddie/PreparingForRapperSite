@@ -3,7 +3,6 @@ package com.skhu.practice.controller;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
 import com.skhu.practice.dto.UserLoginDto;
 
-import com.skhu.practice.dto.albumnotice.AlbumNoticeReviewResponseDto;
 import com.skhu.practice.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 @RequestMapping("review")
