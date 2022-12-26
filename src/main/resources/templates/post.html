@@ -9,8 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <a th:href = "@{'/review/rewrite/' + ${albumNoticePost.postNumber}}" th:if = "${user.id == albumNoticePost.author.id}">수정하기</a>
-    <a th:href = "@{'/review/delete/' + ${albumNoticePost.postNumber}}" th:if = "${user.id == albumNoticePost.author.id}">삭제하기</a>
+    <div th:if = "${user.id == albumNoticePost.author.id}">
+        <a th:href = "@{'/review/rewrite/' + ${albumNoticePost.postNumber}}" >수정하기</a>
+        <a th:href = "@{'/review/delete/' + ${albumNoticePost.postNumber}}">삭제하기</a>
+    </div>
     <span>조회수</span>
     <div th:text = "${albumNoticePost.hits}"></div>
     <span>작성자</span>
