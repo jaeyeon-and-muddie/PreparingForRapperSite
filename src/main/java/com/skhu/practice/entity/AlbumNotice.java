@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "NOTICE") // Table = User 로 설정
+@Table(name = "ALBUMNOTICE") // Table = User 로 설정
 public class AlbumNotice extends BaseEntity {
 
     @Id
