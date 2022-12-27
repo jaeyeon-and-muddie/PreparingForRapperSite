@@ -1,6 +1,6 @@
 package com.skhu.practice.dto.albumnotice;
 
-import com.skhu.practice.entity.User;
+import com.skhu.practice.entity.Users;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,7 +23,7 @@ public class AlbumNoticePostResponseDto {
 
     private Long hits;
 
-    private User author;
+    private Users author;
 
     private String albumName;
 
@@ -38,8 +38,8 @@ public class AlbumNoticePostResponseDto {
     private LocalDateTime modifiedTime;
 
     @Builder
-    public AlbumNoticePostResponseDto(Long postNumber, Long hits, User author, String albumName, String artistName, String content,
-                                 List<String> songsInAlbum, LocalDate dateOfIssue, LocalDateTime modifiedTime) {
+    public AlbumNoticePostResponseDto(Long postNumber, Long hits, Users author, String albumName, String artistName, String content,
+                                      List<String> songsInAlbum, LocalDate dateOfIssue, LocalDateTime modifiedTime) {
         this.postNumber = postNumber;
         this.hits = hits;
         this.author = author;

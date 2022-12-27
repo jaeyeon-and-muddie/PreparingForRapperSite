@@ -1,2 +1,3 @@
-INSERT INTO USERS (EMAIL, PASSWORD) VALUES('jakind@naver.com', 'Sksk5839!');
-INSERT INTO USERS (EMAIL, PASSWORD) VALUES('kpeel5839@naver.com', 'Sksk5839!');
+INSERT INTO USERS (USERNAME, EMAIL, PASSWORD) VALUES('admin', 'jakind@naver.com', '$2a$10$6jo.bY8lRZbuZi1Mz8r3led/i3PSH6RHX4.qHI2Q9pf.gXvh31soC'); -- 맨 뒤에 있는 것이 BCrypt 로 인코딩된 Sksk5839!임
+INSERT INTO USERS (USERNAME, EMAIL, PASSWORD) VALUES('kpeel5839', 'yshert0605@gmail.com', '$2a$10$6jo.bY8lRZbuZi1Mz8r3led/i3PSH6RHX4.qHI2Q9pf.gXvh31soC');
+INSERT INTO USERS (USERNAME, EMAIL, PASSWORD) VALUES('jakind', 'kpeel5839@naver.com', '$2a$10$6jo.bY8lRZbuZi1Mz8r3led/i3PSH6RHX4.qHI2Q9pf.gXvh31soC');

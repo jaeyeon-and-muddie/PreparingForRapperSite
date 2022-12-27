@@ -32,9 +32,9 @@ public class AlbumNotice extends BaseEntity {
     @Column(name = "HITS")
     private Long hits;
 
-    @ManyToOne(targetEntity = User.class)
+    @ManyToOne(targetEntity = Users.class)
     @JoinColumn(name = "USER_ID")
-    private User author;
+    private Users author;
 
     @Column(columnDefinition = "LONGTEXT", name = "CONTENT")
     private String content;
@@ -47,7 +47,7 @@ public class AlbumNotice extends BaseEntity {
     private LocalDateTime updateTime;
 
     @Builder
-    public AlbumNotice(Long hits, User author, String content, Album album) {
+    public AlbumNotice(Long hits, Users author, String content, Album album) {
         this.hits = hits;
         this.author = author;
         this.content = content;

@@ -1,9 +1,8 @@
 package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
-import com.skhu.practice.dto.UserLoginDto;
 
-import com.skhu.practice.entity.User;
+import com.skhu.practice.entity.Users;
 import com.skhu.practice.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -38,7 +37,7 @@ public class ReviewController {
         return modelAndView;
     }
 
-    @GetMapping("{id}") // review.html id
+    @GetMapping("{id}") // album-board.html id
     public ModelAndView postByReviewId(ModelAndView modelAndView, HttpSession session, @PathVariable(name = "id") Long reviewId) {
         modelAndView.setViewName("post");
         modelAndView.addObject("user", getUser(session));
@@ -49,7 +48,7 @@ public class ReviewController {
 
     @GetMapping("rewrite/{id}")
     public ModelAndView loadRewriteReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id) {
-        modelAndView.setViewName("rewrite-review-page.html");
+        modelAndView.setViewName("rewrite-album.html");
         modelAndView.addObject("id", id);
         modelAndView.addObject("content", reviewService.getContentByPostNumber(id));
 
@@ -80,7 +79,7 @@ public class ReviewController {
         return modelAndView;
     }
 
-    private User getUser(HttpSession session) {
-        return (User) session.getAttribute("user");
+    private Users getUser(HttpSession session) {
+        return (Users) session.getAttribute("user");
     }
 }

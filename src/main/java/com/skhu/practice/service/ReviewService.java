@@ -5,7 +5,7 @@ import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeReviewResponseDto;
 import com.skhu.practice.entity.Album;
 import com.skhu.practice.entity.AlbumNotice;
-import com.skhu.practice.entity.User;
+import com.skhu.practice.entity.Users;
 import com.skhu.practice.repository.AlbumRepository;
 import com.skhu.practice.repository.AlbumNoticeRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class ReviewService {
     private final AlbumRepository albumRepository;
     private final AlbumNoticeRepository albumNoticeRepository;
 
-    public void saveAlbumAndNotice(User user, AlbumNoticeRequestDto albumNoticeRequestDto) {
+    public void saveAlbumAndNotice(Users users, AlbumNoticeRequestDto albumNoticeRequestDto) {
         Album album = Album.builder()
                 .name(albumNoticeRequestDto.getAlbumName())
                 .artistName(albumNoticeRequestDto.getArtistName())
@@ -33,7 +33,7 @@ public class ReviewService {
 
         AlbumNotice albumNotice = AlbumNotice.builder()
                 .album(album)
-                .author(user)
+                .author(users)
                 .hits(0L)
                 .content(albumNoticeRequestDto.getContent())
                 .build();
