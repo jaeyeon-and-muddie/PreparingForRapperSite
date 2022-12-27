@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
     <form role="form" th:action="@{/review}" action="#" id="postForm" method="post">
         <div class="form-group">
             <label for = "artistName">아티스트 이름</label>

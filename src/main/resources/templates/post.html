@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
     <div th:if = "${user.id == albumNoticePost.author.id}">
         <a th:href = "@{'/review/rewrite/' + ${albumNoticePost.postNumber}}" >수정하기</a>
         <a th:href = "@{'/review/delete/' + ${albumNoticePost.postNumber}}">삭제하기</a>

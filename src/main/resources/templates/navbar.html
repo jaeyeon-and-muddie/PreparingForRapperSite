@@ -1,0 +1,8 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<nav th:fragment = "navbarFragment">
+    <a th:href = "@{}">메인으로 </a>
+    <a th:href = "@{}" sec:authorize = "isAnonymous()">로그인 </a>
+    <a th:href = "@{}" sec:authorize = "isAuthenticated()">로그아웃 </a>
+    <a th:href = "@{}">회원가입 </a>
+</nav>
