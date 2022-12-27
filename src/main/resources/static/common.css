@@ -1,0 +1,13 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border-style: solid;
+}
+
+span {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+}

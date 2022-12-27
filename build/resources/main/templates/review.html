@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{/common.css}" rel = "stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>게시물 번호</td>
+                <td>작성자</td>
+                <td>아티스트명</td>
+                <td>앨범이름</td>
+                <td>수록곡 수</td>
+                <td>발매일</td>
+                <td>조회수</td>
+                <td>작성날짜</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each = 'review : ${albumNoticeReview}'>
+                <td><a th:href = "@{'/review/' + ${review.postNumber}}"th:text = "${review.postNumber}"></a></td>
+                <td th:text = "${review.authorName}"></td>
+                <td th:text = "${review.artistName}"></td>
+                <td th:text = "${review.albumName}"></td>
+                <td th:text = "${review.numberOfSongsInAlbum}"></td>
+                <td th:text = "${review.dateOfIssue}"></td>
+                <td th:text = "${review.hits}"></td>
+                <td th:text = "${review.createdDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href = "@{'/review/write'}">글 작성</a>
+</body>
+</html>
