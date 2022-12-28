@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba328ba3-7c33-4b89-abc9-7c376ca56200" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/AlbumResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,13 +12,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/import.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/album-board.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/album-board.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/album-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/album-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/AlbumRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/AlbumRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/AlbumResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/AlbumResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Album.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/AlbumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/album-board.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/album-board.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/album-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/album-detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +129,7 @@
       <workItem from="1671599626958" duration="8323000" />
       <workItem from="1671680316535" duration="33654000" />
       <workItem from="1672029123325" duration="1332000" />
-      <workItem from="1672030616104" duration="32049000" />
+      <workItem from="1672030616104" duration="34269000" />
     </task>
     <servers />
   </component>

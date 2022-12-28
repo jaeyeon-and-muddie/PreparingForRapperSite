@@ -59,9 +59,12 @@ public class Album extends BaseEntity {
     @Column(name = "NUMBER_OF_REVIEW")
     private Long numberOfReview;
 
+    @Column(name = "HITS")
+    private Long hits;
+
     @Builder
     public Album(String name, LocalDate dateOfIssue, List<String> songsInAlbum, String artistName,
-                 String introduction, Double averageOfStar, Long numberOfReview) {
+                 String introduction, Double averageOfStar, Long numberOfReview, Long hits) {
         this.name = name;
         this.dateOfIssue = dateOfIssue;
         this.songsInAlbum = songsInAlbum;
@@ -69,6 +72,7 @@ public class Album extends BaseEntity {
         this.introduction = introduction;
         this.averageOfStar = averageOfStar;
         this.numberOfReview = numberOfReview;
+        this.hits = hits;
     }
 
     public AlbumResponseDto toResponseDto() {
@@ -80,6 +84,8 @@ public class Album extends BaseEntity {
                 .songsInAlbum(this.songsInAlbum)
                 .averageOfStar(this.averageOfStar)
                 .numberOfReview(this.numberOfReview)
+                .hits(this.hits)
+                .introduction(this.introduction)
                 .build();
     }
 
@@ -92,5 +98,13 @@ public class Album extends BaseEntity {
         if (this.numberOfReview == null) {
             this.numberOfReview = 0L;
         }
+
+        if (this.hits == null) {
+            this.hits = 0L;
+        }
+    }
+
+    public void visit() {
+        this.hits++;
     }
 }

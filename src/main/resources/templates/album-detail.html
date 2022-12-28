@@ -10,29 +10,36 @@
 </head>
 <body>
     <div th:replace = "~{navbar :: navbarFragment}"></div>
-    <div th:if = "${users.id == albumNoticePost.author.id}">
-        <a th:href = "@{'/review/rewrite/' + ${albumNoticePost.postNumber}}" >수정하기</a>
-        <a th:href = "@{'/review/delete/' + ${albumNoticePost.postNumber}}">삭제하기</a>
-    </div>
-    <span>조회수</span>
-    <div th:text = "${albumNoticePost.hits}"></div>
-    <span>작성자</span>
-    <div th:text = "${albumNoticePost.author.email}"></div>
-    <span>수정시간</span>
-    <div th:text = "${albumNoticePost.modifiedTime}"></div>
-    <span>앨범 이름</span>
-    <div th:text = "${albumNoticePost.albumName}"></div>
+    <br>
+    <a th:href = "@{'/album/review/' + ${album.id}}">리뷰 보러 가기</a>
+    <br>
+    <span>조회 수</span>
+    <div th:text = "${album.hits}"></div>
+    <br>
+    <span>별점</span>
+    <div th:text = "${album.averageOfStar}"></div>
+    <br>
+    <span>리뷰 수</span>
+    <div th:text = "${album.numberOfReview}"></div>
+    <br>
+    <span>앨범 제목</span>
+    <div th:text = "${album.name}"></div>
+    <br>
     <span>아티스트 이름</span>
-    <div th:text = "${albumNoticePost.artistName}"></div>
+    <div th:text = "${album.artistName}"></div>
+    <br>
     <span>발매일</span>
-    <div th:text = "${albumNoticePost.dateOfIssue}"></div>
+    <div th:text = "${album.dateOfIssue}"></div>
+    <br>
     <span>수록곡</span>
-    <div th:each = 'song : ${albumNoticePost.songsInAlbum}'>
+    <div th:each = 'song : ${album.songsInAlbum}'>
         <div th:text = "${song}"></div>
     </div>
-    <span>내용</span>
-    <div th:text = "${albumNoticePost.content}"></div>
+    <br>
     <hr/>
-    <a th:href = "@{'/review'}">뒤로</a>
+    <span>소개글</span>
+    <div th:text = "${album.introduction}"></div>
+    <hr/>
+    <div>댓글 추가할 공간</div>
 </body>
 </html>

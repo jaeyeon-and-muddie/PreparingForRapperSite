@@ -5,9 +5,11 @@ import com.skhu.practice.dto.AlbumResponseDto;
 import com.skhu.practice.entity.Album;
 import com.skhu.practice.repository.AlbumRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,5 +37,11 @@ public class AlbumService {
                 .stream()
                 .map(Album::toResponseDto)
                 .collect(Collectors.toList());
+    }
+
+    public AlbumResponseDto findById(Long id) {
+        return albumRepository.findById(id)
+                .orElseThrow(NoSuchElementException::new)
+                .toResponseDto();
     }
 }

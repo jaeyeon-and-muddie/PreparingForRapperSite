@@ -2,10 +2,12 @@ package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.AlbumRequestDto;
 import com.skhu.practice.service.AlbumService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +44,14 @@ public class AlbumController {
         }
 
         modelAndView.setViewName(viewName);
+        return modelAndView;
+    }
+
+    @GetMapping("detail/{id}")
+    public ModelAndView loadAlbumDetailPage(ModelAndView modelAndView, @PathVariable("id") Long id) {
+        // id 로 조회해서 detail 가져오면 됨, 여기서 그냥 또 albumRequestDto 재탕하면 된다, 그냥 findById 로 찾아서 돌려주면 끝
+        modelAndView.addObject("album", albumService.findById(id));
+        modelAndView.setViewName("album-detail");
         return modelAndView;
     }
 }
