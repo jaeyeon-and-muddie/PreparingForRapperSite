@@ -1,9 +1,10 @@
 package com.skhu.practice.controller;
 
+import java.util.List;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
 
-import com.skhu.practice.entity.Users;
-import com.skhu.practice.service.ReviewService;
+import com.skhu.practice.service.AlbumReviewService;
+import com.skhu.practice.service.AlbumService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,18 +16,20 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("review")
+@RequestMapping("/album/review")
 @RequiredArgsConstructor
-public class ReviewController {
+public class AlbumReviewController {
 
-    private final ReviewService reviewService;
+    private final AlbumReviewService albumReviewService;
+    private final AlbumService albumService;
 
     // 게시물 번호 부분을 수정해야할 것 같음, 게시물이 삭제되었을 경우 게시물 번호가 꼬여버림
 
-    @GetMapping("")
-    public ModelAndView loadReviewPage(ModelAndView modelAndView) {
-        modelAndView.addObject("albumNoticeReview", reviewService.getAllReview());
-        modelAndView.setViewName("review");
+    @GetMapping("{id}")
+    public ModelAndView loadReviewPage(ModelAndView modelAndView, @PathVariable("id") Long albumId) {
+        modelAndView.addObject("album", albumService.findById(albumId));
+        modelAndView.addObject("albumReview", albumReviewService.findAllReviewByAlbum(albumId)); // 전체 리뷰 다 가져와야한다.
+        modelAndView.setViewName("album-review");
 
         return modelAndView;
     }
@@ -37,20 +40,11 @@ public class ReviewController {
         return modelAndView;
     }
 
-    @GetMapping("{id}") // album-board.html id
-    public ModelAndView postByReviewId(ModelAndView modelAndView, HttpSession session, @PathVariable(name = "id") Long reviewId) {
-        modelAndView.setViewName("post");
-        modelAndView.addObject("user", getUser(session));
-        modelAndView.addObject("albumNoticePost", reviewService.getPostByPostNumber(reviewId));
-
-        return modelAndView;
-    }
-
     @GetMapping("rewrite/{id}")
     public ModelAndView loadRewriteReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id) {
         modelAndView.setViewName("rewrite-album.html");
         modelAndView.addObject("id", id);
-        modelAndView.addObject("content", reviewService.getContentByPostNumber(id));
+//        modelAndView.addObject("content", albumReviewService.getContentByPostNumber(id));
 
         return modelAndView;
     }
@@ -58,28 +52,24 @@ public class ReviewController {
     @GetMapping("delete/{id}")
     public ModelAndView deleteReview(ModelAndView modelAndView, @PathVariable(name = "id") Long id) {
         modelAndView.setViewName("redirect:/review");
-        reviewService.delete(id);
+        albumReviewService.delete(id);
 
         return modelAndView;
     }
 
     @PostMapping("")
     public ModelAndView saveContent(ModelAndView modelAndView, HttpSession session, AlbumNoticeRequestDto albumNoticeRequestDto) {
-        reviewService.saveAlbumAndNotice(getUser(session), albumNoticeRequestDto);
+//        albumReviewService.saveAlbumAndNotice(getUser(session), albumNoticeRequestDto);
         modelAndView.setViewName("redirect:review"); // 기존 url 로
 
         return modelAndView;
     }
 
     @PostMapping("rewrite/{id}")
-    public ModelAndView afterRewriteLoadReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id, String content) {
-        reviewService.update(id, content);
+    public ModelAndView afterRewriteLoadReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id, String title, List<String> reviewOfSongs, Double star) {
+        albumReviewService.update(id, title, reviewOfSongs, star);
         modelAndView.setViewName("redirect:/review");
 
         return modelAndView;
-    }
-
-    private Users getUser(HttpSession session) {
-        return (Users) session.getAttribute("user");
     }
 }

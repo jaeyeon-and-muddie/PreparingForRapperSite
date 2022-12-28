@@ -1,5 +1,6 @@
 package com.skhu.practice.entity;
 
+import com.skhu.practice.dto.UserResponseDto;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -39,5 +40,12 @@ public class Users {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public UserResponseDto toResponseDto() {
+        return UserResponseDto.builder()
+                .id(this.id)
+                .email(this.email)
+                .build();
     }
 }

@@ -11,7 +11,7 @@
 <body>
     <div th:replace = "~{navbar :: navbarFragment}"></div>
     <br>
-    <a th:href = "@{'album/review/' + ${album.id}}">리뷰 보러 가기</a>
+    <a th:href = "@{'/album/review/' + ${album.id}}">리뷰 보러 가기</a>
     <br>
     <span>조회 수</span>
     <div th:text = "${album.hits}"></div>

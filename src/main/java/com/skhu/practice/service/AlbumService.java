@@ -3,6 +3,7 @@ package com.skhu.practice.service;
 import com.skhu.practice.dto.AlbumRequestDto;
 import com.skhu.practice.dto.AlbumResponseDto;
 import com.skhu.practice.entity.Album;
+import com.skhu.practice.entity.AlbumReview;
 import com.skhu.practice.repository.AlbumRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -43,5 +44,13 @@ public class AlbumService {
         return albumRepository.findById(id)
                 .orElseThrow(NoSuchElementException::new)
                 .toResponseDto();
+    }
+
+    public AlbumResponseDto albumDetail(Long id) { // 조회수 처리도 추가적으로
+        Album album = albumRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        album.visit();
+        album = albumRepository.save(album);
+
+        return album.toResponseDto();
     }
 }
