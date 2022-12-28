@@ -19,7 +19,9 @@ public class AlbumController {
 
     @GetMapping("")
     public ModelAndView loadAlbumBoardPage(ModelAndView modelAndView) {
-        modelAndView.setViewName("album-board");
+        modelAndView.setViewName("album-board"); // 여기서 album 들을 쏵 보여줘야 한단 말이야
+        modelAndView.addObject("album", albumService.findAll());
+
         return modelAndView;
     }
 
@@ -34,11 +36,8 @@ public class AlbumController {
     @PostMapping("write")
     public ModelAndView saveAlbum(ModelAndView modelAndView, AlbumRequestDto albumRequestDto) {
         String viewName = "redirect:/album";
-        System.out.println("fuck are you doing");
-        System.out.println(albumRequestDto);
 
         if (!albumService.save(albumRequestDto)) { // save 시에, 실패하는 경우에만 실행
-            System.out.println("fuck you");
             viewName = "redirect:/album/write";
         }
 

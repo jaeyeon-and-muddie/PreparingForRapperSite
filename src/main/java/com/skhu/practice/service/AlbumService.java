@@ -1,10 +1,14 @@
 package com.skhu.practice.service;
 
 import com.skhu.practice.dto.AlbumRequestDto;
+import com.skhu.practice.dto.AlbumResponseDto;
 import com.skhu.practice.entity.Album;
 import com.skhu.practice.repository.AlbumRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -14,7 +18,6 @@ public class AlbumService {
 
     public boolean save(AlbumRequestDto albumRequestDto) { // 여기에 validate 코드를 집어넣어서, 잘 못 입력한 경우 다시 redirection 할 수 있도록
         if (albumRequestDto.isNotIllegal()) { // isNotIllegal 할 때에만 하잖아
-            System.out.println("what the fuck are you doing");
             albumRepository.save(Album.builder()
                     .name(albumRequestDto.getName())
                     .artistName(albumRequestDto.getArtistName())
@@ -25,5 +28,12 @@ public class AlbumService {
         }
 
         return false;
+    }
+
+    public List<AlbumResponseDto> findAll() {
+        return albumRepository.findAll()
+                .stream()
+                .map(Album::toResponseDto)
+                .collect(Collectors.toList());
     }
 }

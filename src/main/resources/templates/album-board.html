@@ -13,26 +13,24 @@
     <table>
         <thead>
             <tr>
-                <td>게시물 번호</td>
-                <td>작성자</td>
-                <td>아티스트명</td>
                 <td>앨범이름</td>
+                <td>아티스트명</td>
                 <td>수록곡 수</td>
                 <td>발매일</td>
-                <td>조회수</td>
-                <td>작성날짜</td>
+                <td>리뷰수</td>
+                <td>별점</td>
             </tr>
         </thead>
         <tbody>
-            <tr th:each = 'review : ${albumNoticeReview}'>
-                <td><a th:href = "@{'/review/' + ${review.postNumber}}"th:text = "${review.postNumber}"></a></td>
-                <td th:text = "${review.authorName}"></td>
-                <td th:text = "${review.artistName}"></td>
-                <td th:text = "${review.albumName}"></td>
-                <td th:text = "${review.numberOfSongsInAlbum}"></td>
-                <td th:text = "${review.dateOfIssue}"></td>
-                <td th:text = "${review.hits}"></td>
-                <td th:text = "${review.createdDate}"></td>
+            <tr th:each = 'album : ${album}'>
+                <td>
+                    <a th:href = "@{'/album/detail/' + ${album.id}}" th:text = "${album.name}"></a>
+                </td>
+                <td th:text = "${album.artistName}"></td>
+                <td th:text = "${album.songsInAlbum.size()}"></td>
+                <td th:text = "${album.dateOfIssue}"></td>
+                <td th:text = "${album.numberOfReview}"></td>
+                <td th:text = "${album.averageOfStar}"></td>
             </tr>
         </tbody>
     </table>

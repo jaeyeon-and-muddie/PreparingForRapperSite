@@ -1,5 +1,6 @@
 package com.skhu.practice.entity;
 
+import com.skhu.practice.dto.AlbumResponseDto;
 import com.skhu.practice.entity.base.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -15,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
@@ -51,12 +53,44 @@ public class Album extends BaseEntity {
     @Column(columnDefinition = "LONGTEXT", name = "INTRODUCTION")
     private String introduction;
 
+    @Column(name = "AVERAGE_OF_STAR")
+    private Double averageOfStar;
+
+    @Column(name = "NUMBER_OF_REVIEW")
+    private Long numberOfReview;
+
     @Builder
-    public Album(String name, LocalDate dateOfIssue, List<String> songsInAlbum, String artistName, String introduction) {
+    public Album(String name, LocalDate dateOfIssue, List<String> songsInAlbum, String artistName,
+                 String introduction, Double averageOfStar, Long numberOfReview) {
         this.name = name;
         this.dateOfIssue = dateOfIssue;
         this.songsInAlbum = songsInAlbum;
         this.artistName = artistName;
         this.introduction = introduction;
+        this.averageOfStar = averageOfStar;
+        this.numberOfReview = numberOfReview;
+    }
+
+    public AlbumResponseDto toResponseDto() {
+        return AlbumResponseDto.builder()
+                .id(this.id)
+                .name(this.name)
+                .artistName(this.artistName)
+                .dateOfIssue(this.dateOfIssue)
+                .songsInAlbum(this.songsInAlbum)
+                .averageOfStar(this.averageOfStar)
+                .numberOfReview(this.numberOfReview)
+                .build();
+    }
+
+    @PrePersist // Entity Persist 이전에 해당 어노테이션이 붙어있으면 실행됨
+    private void prePersist() {
+        if (this.averageOfStar == null) {
+            this.averageOfStar = 0D;
+        }
+
+        if (this.numberOfReview == null) {
+            this.numberOfReview = 0L;
+        }
     }
 }

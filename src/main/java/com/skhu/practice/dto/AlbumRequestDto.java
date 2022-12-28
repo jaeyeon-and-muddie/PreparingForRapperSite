@@ -27,11 +27,6 @@ public class AlbumRequestDto {
     private String introduction;
 
     public boolean isNotIllegal() {
-        System.out.println(isNotEmptyAndBlank(this.name));
-        System.out.println(isNotEmptyAndBlank(this.songsInAlbum));
-        System.out.println(isNotEmptyAndBlank(this.artistName));
-        System.out.println(isNotEmptyAndBlank(this.introduction));
-        System.out.println(dateOfIssue != null);
         return isNotEmptyAndBlank(this.name) &&
                 isNotEmptyAndBlank(this.songsInAlbum) &&
                 isNotEmptyAndBlank(this.artistName) &&
