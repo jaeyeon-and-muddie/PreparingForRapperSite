@@ -1,6 +1,8 @@
 package com.skhu.practice.service;
 
+import com.skhu.practice.dto.AlbumReviewRequestDto;
 import com.skhu.practice.dto.AlbumReviewResponseDto;
+import com.skhu.practice.dto.UserSignupDto;
 import com.skhu.practice.dto.albumnotice.AlbumNoticePostResponseDto;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
 import com.skhu.practice.dto.albumnotice.AlbumNoticeReviewResponseDto;
@@ -9,6 +11,7 @@ import com.skhu.practice.entity.AlbumReview;
 import com.skhu.practice.entity.Users;
 import com.skhu.practice.repository.AlbumRepository;
 import com.skhu.practice.repository.AlbumReviewRepository;
+import com.skhu.practice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +25,26 @@ public class AlbumReviewService {
 
     private final AlbumRepository albumRepository;
     private final AlbumReviewRepository albumReviewRepository;
+    private final UserRepository userRepository;
 
     public List<AlbumReviewResponseDto> findAllReviewByAlbum(Long albumId) {
         return albumReviewRepository.findByAlbumId(albumId)
                 .stream()
                 .map(AlbumReview::toResponseDto)
                 .collect(Collectors.toList());
+    }
+
+    public void saveAlbumReview(Long albumId, AlbumReviewRequestDto albumReviewRequestDto, String username) {
+        Album album = albumRepository.findById(albumId).orElseThrow(NoSuchElementException::new);
+        album.reviewForThisAlbum(albumReviewRequestDto.getStar());
+        albumRepository.save(album);
+        albumReviewRepository.save(AlbumReview.builder()
+                .album(album)
+                .title(albumReviewRequestDto.getTitle())
+                .author(userRepository.findByUsername(username).orElseThrow(NoSuchElementException::new))
+                .reviewOfSongs(albumReviewRequestDto.getReviewOfSongs())
+                .star(albumReviewRequestDto.getStar())
+                .build());
     }
 
     public void saveAlbumAndNotice(Users users, AlbumNoticeRequestDto albumNoticeRequestDto) {

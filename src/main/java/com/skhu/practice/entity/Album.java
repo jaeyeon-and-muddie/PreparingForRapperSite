@@ -107,4 +107,12 @@ public class Album extends BaseEntity {
     public void visit() {
         this.hits++;
     }
+
+    public void reviewForThisAlbum(Double star) { // 이 때 외부적으로 받아야 하는 것은 star 뿐임
+        // 여기서 star 를 가지고 식을 진행해야함
+        double totalOfGivenStarThisAlbum = this.averageOfStar * this.numberOfReview;
+        totalOfGivenStarThisAlbum += star;
+        this.numberOfReview++;
+        this.averageOfStar = totalOfGivenStarThisAlbum / this.numberOfReview;
+    }
 }

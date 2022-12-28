@@ -9,7 +9,7 @@ public class MainController {
 
     @GetMapping("")
     public ModelAndView loadMainPage(ModelAndView modelAndView) {
-        modelAndView.setViewName("album-board");
+        modelAndView.setViewName("redirect:/album");
         return modelAndView;
     }
 }

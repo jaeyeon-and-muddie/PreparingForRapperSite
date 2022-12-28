@@ -16,8 +16,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -70,6 +70,17 @@ public class AlbumReview extends BaseEntity {
         this.reviewOfSongs = reviewOfSongs;
         this.album = album;
         this.star = star;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (hits == null) {
+            this.hits = 0L;
+        }
+
+        if (updateTime == null) {
+            this.updateTime = LocalDateTime.now();
+        }
     }
 
     public void visit() {
