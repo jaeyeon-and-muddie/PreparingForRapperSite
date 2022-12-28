@@ -45,14 +45,18 @@ public class Album extends BaseEntity {
     @Column(name = "SONGS_IN_ALBUM")
     private List<String> songsInAlbum;
 
-    @Column(name = "ARTIST_NAME")
+    @Column(name = "ARTIST_NAME") // 추후에 artist 도 등록할 수 있으면, 그 때 추가할 것임
     private String artistName;
 
+    @Column(columnDefinition = "LONGTEXT", name = "INTRODUCTION")
+    private String introduction;
+
     @Builder
-    public Album(String name, LocalDate dateOfIssue, List<String> songsInAlbum, String artistName) {
+    public Album(String name, LocalDate dateOfIssue, List<String> songsInAlbum, String artistName, String introduction) {
         this.name = name;
         this.dateOfIssue = dateOfIssue;
         this.songsInAlbum = songsInAlbum;
         this.artistName = artistName;
+        this.introduction = introduction;
     }
 }
