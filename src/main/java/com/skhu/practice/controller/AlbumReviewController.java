@@ -8,6 +8,7 @@ import com.skhu.practice.dto.AlbumReviewRequestDto;
 import com.skhu.practice.service.AlbumReviewService;
 import com.skhu.practice.service.AlbumService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,42 +34,27 @@ public class AlbumReviewController {
     }
 
     @GetMapping("write/{id}") // 쓰기 페이지 돌입
-    public ModelAndView loadWriteReviewPage(ModelAndView modelAndView, @PathVariable("id") Long albumeId) {
-        modelAndView.addObject("album", albumService.findById(albumeId));
+    public ModelAndView loadWriteReviewPage(ModelAndView modelAndView, @PathVariable("id") Long albumId) {
+        modelAndView.addObject("album", albumService.findById(albumId));
         modelAndView.setViewName("write-album-review");
 
         return modelAndView;
     }
 
     @PostMapping("{id}")
-    public ModelAndView saveReview(ModelAndView modelAndView, @PathVariable("id") Long albumId, AlbumReviewRequestDto albumReviewRequestDto, Principal principal) {
+    public ModelAndView saveReview(ModelAndView modelAndView, @PathVariable("id") Long albumId,
+                                   AlbumReviewRequestDto albumReviewRequestDto, Principal principal) {
         albumReviewService.saveAlbumReview(albumId, albumReviewRequestDto, principal.getName());
         modelAndView.setViewName("redirect:/album/review/" + albumId); // 기존 url 로
 
         return modelAndView;
     }
 
-    @GetMapping("rewrite/{id}")
-    public ModelAndView loadRewriteReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id) {
-        modelAndView.setViewName("rewrite-album.html");
-        modelAndView.addObject("id", id);
-//        modelAndView.addObject("content", albumReviewService.getContentByPostNumber(id));
-
-        return modelAndView;
-    }
-
-    @GetMapping("delete/{id}")
-    public ModelAndView deleteReview(ModelAndView modelAndView, @PathVariable(name = "id") Long id) {
-        modelAndView.setViewName("redirect:/review");
-        albumReviewService.delete(id);
-
-        return modelAndView;
-    }
-
-    @PostMapping("rewrite/{id}")
-    public ModelAndView afterRewriteLoadReviewPage(ModelAndView modelAndView, @PathVariable(name = "id") Long id, String title, List<String> reviewOfSongs, Double star) {
-        albumReviewService.update(id, title, reviewOfSongs, star);
-        modelAndView.setViewName("redirect:/review");
+    @GetMapping("detail/{id}")
+    public ModelAndView loadReviewDetailPage(ModelAndView modelAndView, @PathVariable("id") Long reviewId) {
+        // reviewId 를 불러오면, 이제 거기서 album 도 불러올 수 있기 때문에 상관없음
+        modelAndView.addObject("albumReview", albumReviewService.getDetailReview(reviewId));
+        modelAndView.setViewName("album-review-detail");
 
         return modelAndView;
     }

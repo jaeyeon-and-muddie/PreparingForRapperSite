@@ -2,13 +2,8 @@ package com.skhu.practice.service;
 
 import com.skhu.practice.dto.AlbumReviewRequestDto;
 import com.skhu.practice.dto.AlbumReviewResponseDto;
-import com.skhu.practice.dto.UserSignupDto;
-import com.skhu.practice.dto.albumnotice.AlbumNoticePostResponseDto;
-import com.skhu.practice.dto.albumnotice.AlbumNoticeRequestDto;
-import com.skhu.practice.dto.albumnotice.AlbumNoticeReviewResponseDto;
 import com.skhu.practice.entity.Album;
 import com.skhu.practice.entity.AlbumReview;
-import com.skhu.practice.entity.Users;
 import com.skhu.practice.repository.AlbumRepository;
 import com.skhu.practice.repository.AlbumReviewRepository;
 import com.skhu.practice.repository.UserRepository;
@@ -47,61 +42,13 @@ public class AlbumReviewService {
                 .build());
     }
 
-    public void saveAlbumAndNotice(Users users, AlbumNoticeRequestDto albumNoticeRequestDto) {
-        Album album = Album.builder()
-                .name(albumNoticeRequestDto.getAlbumName())
-                .artistName(albumNoticeRequestDto.getArtistName())
-                .dateOfIssue(albumNoticeRequestDto.getDateOfIssue())
-                .songsInAlbum(albumNoticeRequestDto.wrapSongsInAlbum())
-                .build();
-        album = albumRepository.save(album); // 이 과정에서, 사실 Album 이 원래 존재하고 해야하는건데, 여기서 생성했으면 안됐음, 근데 일단은 그렇게 해놓자고
+    public AlbumReviewResponseDto getDetailReview(Long reviewId) {
+        AlbumReview albumReview = albumReviewRepository.findById(reviewId).orElseThrow(NoSuchElementException::new);
+        albumReview.visit();
+        albumReview = albumReviewRepository.save(albumReview);
 
-        AlbumReview albumReview = AlbumReview.builder()
-                .album(album)
-                .author(users)
-                .hits(0L)
-                .build();
-        albumReviewRepository.save(albumReview);
+        return albumReview.toResponseDto();
     }
-
-    public List<AlbumNoticeReviewResponseDto> getAllReview() {
-        return albumReviewRepository.findAll()
-                .stream()
-                .map(albumReview -> AlbumNoticeReviewResponseDto.builder()
-                        .postNumber(albumReview.getId())
-                        .albumName(albumReview.getAlbum().getName())
-                        .artistName(albumReview.getAlbum().getArtistName())
-                        .authorName(albumReview.getAuthor().getEmail())
-                        .dateOfIssue(albumReview.getAlbum().getDateOfIssue())
-                        .hits(albumReview.getHits())
-                        .createdDate(albumReview.getCreatedDate())
-                        .numberOfSongsInAlbum((long) albumReview.getAlbum().getSongsInAlbum().size())
-                        .build()).collect(Collectors.toList());
-    }
-
-    public AlbumNoticePostResponseDto getPostByPostNumber(Long id) {
-        AlbumReview albumReview = albumReviewRepository.findById(id)
-                .orElseThrow(NoSuchElementException::new);
-
-        albumReview.visit(); // 방문
-        albumReviewRepository.save(albumReview);
-
-        return AlbumNoticePostResponseDto.builder()
-                .postNumber(id)
-                .albumName(albumReview.getAlbum().getName())
-                .author(albumReview.getAuthor())
-                .hits(albumReview.getHits())
-                .songsInAlbum(albumReview.getAlbum().getSongsInAlbum())
-                .modifiedTime(albumReview.getUpdateTime())
-                .artistName(albumReview.getAlbum().getArtistName())
-                .dateOfIssue(albumReview.getAlbum().getDateOfIssue())
-                .build();
-    }
-
-//    public String getContentByPostNumber(Long id) {
-//        return albumReviewRepository.findById(id)
-//                .orElseThrow(NoSuchElementException::new).getContent();
-//    }
 
     public void update(Long id, String title, List<String> content, Double star) {
         AlbumReview albumReview = albumReviewRepository.findById(id)

@@ -5,23 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba328ba3-7c33-4b89-abc9-7c376ca56200" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/AlbumReviewRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/album-review.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/album-review.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/album-review-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/album-review-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/write-album-review.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/write-album-review.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumReview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/UserLoginDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/albumnotice/AlbumNoticePostResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/albumnotice/AlbumNoticeRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/albumnotice/AlbumNoticeReviewResponseDto.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/AlbumReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/AlbumReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/album-review.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/album-review.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/album-review-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/album-review-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/write-album-review.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/write-album-review.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +90,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "spring.configuration.checksum": "a2de6a911d0b4e7fee38f04812b4bc75"
   },
   "keyToStringList": {
@@ -132,7 +135,8 @@
       <workItem from="1671599626958" duration="8323000" />
       <workItem from="1671680316535" duration="33654000" />
       <workItem from="1672029123325" duration="1332000" />
-      <workItem from="1672030616104" duration="43237000" />
+      <workItem from="1672030616104" duration="45119000" />
+      <workItem from="1672287696995" duration="3236000" />
     </task>
     <servers />
   </component>

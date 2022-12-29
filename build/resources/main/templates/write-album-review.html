@@ -15,12 +15,18 @@
             <label for = "title">제목</label>
             <input type = "text" id = "title" name = "title"/>
         </div>
+        <br>
+        <hr>
+        <div>수록곡 리뷰 작성하기</div>
         <div class="form-group" th:each = "song, i : ${album.songsInAlbum}">
-            <div th:text = "${song}"></div>
-            <textarea th:id = "'name' + ${i.count}" th:name = "'reviewOfSongs[' + ${i.count} + ']'"></textarea>
+            <br>
+            <div th:text = "${i.count} + '.' + ${song}"></div>
+            <textarea th:id = "'name' + ${i.count}" th:name = "'reviewOfSongs[' + ${i.count - 1} + ']'"></textarea>
         </div>
+        <br>
+        <hr>
         <div class="form-group">
-            <label for = "star">별점</label>
+            <label for = "star">별점 (0 ~ 5 점 사이의 점수만 가능합니다.)</label>
             <input type = "text" id = "star" name = "star"/>
         </div>
         <button type="submit" class="btn btn-primary block full-width m-b">작성하기</button>
