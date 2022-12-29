@@ -1,6 +1,7 @@
 package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.AlbumRequestDto;
+import com.skhu.practice.service.AlbumCommentService;
 import com.skhu.practice.service.AlbumService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class AlbumController {
 
     private final AlbumService albumService;
+    private final AlbumCommentService albumCommentService;
 
     @GetMapping("")
     public ModelAndView loadAlbumBoardPage(ModelAndView modelAndView) {
@@ -49,6 +51,7 @@ public class AlbumController {
     @GetMapping("detail/{id}")
     public ModelAndView loadAlbumDetailPage(ModelAndView modelAndView, @PathVariable("id") Long id) {
         modelAndView.addObject("album", albumService.albumDetail(id));
+        modelAndView.addObject("albumComment", albumCommentService.findAllCommentByAlbum(id));
         modelAndView.setViewName("album-detail");
         return modelAndView;
     }

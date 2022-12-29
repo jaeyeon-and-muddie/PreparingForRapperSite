@@ -41,7 +41,7 @@ public class AlbumReview extends BaseEntity {
     private Long hits;
 
     @ManyToOne(targetEntity = Users.class)
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "USERS_ID")
     private Users author;
 
     @ElementCollection

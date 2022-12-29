@@ -108,6 +108,10 @@ public class Album extends BaseEntity {
         this.hits++;
     }
 
+    public void turnBackHits() { // Comment 를 작성할 때, redirection 으로 인한 조회수 상승을 일시적으로 막을 방편
+        this.hits--;
+    }
+
     public void reviewForThisAlbum(Double star) { // 이 때 외부적으로 받아야 하는 것은 star 뿐임
         // 여기서 star 를 가지고 식을 진행해야함
         double totalOfGivenStarThisAlbum = this.averageOfStar * this.numberOfReview;

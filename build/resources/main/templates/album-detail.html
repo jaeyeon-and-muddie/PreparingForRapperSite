@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -40,6 +40,19 @@
     <span>소개글</span>
     <div th:text = "${album.introduction}"></div>
     <hr/>
-    <div>댓글 추가할 공간</div>
+    <sapn>댓글</sapn>
+    <div th:each = "comment : ${albumComment}">
+        <br>
+        <span th:text = "${comment.author.email}"></span>
+        <span th:text = "${' ' + comment.createdDate}"></span>
+        <span th:if = "${comment.isModified}"> (수정됨)</span>
+        <div th:text = "${comment.content}"></div>
+    </div>
+    <form role="form" th:action="@{'/album/comment/' + ${album.id}}" action="#" id="postForm" method="post">
+        <span>댓글 작성</span>
+        <textarea sec:authorize = "isAnonymous()" disabled rows = "10" cols = "50" name = "content"></textarea>
+        <textarea sec:authorize = "isAuthenticated()" rows = "10" cols = "50" name = "content"></textarea>
+        <button type="submit" class="btn btn-primary block full-width m-b">작성 완료</button>
+    </form>
 </body>
 </html>
