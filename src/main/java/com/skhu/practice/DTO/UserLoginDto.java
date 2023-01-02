@@ -8,7 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class UserLoginDto {
-
     private String email;
     private String password; // 이 두가지 정보를 로그인 창에서 받아올 것임
 

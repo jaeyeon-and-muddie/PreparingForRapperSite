@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,4 +20,10 @@ public class User {
     private String password;
     @Column(name="EMAIL")
     private String email;
+
+    @Column(name="USER_AUTH")
+    private String userAuth;
+
+    @OneToMany(mappedBy="user")
+    List<AlbumReview> albumReviews;
 }

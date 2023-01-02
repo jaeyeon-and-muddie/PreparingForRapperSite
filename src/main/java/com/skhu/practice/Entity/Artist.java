@@ -10,12 +10,13 @@ import java.util.List;
 public class Artist {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="ARTIST_ID")
     private long id;
 
-    @Column
+    @Column(name="ARTIST_NAME")
     private String artistName;
 
-    @Column
+    @Column(name="GENRE")
     private String Genre;
 
     @OneToMany(mappedBy="artist")
