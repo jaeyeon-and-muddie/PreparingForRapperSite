@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>앨범정보</title>
+</head>
+<body>
+    <h1>[[${album.title}]]</h1>
+    <table>
+        <tr>
+            <td>[[${album.numberOfSongs}]]</td>
+        </tr>
+        <tr>
+            <td>[[${album.releaseDate}]]</td>
+        </tr>
+        <tr>
+            <td>[[${album.introduction}]]</td>
+        </tr>
+        <tr>
+            <td>[[${album.artist.artistName}]]</td>
+        </tr>
+        <tr>
+            <td>[[${album.artist.genre}]]</td>
+        </tr>
+    </table>
+    <table>
+        <caption align="right">노래목록</caption>
+        <tr th:each="song : ${album.songs}">
+            <td>[[${song.number}]]</a></td>
+            <td th:text="${song.title}"></td>
+            <td>[[${song.participants}]]</td>
+        </tr>
+    </table>
+<br>
+<div>
+    <a th:href="@{reviews(albumId=${album.id})}">리뷰보기</a>
+</div>
+</body>
+</html>

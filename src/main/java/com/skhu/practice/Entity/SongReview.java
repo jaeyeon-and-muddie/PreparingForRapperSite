@@ -16,9 +16,11 @@ public class SongReview {
     @JoinColumn(name = "albumReviewId")
     AlbumReview albumReview;
 
-    @Column(name="NUMBER")
-    private int number;
-    @Column(name="REVIEW")
+    @ManyToOne
+    @JoinColumn(name="songId")
+    Song song;
+
+    @Column(name="REVIEW", columnDefinition = "LONGTEXT")
     private String review;
 
 

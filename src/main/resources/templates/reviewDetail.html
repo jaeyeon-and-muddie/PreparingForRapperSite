@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ReviewDetail</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>곡이름</th>
+            <th>곡번호</th>
+            <th>리뷰</th>
+        </tr>
+        <tr th:each ="songReview :${songReviews}">
+            <td>[[${songReview.song.title}]]</td>
+            <td>[[${songReview.song.number}]]</td>
+            <td>[[${songReview.review}]]</td>
+        </tr>
+    </table>
+</body>
+</html>

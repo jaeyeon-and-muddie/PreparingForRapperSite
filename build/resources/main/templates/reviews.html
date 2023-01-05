@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>albumReview</title>
+</head>
+<body>
+    <table>
+    <tr>
+        <th>앨범</th>
+        <th>제목</th>
+        <th>작성자</th>
+    </tr>
+    <tr th:each="albumReview : ${albumReviews}">
+        <td> [[${albumReview.album.title}]]</td>
+        <td><a th:href="@{reviewDetail(albumReviewId=${albumReview.id})}">[[${albumReview.title}]]</a></td>
+        <td>[[${albumReview.user.email}]]</td>
+    </tr>
+    </table>
+</body>
+</html>
