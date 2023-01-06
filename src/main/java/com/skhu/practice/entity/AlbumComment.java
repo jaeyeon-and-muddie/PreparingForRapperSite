@@ -1,13 +1,13 @@
 package com.skhu.practice.entity;
 
 import com.skhu.practice.dto.AlbumCommentResponseDto;
-import com.skhu.practice.entity.base.BaseEntity;
-import com.skhu.practice.repository.AlbumCommentRepository;
+import com.skhu.practice.entity.base.Comment;
 import lombok.AccessLevel;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,57 +16,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
 @ToString
 @Getter
+@SuperBuilder
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "ALBUM_COMMENT")
-public class AlbumComment extends BaseEntity {
+public class AlbumComment extends Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
-    @ManyToOne(targetEntity = Users.class)
-    @JoinColumn(name = "USERS_ID")
-    private Users author;
-
     @ManyToOne(targetEntity = Album.class)
     @JoinColumn(name = "ALBUM")
     private Album album;
 
-    @Column(columnDefinition = "LONGTEXT", name = "CONTENT")
-    private String content;
-
-    @Column(name = "IS_MODIFIED")
-    private Boolean isModified;
-
-    @Builder
-    public AlbumComment(Users author, Album album, String content, Boolean isModified) {
-        this.author = author;
-        this.album = album;
-        this.content = content;
-        this.isModified = isModified;
-    }
-
-    @PrePersist
-    public void prePersist() {
-        if (isModified == null) {
-            isModified = false;
-        }
-    }
-
     public AlbumCommentResponseDto toResponseDto() {
         return AlbumCommentResponseDto.builder()
                 .id(this.id)
-                .author(this.author.toResponseDto())
+                .author(getAuthor().toResponseDto())
                 .album(this.album.toResponseDto())
-                .content(this.content)
-                .isModified(this.isModified)
+                .content(getContent())
+                .isModified(getIsModified())
                 .createdDate(getCreatedDate())
                 .build();
     }
