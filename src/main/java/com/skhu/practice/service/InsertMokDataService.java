@@ -82,7 +82,6 @@ public class InsertMokDataService {
 
         for (int addNumber = 1; addNumber <= 30; addNumber++) {
             long albumId = random.nextInt(ALBUM_ID_RANGE) + 1;
-            System.out.println(albumId);
             Album album = albumRepository.findById(albumId).orElseThrow(NoSuchElementException::new);
 
             for (int visitCount = 0; visitCount < random.nextInt(ALBUM_ID_RANGE) + 1; visitCount++) {

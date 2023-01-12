@@ -26,7 +26,7 @@ public class AlbumResponseDto {
 
     private Long numberOfReview;
 
-    private Double averageOfStar;
+    private String averageOfStar;
 
     private Long hits;
 

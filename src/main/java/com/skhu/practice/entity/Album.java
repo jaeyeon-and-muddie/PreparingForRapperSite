@@ -83,11 +83,24 @@ public class Album extends BaseEntity {
                 .artistName(this.artistName)
                 .dateOfIssue(this.dateOfIssue)
                 .songsInAlbum(this.songsInAlbum)
-                .averageOfStar(this.averageOfStar)
+                .averageOfStar(averageOfStarFormatter(averageOfStar))
                 .numberOfReview(this.numberOfReview)
                 .hits(this.hits)
                 .introduction(this.introduction)
                 .build();
+    }
+
+    private String averageOfStarFormatter(Double averageOfStar) {
+        String format = "%.0f";
+
+        for (int digit = 1; digit <= 2; digit++) {
+            averageOfStar *= 10;
+            if (averageOfStar % 10 != 0) {
+                format = "%." + digit + "f";
+            }
+        }
+        
+        return String.format(format, averageOfStar / 100);
     }
 
     @PrePersist // Entity Persist 이전에 해당 어노테이션이 붙어있으면 실행됨
