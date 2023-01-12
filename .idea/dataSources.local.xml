@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-221.5787.30">
-    <data-source name="test" uuid="845587bc-bdf2-4e9c-9703-2945c87fa816">
+    <data-source name="testdb" uuid="2c0fb36c-1eaf-41d7-810b-20e8247c501b">
       <database-info product="H2" version="2.1.210 (2022-01-17)" jdbc-version="4.2" driver-name="H2 JDBC Driver" driver-version="2.1.210 (2022-01-17)" dbms="H2" exact-version="2.1.210" exact-driver-version="2.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -10,8 +10,8 @@
       <user-name>sa</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="database" qname="@">
-            <node kind="schema" qname="@" />
+          <node kind="database" negative="1">
+            <node kind="schema" negative="1" />
           </node>
         </introspection-scope>
       </schema-mapping>
