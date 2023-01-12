@@ -1,5 +1,6 @@
 package com.skhu.practice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skhu.practice.dto.AlbumCommentResponseDto;
 import com.skhu.practice.entity.base.Comment;
 import lombok.AccessLevel;
@@ -16,7 +17,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @ToString
@@ -35,6 +38,10 @@ public class AlbumComment extends Comment {
     @ManyToOne(targetEntity = Album.class)
     @JoinColumn(name = "ALBUM")
     private Album album;
+
+    @OneToMany(mappedBy = "comment")
+    @JsonIgnore
+    private List<AlbumNestedComment> nestedComments;
 
     public AlbumCommentResponseDto toResponseDto() {
         return AlbumCommentResponseDto.builder()

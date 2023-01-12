@@ -99,7 +99,7 @@ public class Album extends BaseEntity {
                 format = "%." + digit + "f";
             }
         }
-        
+
         return String.format(format, averageOfStar / 100);
     }
 
