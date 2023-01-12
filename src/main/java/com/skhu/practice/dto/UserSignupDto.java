@@ -1,6 +1,8 @@
 package com.skhu.practice.dto;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +15,9 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserSignupDto {
 
     @Size(min = 3, max = 25)

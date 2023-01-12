@@ -109,7 +109,7 @@ public class Album extends BaseEntity {
         this.hits++;
     }
 
-    public void turnBackHits() { // Comment 를 작성할 때, redirection 으로 인한 조회수 상승을 일시적으로 막을 방편
+    public void turnBackHits() { // Comment 를 작성할 때, redirection 으로 인한 조회수 상승을 일시적으로 막을 방편 (이건 무조건 일시적이여야 할 메소드이다)
         this.hits--;
     }
 

@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ import java.util.List;
 @Getter
 @ToString
 @AllArgsConstructor
+@SuperBuilder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "ALBUM_REVIEW") // Table = User 로 설정
 public class AlbumReview extends Review {
