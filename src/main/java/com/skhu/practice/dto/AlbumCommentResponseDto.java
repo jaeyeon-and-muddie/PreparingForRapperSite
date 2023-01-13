@@ -26,5 +26,5 @@ public class AlbumCommentResponseDto {
 
     private LocalDate createdDate;
 
-    private List<AlbumNestedCommentResponseDto> albumNestedCommentResponseDto;
+    private List<AlbumNestedCommentResponseDto> albumNestedComment;
 }

@@ -89,7 +89,7 @@ public class InsertMokDataService {
             }
             albumRepository.save(album);
 
-            albumReviewService.saveAlbumReview(albumId, (AlbumReviewRequestDto.builder()
+            albumReviewService.save(albumId, (AlbumReviewRequestDto.builder()
                     .title(title + addNumber)
                     .reviewOfSongs(new ArrayList<>(reviewOfSong))
                     .star((double) random.nextInt(6))

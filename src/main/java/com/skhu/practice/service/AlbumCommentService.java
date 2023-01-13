@@ -39,6 +39,6 @@ public class AlbumCommentService {
         return albumCommentRepository.findAllByAlbumId(id)
                 .stream()
                 .map(AlbumComment::toResponseDto)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); // 여기서 AlbumNestedCommnet 도 가져와야하는데, 가져옴
     }
 }

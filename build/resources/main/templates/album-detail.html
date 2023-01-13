@@ -47,6 +47,15 @@
         <span th:text = "${' ' + comment.createdDate}"></span>
         <span th:if = "${comment.isModified}"> (수정됨)</span>
         <div th:text = "${comment.content}"></div>
+        <a sec:authorize = "isAuthenticated()" th:href = "@{'/album/nested/write/' + ${album.id} + '/' + ${comment.id}}" >대댓글 작성하러가기!</a>
+
+        <div th:if = "${comment.albumNestedComment.size() != 0}">대댓글</div>
+        <div th:each = "nested : ${comment.albumNestedComment}">
+            <span th:text = "${nested.author.email}"></span>
+            <span th:text = "${' ' + nested.createdDate}"></span>
+            <span th:if = "${nested.isModified}"> (수정됨)</span>
+            <div th:text = "${nested.content}"></div>
+        </div>
     </div>
     <form role="form" th:action="@{'/album/comment/' + ${album.id}}" action="#" id="postForm" method="post">
         <span>댓글 작성</span>

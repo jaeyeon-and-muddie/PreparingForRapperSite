@@ -44,7 +44,7 @@ public class AlbumReviewController {
     @PostMapping("{id}")
     public ModelAndView saveReview(ModelAndView modelAndView, @PathVariable("id") Long albumId,
                                    AlbumReviewRequestDto albumReviewRequestDto, Principal principal) {
-        albumReviewService.saveAlbumReview(albumId, albumReviewRequestDto, principal.getName());
+        albumReviewService.save(albumId, albumReviewRequestDto, principal.getName());
         modelAndView.setViewName("redirect:/album/review/" + albumId); // 기존 url 로
 
         return modelAndView;

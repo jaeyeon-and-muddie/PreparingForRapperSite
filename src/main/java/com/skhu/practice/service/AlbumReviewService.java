@@ -29,7 +29,7 @@ public class AlbumReviewService {
                 .collect(Collectors.toList());
     }
 
-    public void saveAlbumReview(Long albumId, AlbumReviewRequestDto albumReviewRequestDto, String username) {
+    public void save(Long albumId, AlbumReviewRequestDto albumReviewRequestDto, String username) {
         Album album = albumRepository.findById(albumId).orElseThrow(NoSuchElementException::new);
         album.reviewForThisAlbum(albumReviewRequestDto.getStar());
         albumRepository.save(album);

@@ -20,6 +20,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @ToString
@@ -51,6 +52,9 @@ public class AlbumComment extends Comment {
                 .content(getContent())
                 .isModified(getIsModified())
                 .createdDate(getCreatedDate())
+                .albumNestedComment(nestedComments.stream()
+                        .map(AlbumNestedComment::toResponseDto)
+                        .collect(Collectors.toList()))
                 .build();
     }
 }
