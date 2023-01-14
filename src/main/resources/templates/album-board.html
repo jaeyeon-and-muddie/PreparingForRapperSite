@@ -10,7 +10,7 @@
 </head>
 <body>
     <div th:replace = "~{navbar :: navbarFragment}"></div>
-    <table th:fragment = "albumBoardFragment">
+    <table>
         <thead>
             <tr>
                 <td>앨범이름</td>
@@ -28,7 +28,7 @@
                     <a th:href = "@{'/album/detail/' + ${album.id}}" th:text = "${album.name}"></a>
                 </td>
                 <td>
-                    <a th:href = "@{'/artist/detail/' + ${album.artist.id}}" th:text = "${album.artist.username}"></a>
+                    <a th:href = "@{'/user/detail/' + ${album.artist.id}}" th:text = "${album.artist.username}"></a>
                 </td>
                 <td th:text = "${album.songsInAlbum.size()}"></td>
                 <td th:text = "${album.dateOfIssue}"></td>

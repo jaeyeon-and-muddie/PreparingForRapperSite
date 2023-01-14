@@ -53,7 +53,7 @@ public class Album extends BaseEntity {
     private List<String> songsInAlbum;
 
     @ManyToOne(targetEntity = Users.class)
-    @JoinColumn(name = "artist") // 추후에 artist 도 등록할 수 있으면, 그 때 추가할 것임
+    @JoinColumn(name = "user_id") // 추후에 artist 도 등록할 수 있으면, 그 때 추가할 것임
     private Users artist;
 
     @Column(columnDefinition = "LONGTEXT", name = "INTRODUCTION")

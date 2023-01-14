@@ -26,7 +26,7 @@
     <div th:text = "${album.name}"></div>
     <br>
     <span>아티스트 이름</span>
-    <a th:href = "@{'/artist/detail/' + ${album.artist.id}}"th:text = "${album.artist.username}"></a>
+    <a th:href = "@{'/user/detail/' + ${album.artist.id}}"th:text = "${album.artist.username}"></a>
     <br>
     <span>발매일</span>
     <div th:text = "${album.dateOfIssue}"></div>

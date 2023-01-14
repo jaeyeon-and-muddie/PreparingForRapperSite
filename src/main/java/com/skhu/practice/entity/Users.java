@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,6 +51,13 @@ public class Users {
     @OneToMany(mappedBy = "artist")
     @JsonIgnore
     private List<Album> albums;
+
+    @PrePersist
+    private void prePersist() {
+        if (image == null) {
+            image = "https://www.shutterstock.com/image-vector/profile-picture-avatar-icon-vector-260nw-1760295569.jpg";
+        }
+    }
 
     public UserResponseDto toResponseDto() {
         return UserResponseDto.builder()
