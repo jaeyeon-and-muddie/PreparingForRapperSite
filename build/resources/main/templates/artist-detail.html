@@ -9,14 +9,16 @@
 </head>
 <body>
     <div th:replace = "navbar :: navbarFragment"></div>
+    <strong>아티스트 이름</strong>
+    <br>
+    <div th:text = "${artist.username}"></div>
     <strong>아티스트 이미지</strong>
     <br>
-    <img th:src = "${aritst.image}">
+    <img th:src = "@{${artist.image}}"/>
     <table>
         <thead>
             <tr>
                 <td>앨범이름</td>
-                <td>아티스트명</td>
                 <td>수록곡 수</td>
                 <td>발매일</td>
                 <td>리뷰수</td>
@@ -25,12 +27,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each = 'album : ${artist.album}'>
+            <tr th:each = 'album : ${artist.albums}'>
                 <td>
                     <a th:href = "@{'/album/detail/' + ${album.id}}" th:text = "${album.name}"></a>
-                </td>
-                <td>
-                    <a th:href = "@{'/user/detail/' + ${album.artist.id}}" th:text = "${album.artist.username}"></a>
                 </td>
                 <td th:text = "${album.songsInAlbum.size()}"></td>
                 <td th:text = "${album.dateOfIssue}"></td>

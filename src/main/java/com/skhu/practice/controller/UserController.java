@@ -54,6 +54,7 @@ public class UserController {
     @GetMapping("detail/{id}")
     public ModelAndView loadArtistPage(ModelAndView modelAndView, @PathVariable("id") Long userId) {
         modelAndView.addObject("artist", userService.findById(userId));
+        System.out.println(userService.findById(userId).getImage());
         modelAndView.setViewName("artist-detail"); // User 와 연관한 애들만을 가져와야함
         return modelAndView;
     }
