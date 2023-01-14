@@ -19,6 +19,8 @@ import java.util.Random;
 public class InsertMokDataService {
 
     private final int ALBUM_ID_RANGE = 20;
+    private final int USER_ID_RANGE = 9;
+    private final Random random = new Random();
     private final String USERNAME = "admin";
 
     private final AlbumCommentService albumCommentService;
@@ -54,23 +56,19 @@ public class InsertMokDataService {
         }
     }
 
-    private void albumSave() { // ID strategy 는 AutoIncrement 이니까 그것을 이용해서 외래키 설정할 예정
-        // 여기서 이제 album 을 save 해야 하는데, 일단 내가 오늘 할 일들을 차근차근 정해보자.
+    private void albumSave() {
         String name = "album";
         String songsInAlbum = "intro, classic, old car";
         LocalDate dateOfIssue = LocalDate.now();
-        String artistName = "정민";
         String introduction = "정민님의 노래는 개지린다";
-        Random random = new Random();
 
         for (int addNumber = 1; addNumber <= ALBUM_ID_RANGE; addNumber++) {
             albumService.save(AlbumRequestDto.builder()
                             .name(name + addNumber)
                             .songsInAlbum(songsInAlbum + addNumber)
-                            .artistName(artistName + addNumber)
                             .introduction(introduction + addNumber)
                             .dateOfIssue(dateOfIssue.minusDays(random.nextInt(32)))
-                            .build());
+                            .build(), USERNAME + randomNumber(USER_ID_RANGE));
         }
     }
 
@@ -78,13 +76,12 @@ public class InsertMokDataService {
         String title = "정민님 개 지리누ㅋㅋ";
         String review = "와 개 지리네";
         List<String> reviewOfSong = List.of(review, review, review);
-        Random random = new Random();
 
         for (int addNumber = 1; addNumber <= 30; addNumber++) {
-            long albumId = random.nextInt(ALBUM_ID_RANGE) + 1;
+            long albumId = randomNumber(ALBUM_ID_RANGE);
             Album album = albumRepository.findById(albumId).orElseThrow(NoSuchElementException::new);
 
-            for (int visitCount = 0; visitCount < random.nextInt(ALBUM_ID_RANGE) + 1; visitCount++) {
+            for (int visitCount = 0; visitCount < randomNumber(ALBUM_ID_RANGE); visitCount++) {
                 album.visit();
             }
             albumRepository.save(album);
@@ -99,15 +96,18 @@ public class InsertMokDataService {
     }
 
     private void albumCommentSave() {
-        Random random = new Random();
         String content = "개 지리누 ㅋㅋㅋ";
 
         for (int addNumber = 1; addNumber <= 30; addNumber++) {
-            long albumId = random.nextInt(ALBUM_ID_RANGE) + 1;
+            long albumId = randomNumber(ALBUM_ID_RANGE);
             albumCommentService.save(albumId, content + addNumber, USERNAME);
             Album album = albumRepository.findById(albumId).orElseThrow(NoSuchElementException::new);
             album.visit();
             albumRepository.save(album);
         }
+    }
+
+    private int randomNumber(int range) {
+        return random.nextInt(range) + 1;
     }
 }

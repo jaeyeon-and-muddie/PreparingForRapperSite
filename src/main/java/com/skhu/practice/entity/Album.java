@@ -3,6 +3,7 @@ package com.skhu.practice.entity;
 import com.skhu.practice.dto.AlbumResponseDto;
 import com.skhu.practice.entity.base.BaseEntity;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.time.LocalDate;
@@ -26,6 +28,8 @@ import java.util.List;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 @Table(name = "ALBUM")
 public class Album extends BaseEntity {
 
@@ -48,8 +52,9 @@ public class Album extends BaseEntity {
     @Column(name = "SONGS_IN_ALBUM")
     private List<String> songsInAlbum;
 
-    @Column(name = "ARTIST_NAME") // 추후에 artist 도 등록할 수 있으면, 그 때 추가할 것임
-    private String artistName;
+    @ManyToOne(targetEntity = Users.class)
+    @JoinColumn(name = "artist") // 추후에 artist 도 등록할 수 있으면, 그 때 추가할 것임
+    private Users artist;
 
     @Column(columnDefinition = "LONGTEXT", name = "INTRODUCTION")
     private String introduction;
@@ -63,24 +68,11 @@ public class Album extends BaseEntity {
     @Column(name = "HITS")
     private Long hits;
 
-    @Builder
-    public Album(String name, LocalDate dateOfIssue, List<String> songsInAlbum, String artistName,
-                 String introduction, Double averageOfStar, Long numberOfReview, Long hits) {
-        this.name = name;
-        this.dateOfIssue = dateOfIssue;
-        this.songsInAlbum = songsInAlbum;
-        this.artistName = artistName;
-        this.introduction = introduction;
-        this.averageOfStar = averageOfStar;
-        this.numberOfReview = numberOfReview;
-        this.hits = hits;
-    }
-
     public AlbumResponseDto toResponseDto() {
         return AlbumResponseDto.builder()
                 .id(this.id)
                 .name(this.name)
-                .artistName(this.artistName)
+                .artist(artist.toResponseDto())
                 .dateOfIssue(this.dateOfIssue)
                 .songsInAlbum(this.songsInAlbum)
                 .averageOfStar(averageOfStarFormatter(averageOfStar))

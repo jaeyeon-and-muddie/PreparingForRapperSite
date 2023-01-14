@@ -22,7 +22,7 @@ public class AlbumResponseDto {
 
     private LocalDate dateOfIssue;
 
-    private String artistName;
+    private UserResponseDto artist;
 
     private Long numberOfReview;
 

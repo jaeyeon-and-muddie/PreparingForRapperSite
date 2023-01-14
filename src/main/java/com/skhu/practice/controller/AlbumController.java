@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("album")
@@ -28,19 +30,19 @@ public class AlbumController {
         return modelAndView;
     }
 
-    @PreAuthorize("hasRole('ADMIN')") // 이런 식으로 ADMIN 만 접속하도록, 혹은 로그인한 유저만 접속하도록 통제가 가능하다.
+    @PreAuthorize("isAuthenticated()") // 이런 식으로 ADMIN 만 접속하도록, 혹은 로그인한 유저만 접속하도록 통제가 가능하다.
     @GetMapping("write")
     public ModelAndView loadAlbumWritePage(ModelAndView modelAndView) {
         modelAndView.setViewName("write-album");
         return modelAndView;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("isAuthenticated()")
     @PostMapping("write")
-    public ModelAndView saveAlbum(ModelAndView modelAndView, AlbumRequestDto albumRequestDto) {
+    public ModelAndView saveAlbum(ModelAndView modelAndView, AlbumRequestDto albumRequestDto, Principal principal) {
         String viewName = "redirect:/album";
 
-        if (!albumService.save(albumRequestDto)) { // save 시에, 실패하는 경우에만 실행
+        if (!albumService.save(albumRequestDto, principal.getName())) { // save 시에, 실패하는 경우에만 실행
             viewName = "redirect:/album/write";
         }
 

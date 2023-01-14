@@ -24,14 +24,11 @@ public class AlbumRequestDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfIssue;
 
-    private String artistName;
-
     private String introduction;
 
     public boolean isNotIllegal() {
         return isNotEmptyAndBlank(this.name) &&
                 isNotEmptyAndBlank(this.songsInAlbum) &&
-                isNotEmptyAndBlank(this.artistName) &&
                 isNotEmptyAndBlank(this.introduction) &&
                 dateOfIssue != null;
     }
