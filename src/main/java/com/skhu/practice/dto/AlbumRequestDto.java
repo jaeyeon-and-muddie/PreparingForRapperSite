@@ -26,6 +26,8 @@ public class AlbumRequestDto {
 
     private String introduction;
 
+    private String image;
+
     public boolean isNotIllegal() {
         return isNotEmptyAndBlank(this.name) &&
                 isNotEmptyAndBlank(this.songsInAlbum) &&

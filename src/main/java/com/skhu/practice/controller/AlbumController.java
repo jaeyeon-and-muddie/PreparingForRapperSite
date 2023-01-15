@@ -57,4 +57,15 @@ public class AlbumController {
         modelAndView.setViewName("album-detail");
         return modelAndView;
     }
+
+    @GetMapping("rate")
+    public ModelAndView loadAlbumRatePage(ModelAndView modelAndView) {
+        modelAndView.addObject("monthlyAlbum", albumService.findByMonthlyAlbum());
+        modelAndView.addObject("topAlbumByAverageOfStar", albumService.findTop5ByAverageOfStar());
+        modelAndView.addObject("topAlbumByNumberOfReview", albumService.findTop5ByNumberOfReview());
+        modelAndView.addObject("topAlbumByHits", albumService.findTop5ByHits());
+        modelAndView.setViewName("album-rate.html");
+
+        return modelAndView;
+    }
 }

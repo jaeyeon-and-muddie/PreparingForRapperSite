@@ -31,4 +31,6 @@ public class AlbumResponseDto {
     private Long hits;
 
     private String introduction;
+
+    private String image;
 }

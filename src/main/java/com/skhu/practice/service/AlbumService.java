@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -54,5 +55,35 @@ public class AlbumService {
         album = albumRepository.save(album);
 
         return album.toResponseDto();
+    }
+
+    public List<AlbumResponseDto> findByMonthlyAlbum() {
+        LocalDate endDate = LocalDate.now();
+        LocalDate startDate = LocalDate.of(endDate.getYear(), endDate.getMonthValue(), 1);
+        return albumRepository.findByDateOfIssueBetweenOrderByDateOfIssueAsc(startDate, endDate)
+                .stream()
+                .map(Album::toResponseDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<AlbumResponseDto> findTop5ByAverageOfStar() {
+        return albumRepository.findTop5ByOrderByAverageOfStarDesc()
+                .stream()
+                .map(Album::toResponseDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<AlbumResponseDto> findTop5ByNumberOfReview() {
+        return albumRepository.findTop5ByOrderByNumberOfReviewDesc()
+                .stream()
+                .map(Album::toResponseDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<AlbumResponseDto> findTop5ByHits() {
+        return albumRepository.findTop5ByOrderByHitsDesc()
+                .stream()
+                .map(Album::toResponseDto)
+                .collect(Collectors.toList());
     }
 }

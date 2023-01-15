@@ -50,6 +50,7 @@ public class Users {
 
     @OneToMany(mappedBy = "artist")
     @JsonIgnore
+    @ToString.Exclude
     private List<Album> albums;
 
     @PrePersist

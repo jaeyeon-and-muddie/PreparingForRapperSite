@@ -68,6 +68,9 @@ public class Album extends BaseEntity {
     @Column(name = "HITS")
     private Long hits;
 
+    @Column(name = "image")
+    private String image;
+
     public AlbumResponseDto toResponseDto() {
         return AlbumResponseDto.builder()
                 .id(this.id)
@@ -79,6 +82,7 @@ public class Album extends BaseEntity {
                 .numberOfReview(this.numberOfReview)
                 .hits(this.hits)
                 .introduction(this.introduction)
+                .image(this.image)
                 .build();
     }
 
@@ -107,6 +111,10 @@ public class Album extends BaseEntity {
 
         if (this.hits == null) {
             this.hits = 0L;
+        }
+
+        if (this.image == null || this.image.isEmpty() || this.image.isBlank()) {
+            this.image = "https://i.ytimg.com/vi/dlqLwq8XTeU/maxresdefault.jpg";
         }
     }
 

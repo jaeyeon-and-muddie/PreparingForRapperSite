@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div th:replace = "navbar :: navbarFragment"></div>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
     <strong>아티스트 이름</strong>
     <br>
     <div th:text = "${artist.username}"></div>
@@ -20,6 +20,7 @@
         <thead>
             <tr>
                 <td>앨범이름</td>
+                <td>앨범재킷</td>
                 <td>수록곡 수</td>
                 <td>발매일</td>
                 <td>리뷰수</td>
@@ -31,6 +32,11 @@
             <tr th:each = 'album : ${artist.albums}'>
                 <td>
                     <a th:href = "@{'/album/detail/' + ${album.id}}" th:text = "${album.name}"></a>
+                </td>
+                <td>
+                    <a th:href = "@{'/album/detail/' + ${album.id}}">
+                        <img th:src = "@{${album.image}}"/>
+                    </a>
                 </td>
                 <td th:text = "${album.songsInAlbum.size()}"></td>
                 <td th:text = "${album.dateOfIssue}"></td>
