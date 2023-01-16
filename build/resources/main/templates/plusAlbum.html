@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>앨범추가</title>
+</head>
+<body>
+<form th:action="@{plusAlbum}" th:object="${plusAlbum}" method="post">
+  <table>
+      <tbody>
+        <tr>
+            <td>제목</td>
+            <td><input type="text" th:field="*{title}"></td>
+        </tr>
+        <tr>
+            <td>아티스트 이름</td>
+            <td><input type="text" th:field="*{artistName}"></td>
+        </tr>
+        <tr>
+            <td>수록곡수</td>
+            <td><input type="number" th:field="*{numberOfSongs}" min="0" max="100"></td>
+        </tr>
+        <tr>
+            <td>발매일자</td>
+            <td><input type="date" th:field="*{releaseDate}"></td>
+        </tr>
+        <tr>
+            <td>Introduction</td>
+            <td><input type="text" th:field="*{introduction}"></td>
+        </tr>
+      </tbody>
+      <button type="submit">등록</button>
+  </table>
+</form>
+</body>
+</html>

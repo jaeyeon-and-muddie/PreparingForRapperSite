@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>reviewCreate</title>
+</head>
+<body>
+<form th:action="@{reviewCreate}" th:object="${albumReview}" method="post">
+    <table>
+        <tbody>
+        <tr>
+            <td>앨범Id</td>
+            <td><input type="text" th:name="albumId" th:value="${albumId}"></td>
+        </tr>
+        <tr>
+            <td>제목</td>
+            <td><input type="text" th:name="title"></td>
+        </tr>
+        <tr th:each="review, i : ${albumReview.Reviews}">
+            <td><textarea th:name = "'Reviews[' + ${i.count - 1} + ']'" ></textarea></td>
+        </tr>
+        </tbody>
+        <button type="submit">등록</button>
+    </table>
+</body>
+</html>

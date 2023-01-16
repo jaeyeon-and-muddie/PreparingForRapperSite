@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{plusSong}" th:object="${plusSongs}" method="post">
+    <table>
+        <tr>
+            <td>
+                앨범:<input Type="text" th:name="albumTitle" th:value="${albumTitle}">
+            </td>
+        </tr>
+        <tr th:each="song, i : ${plusSongs}">
+            <td>
+                <!--                    <p>앨범</p><input type="text" th:field="*{AlbumTitle}" placeholder="${albumTitle}"><br>-->
+                <!--                    <p>제목</p><input type="text" th:field="*{title}"><br>-->
+                <!--                    <p>곡번호</p><input type="text" th:field="*{number}"><br>-->
+                <!--                    <p>참여진</p><input type="text" th:field="*{participants}"><br>-->
+                제목:<input Type="text" th:name = "'plusSongDtoList[' + ${i.count - 1} + '].title'" ><br>
+                참여진<input type="text" th:name = "'plusSongDtoList[' + ${i.count - 1} + '].participants'"><br>
+            </td>
+        </tr>
+    </table>
+    <button type="submit">등록</button>
+</form>
+</body>
+</html>

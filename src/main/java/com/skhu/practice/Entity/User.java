@@ -1,15 +1,17 @@
 package com.skhu.practice.Entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="USER_TABLE")
 @Getter
-@ToString
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,8 +23,10 @@ public class User {
     @Column(name="EMAIL")
     private String email;
 
-    @Column(name="USER_AUTH")
-    private String userAuth;
+    @Enumerated(EnumType.STRING)
+    @Column(name="ROLE")
+    @ColumnDefault("'ROLE_ARTIST'")
+    private Role role;
 
     @OneToMany(mappedBy="user")
     List<AlbumReview> albumReviews;

@@ -1,8 +1,5 @@
 package com.skhu.practice.Entity;
 
-import com.skhu.practice.Entity.SongReview;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,9 +20,15 @@ public class AlbumReview {
     @ManyToOne
     @JoinColumn(name="albumId")
     private Album album;
-    @JsonIgnore
-    @OneToMany(mappedBy="albumReview")
-    List<SongReview> songReviews;
+
+    @ElementCollection
+    @CollectionTable(name="albumReviews" ,joinColumns=@JoinColumn(name="reviewId"))
+    @Column(name="Reviews")
+    private List<String> Reviews;
+
+    @OneToMany(mappedBy = "albumReview", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OrderBy("id asc") // 댓글 정렬
+    private List<Comment> comments;
 
     @Column(name="TITLE")
     private String title;

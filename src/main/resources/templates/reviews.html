@@ -17,6 +17,7 @@
         <td><a th:href="@{reviewDetail(albumReviewId=${albumReview.id})}">[[${albumReview.title}]]</a></td>
         <td>[[${albumReview.user.email}]]</td>
     </tr>
+        <td><a th:href="@{reviewCreate(albumId=${albumId})}">리뷰작성</a></td>
     </table>
 </body>
 </html>
