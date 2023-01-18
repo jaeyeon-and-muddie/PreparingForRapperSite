@@ -24,7 +24,7 @@ public class AlbumReview {
     @ElementCollection
     @CollectionTable(name="albumReviews" ,joinColumns=@JoinColumn(name="reviewId"))
     @Column(name="Reviews")
-    private List<String> Reviews;
+    private List<String> reviews;
 
     @OneToMany(mappedBy = "albumReview", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @OrderBy("id asc") // 댓글 정렬

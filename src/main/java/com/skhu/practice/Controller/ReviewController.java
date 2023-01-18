@@ -1,6 +1,7 @@
 package com.skhu.practice.Controller;
 
 import com.skhu.practice.DTO.ReviewCreateDto;
+import com.skhu.practice.DTO.UserSessionDto;
 import com.skhu.practice.Entity.Album;
 import com.skhu.practice.Entity.AlbumReview;
 import com.skhu.practice.Entity.Comment;
@@ -15,11 +16,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@SessionAttributes("user")
 public class ReviewController {
 
     private final AlbumService albumService;
@@ -62,13 +65,14 @@ public class ReviewController {
         return mv;
     }
     @PostMapping("reviewComment")
-    public ModelAndView reviewDetail(@CookieValue(name = "memberEmail", required = false) String memberEmail,
-                                     Comment commented, Long albumId){
+    public ModelAndView reviewDetail(@ModelAttribute("user") UserSessionDto user,
+                                     Comment commented, Long albumId,
+                                     Principal principal){
         AlbumReview albumReview = albumReviewRepository.findById(albumId).orElse(null);
         commented.setAlbumReview(albumReview);
 //        System.out.println(memberEmail);
 //        System.out.println(commented.getComment());
-        commented.setUser(userRepository.findByEmail(memberEmail).orElse(null));
+        commented.setUser(userRepository.findByEmail(user.getEmail()).orElse(null));
 //        System.out.println(commented.getAlbumReview().getId());
         reviewService.reviewComment(commented);
         ModelAndView mv = new ModelAndView("redirect:reviewDetail?albumReviewId="+albumId);
@@ -96,10 +100,10 @@ public class ReviewController {
     }
     @PostMapping("reviewCreate")
     public ModelAndView albumReview(@ModelAttribute("reviewCreate") ReviewCreateDto reviewCreateDto,
-                                    @CookieValue(name = "memberEmail", required = false) String memberEmail){
+                                    @ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView("redirect:reviews?albumId="+reviewCreateDto.getAlbumId());
-        User user = userRepository.findByEmail(memberEmail).orElse(null);
-        reviewService.albumReviewCreate(reviewCreateDto, user);
+        User user1 = userRepository.findByEmail(user.getEmail()).orElse(null);
+        reviewService.albumReviewCreate(reviewCreateDto, user1);
         return mv;
     }
 

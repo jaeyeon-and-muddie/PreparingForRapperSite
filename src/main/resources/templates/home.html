@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <html lang="en">
 
 <head>
@@ -26,6 +27,7 @@
 
 
     </table>
-    <a th:href="@{plusAlbum}">앨범등록</a>
+    <a th:href="@{plusAlbum}" sec:authorize="hasRole('ROLE_ADMIN')">앨범등록</a>
+    <a th:href="@{doLogout}">로그아웃</a>
 </body>
 </html>

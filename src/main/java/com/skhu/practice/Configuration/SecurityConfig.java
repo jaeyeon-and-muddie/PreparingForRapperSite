@@ -47,10 +47,14 @@ public class SecurityConfig {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .usernameParameter("email") // 아이디 파라미터명 설정, default: username
-                .passwordParameter("password")
-                .loginProcessingUrl("/loginProc")// /login주소가 호출이되면 시큐리티가 낚아채서 대신 로그인을 진행
-                .defaultSuccessUrl("/home");
+                    .usernameParameter("email") // 아이디 파라미터명 설정, default: username
+                    .passwordParameter("password")
+                    .loginProcessingUrl("/loginProc")// /login주소가 호출이되면 시큐리티가 낚아채서 대신 로그인을 진행
+                    .defaultSuccessUrl("/home")
+                .and()
+                .logout()
+                    .logoutUrl("/doLogout")
+                    .logoutSuccessUrl("/");
         return http.build();
     }
 }

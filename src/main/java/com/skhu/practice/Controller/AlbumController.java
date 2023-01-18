@@ -14,6 +14,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@SessionAttributes("user")
 public class AlbumController {
 
     private final AlbumService albumService;
