@@ -24,8 +24,8 @@ import java.util.stream.Collectors;
 
 @Entity
 @ToString
-@Getter
 @SuperBuilder
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "ALBUM_COMMENT")

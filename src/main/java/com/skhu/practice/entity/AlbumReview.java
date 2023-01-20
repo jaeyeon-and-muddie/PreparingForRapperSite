@@ -22,9 +22,9 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Getter
 @ToString
 @AllArgsConstructor
+@Getter
 @SuperBuilder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "ALBUM_REVIEW") // Table = User 로 설정

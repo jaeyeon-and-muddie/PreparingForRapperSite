@@ -25,10 +25,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Getter
 @Builder
 @Table(name = "ALBUM")
 public class Album extends BaseEntity {

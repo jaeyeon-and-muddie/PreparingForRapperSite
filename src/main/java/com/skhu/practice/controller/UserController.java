@@ -26,7 +26,6 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
-    private final AlbumService albumService;
 
     @GetMapping("login")
     public String login() {

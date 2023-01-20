@@ -27,6 +27,7 @@ public class AlbumService {
             albumRepository.save(Album.builder()
                     .name(albumRequestDto.getName())
                     .artist(userRepository.findByUsername(username).orElseThrow(NoSuchElementException::new))
+                    .image(albumRequestDto.getImage())
                     .songsInAlbum(albumRequestDto.extractSongsInAlbum())
                     .dateOfIssue(albumRequestDto.getDateOfIssue())
                     .introduction(albumRequestDto.getIntroduction()).build());
