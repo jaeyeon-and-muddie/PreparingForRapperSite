@@ -2,6 +2,7 @@ package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.UserSignupDto;
 import com.skhu.practice.service.AlbumService;
+import com.skhu.practice.service.UrlToTitleService;
 import com.skhu.practice.service.UserService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -26,6 +28,7 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final UrlToTitleService urlToTitleService;
 
     @GetMapping("login")
     public String login() {
@@ -51,7 +54,8 @@ public class UserController {
     }
 
     @GetMapping("detail/{id}")
-    public ModelAndView loadArtistPage(ModelAndView modelAndView, @PathVariable("id") Long userId) {
+    public ModelAndView loadArtistPage(HttpServletRequest request, ModelAndView modelAndView, @PathVariable("id") Long userId) {
+        System.out.println(urlToTitleService.getTitleByUrl(request.getRequestURL().toString()));
         modelAndView.addObject("artist", userService.findById(userId));
         System.out.println(userService.findById(userId).getImage());
         modelAndView.setViewName("artist-detail"); // User 와 연관한 애들만을 가져와야함

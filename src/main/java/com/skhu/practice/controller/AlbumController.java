@@ -3,6 +3,7 @@ package com.skhu.practice.controller;
 import com.skhu.practice.dto.AlbumRequestDto;
 import com.skhu.practice.service.AlbumCommentService;
 import com.skhu.practice.service.AlbumService;
+import com.skhu.practice.service.UrlToTitleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
 @Controller
@@ -21,9 +23,11 @@ public class AlbumController {
 
     private final AlbumService albumService;
     private final AlbumCommentService albumCommentService;
+    private final UrlToTitleService urlToTitleService;
 
     @GetMapping("")
-    public ModelAndView loadAlbumBoardPage(ModelAndView modelAndView) {
+    public ModelAndView loadAlbumBoardPage(HttpServletRequest request, ModelAndView modelAndView) {
+        System.out.println(urlToTitleService.getTitleByUrl(request.getRequestURL().toString()));
         modelAndView.setViewName("album-board"); // 여기서 album 들을 쏵 보여줘야 한단 말이야
         modelAndView.addObject("album", albumService.findAll());
 
@@ -32,7 +36,8 @@ public class AlbumController {
 
     @PreAuthorize("isAuthenticated()") // 이런 식으로 ADMIN 만 접속하도록, 혹은 로그인한 유저만 접속하도록 통제가 가능하다.
     @GetMapping("write")
-    public ModelAndView loadAlbumWritePage(ModelAndView modelAndView) {
+    public ModelAndView loadAlbumWritePage(HttpServletRequest request, ModelAndView modelAndView) {
+        System.out.println(urlToTitleService.getTitleByUrl(request.getRequestURL().toString()));
         modelAndView.setViewName("write-album");
         return modelAndView;
     }
@@ -51,7 +56,8 @@ public class AlbumController {
     }
 
     @GetMapping("detail/{id}")
-    public ModelAndView loadAlbumDetailPage(ModelAndView modelAndView, @PathVariable("id") Long id) {
+    public ModelAndView loadAlbumDetailPage(HttpServletRequest request, ModelAndView modelAndView, @PathVariable("id") Long id) {
+        System.out.println(urlToTitleService.getTitleByUrl(request.getRequestURL().toString()));
         modelAndView.addObject("album", albumService.albumDetail(id));
         modelAndView.addObject("albumComment", albumCommentService.findAllCommentByAlbum(id));
         modelAndView.setViewName("album-detail");
@@ -59,7 +65,8 @@ public class AlbumController {
     }
 
     @GetMapping("rate")
-    public ModelAndView loadAlbumRatePage(ModelAndView modelAndView) {
+    public ModelAndView loadAlbumRatePage(HttpServletRequest request, ModelAndView modelAndView) {
+        System.out.println(urlToTitleService.getTitleByUrl(request.getRequestURL().toString()));
         modelAndView.addObject("monthlyAlbum", albumService.findByMonthlyAlbum());
         modelAndView.addObject("topAlbumByAverageOfStar", albumService.findTop5ByAverageOfStar());
         modelAndView.addObject("topAlbumByNumberOfReview", albumService.findTop5ByNumberOfReview());
