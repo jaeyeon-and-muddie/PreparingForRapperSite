@@ -1,6 +1,7 @@
 package com.skhu.practice.service;
 
 import lombok.RequiredArgsConstructor;
+import net.bytebuddy.agent.builder.AgentBuilder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,15 +13,15 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UrlToTitleService {
 
-    private static String BASE_URL = "http://localhost:8088/";
-    private static int SPLIT_URL_START_NUMBER = 3;
+    private static final String BASE_URL = "http://localhost:8088/";
+    private static final int SPLIT_URL_START_NUMBER = 3;
     private static Map<Integer, String> nodeToTitle;
     private static Map<String, Node> startNode;
 
     private class Node {
 
-        private int nodeNumber;
-        private String name;
+        private final int nodeNumber;
+        private final String name;
         private List<Node> child;
 
         public Node(int nodeNumber, String name) {
@@ -46,19 +47,15 @@ public class UrlToTitleService {
 
     public String getTitleByUrl(String url) {
         settingUrlMapping();
-        String[] tempSplitUrl = url.split("/");
-        String[] resultSplitUrl = new String[tempSplitUrl.length - SPLIT_URL_START_NUMBER];
-
-        for (int index = SPLIT_URL_START_NUMBER; index < tempSplitUrl.length; index++) {
-            resultSplitUrl[index - SPLIT_URL_START_NUMBER] = tempSplitUrl[index];
-        }
-
-        return search(resultSplitUrl);
+        return search(url.split("/"));
     }
 
     public String search(String[] url) {
-        // 이제 여기서부터 순서대로 진행하면 됨, startNode 찾고, 그 다음에 url path 찾아서 가면 되는데.. 만일 없는 path 가 나오면
-        int depth = 0;
+        if (url.length <= SPLIT_URL_START_NUMBER) {
+            throw new IllegalArgumentException();
+        }
+
+        int depth = SPLIT_URL_START_NUMBER;
         Node currentNode = startNode.get(url[depth++]);
 
         while (depth != url.length) {
@@ -78,7 +75,7 @@ public class UrlToTitleService {
                 put(4, "앨범 리뷰");
                 put(5, "앨범 리뷰 쓰기");
                 put(6, "앨범 리뷰 보기");
-                put(8, "아티스트 정보"); // 6은 그냥 user
+                put(8, "아티스트 정보"); // 7은 그냥 user
             }};
 
 

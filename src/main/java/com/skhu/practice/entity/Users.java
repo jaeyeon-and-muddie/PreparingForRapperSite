@@ -50,6 +50,11 @@ public class Users {
     @Column(name = "image")
     private String image;
 
+    @OneToMany
+    @JsonIgnore
+    @ToString.Exclude
+    private List<Visited> visited;
+
     @OneToMany(mappedBy = "artist")
     @JsonIgnore
     @ToString.Exclude
@@ -61,7 +66,6 @@ public class Users {
             image = "https://www.shutterstock.com/image-vector/profile-picture-avatar-icon-vector-260nw-1760295569.jpg";
         }
     }
-
     public UserResponseDto toResponseDto() {
         return UserResponseDto.builder()
                 .id(this.id)

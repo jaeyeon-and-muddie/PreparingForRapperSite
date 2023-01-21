@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor // 빈을 알아서 주입해줌
@@ -28,7 +29,6 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
-    private final UrlToTitleService urlToTitleService;
 
     @GetMapping("login")
     public String login() {
@@ -54,10 +54,10 @@ public class UserController {
     }
 
     @GetMapping("detail/{id}")
-    public ModelAndView loadArtistPage(HttpServletRequest request, ModelAndView modelAndView, @PathVariable("id") Long userId) {
-        System.out.println(urlToTitleService.getTitleByUrl(request.getRequestURL().toString()));
+    public ModelAndView loadArtistPage(HttpServletRequest request, ModelAndView modelAndView
+            , @PathVariable("id") Long userId, Principal principal) {
+        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("artist", userService.findById(userId));
-        System.out.println(userService.findById(userId).getImage());
         modelAndView.setViewName("artist-detail"); // User 와 연관한 애들만을 가져와야함
         return modelAndView;
     }

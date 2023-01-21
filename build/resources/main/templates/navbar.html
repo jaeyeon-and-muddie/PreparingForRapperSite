@@ -7,7 +7,7 @@
     <a th:href = "@{/user/signup}">회원가입 </a>
     <a th:href = "@{/album/write}" sec:authorize = "isAuthenticated()">앨범추가</a>
     <a th:href = "@{/album/rate}">레이팅 페이지 가기 </a>
-    <div sec:authorize = "isAuthenticated()" th:each = 'title : ${currentVisited}'>
-<!--        <a th:action = "@{}" th:text = "title."></a> 여기에는 이제 title 과 거기에 맵핑된 url 이 필요할 듯-->
+    <div sec:authorize = "isAuthenticated()" th:each = 'visit : ${visited}'>
+        <a th:action = "@{'/' + ${visit.url}}" th:text = "${visit.title} + ' '"></a>
     </div>
 </nav>
