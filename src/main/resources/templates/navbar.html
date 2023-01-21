@@ -5,9 +5,13 @@
     <a th:href = "@{/user/login}" sec:authorize = "isAnonymous()">로그인 </a>
     <a th:href = "@{/user/logout}" sec:authorize = "isAuthenticated()">로그아웃 </a>
     <a th:href = "@{/user/signup}">회원가입 </a>
-    <a th:href = "@{/album/write}" sec:authorize = "isAuthenticated()">앨범추가</a>
+    <a th:href = "@{/album/write}" sec:authorize = "isAuthenticated()">앨범추가 </a>
     <a th:href = "@{/album/rate}">레이팅 페이지 가기 </a>
-    <div sec:authorize = "isAuthenticated()" th:each = 'visit : ${visited}'>
-        <a th:action = "@{'/' + ${visit.url}}" th:text = "${visit.title} + ' '"></a>
+    <div sec:authorize = "isAuthenticated()">
+        최근 방문 목록
     </div>
+    <span sec:authorize = "isAuthenticated()" th:each = 'visit, i : ${visited}'>
+        <a th:href = "@{'/' + ${visit.url}}" th:text = "${visit.title}"></a>
+        <span th:if = "${i.count != visited.size()}">/</span>
+    </span>
 </nav>

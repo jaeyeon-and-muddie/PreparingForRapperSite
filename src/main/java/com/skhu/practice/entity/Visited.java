@@ -46,9 +46,20 @@ public class Visited {
 
     public VisitedResponseDto toResponseDto() {
         return VisitedResponseDto.builder()
-                .id(this.id)
-                .url(this.url)
+                .url(convertUrlCorrectForm(this.url))
                 .title(this.title)
                 .build();
+    }
+
+    private String convertUrlCorrectForm(String url) {
+        String[] splitUrl = url.split("/");
+        StringBuilder correctForm = new StringBuilder();
+
+        for (int index = 3; index < splitUrl.length; index++) {
+            correctForm.append(splitUrl[index]).append("/");
+        }
+
+        correctForm.deleteCharAt(correctForm.length() - 1);
+        return correctForm.toString();
     }
 }

@@ -5,24 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba328ba3-7c33-4b89-abc9-7c376ca56200" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/VisitedResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Visited.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/VisitedRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UrlToTitleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UrlToTitleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Visited.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Visited.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navbar.html" afterDir="false" />
     </list>
@@ -144,7 +137,7 @@
       <workItem from="1673421074311" duration="21395000" />
       <workItem from="1673736409294" duration="5437000" />
       <workItem from="1673741933031" duration="12733000" />
-      <workItem from="1674185064721" duration="13780000" />
+      <workItem from="1674185064721" duration="19757000" />
     </task>
     <servers />
   </component>

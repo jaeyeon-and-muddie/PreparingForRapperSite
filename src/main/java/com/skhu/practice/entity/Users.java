@@ -50,7 +50,7 @@ public class Users {
     @Column(name = "image")
     private String image;
 
-    @OneToMany
+    @OneToMany(mappedBy = "users")
     @JsonIgnore
     @ToString.Exclude
     private List<Visited> visited;

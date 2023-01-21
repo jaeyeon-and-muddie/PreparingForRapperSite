@@ -51,27 +51,24 @@ public class UserService {
                 .users(users)
                 .build();
         List<Visited> visited = users.getVisited();
-        System.out.println(users.getVisited());
         calculateVisit(insertVisit, visited);
     }
 
     private void calculateVisit(Visited insertVisit, List<Visited> visited) {
         if (visited.contains(insertVisit)) {
             int removeIndex = findRemoveIndex(insertVisit, visited);
-
-            if (!(visited.size() == VISITED_SIZE_LIMIT && removeIndex == 0)) {
-                visitedRepository.delete(visited.get(removeIndex));
-                visited.remove(removeIndex);
-            }
+            visitedRepository.delete(visited.get(removeIndex));
+            visited.remove(removeIndex);
         }
 
         visitedRepository.save(insertVisit);
-        System.out.println(visited);
+        visited.add(insertVisit); // add 로 시간을 범
 
         if (visited.size() > VISITED_SIZE_LIMIT) {
             visitedRepository.delete(visited.get(0));
+            visited.remove(0); // remove 로 시간을 범
         }
-    }
+    } // 시간을 벌어줌으로서 영속화 -> 데이터 불러오기의 시간이 너무 조금 걸려서 최신 데이터로 가져오지 못하던 것을 해결함
 
     private int findRemoveIndex(Visited insertVisit, List<Visited> visited) {
         int removeIndex = 0;
