@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, users-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{/common.css}" rel = "stylesheet"/>
     <title>Document</title>
 </head>
 <body>
@@ -19,9 +20,14 @@
             <label for = "image">앨범 이미지</label>
             <input type = "text" id = "image" name = "image"/>
         </div>
-        <div class="form-group">
-            <label for = "songsInAlbum">수록곡 (여러 곡이라면 ',' 로 구분하여 작성해주세요)</label>
-            <input type = "text" id = "songsInAlbum" name = "songsInAlbum"/>
+<!--        <div class="form-group">-->
+<!--            <label for = "songsInAlbum">수록곡 (여러 곡이라면 ',' 로 구분하여 작성해주세요)</label>-->
+<!--            <input type = "text" id = "songsInAlbum" name = "songsInAlbum"/>-->
+<!--        </div>-->
+        <div>수록곡 수를 입력하세요</div>
+        <input type = "text" id = "numberOfSong"/>
+        <div id = "constructor">입력하셨으면 클릭하세요</div>
+        <div id = "songs">
         </div>
         <div class="form-group">
             <label for = "dateOfIssue">발매일</label>
@@ -34,5 +40,33 @@
         <button type="submit" class="btn btn-primary block full-width m-b">작성 완료</button>
     </form>
 </body>
+<script>
+    document.getElementById('constructor').onclick = function() {
+        var songs = document.getElementById('songs');
+
+        while (songs.hasChildNodes()) {
+            songs.removeChild(songs.firstChild);
+        }
+
+        var field = ['title', 'lyric'];
+        var title = ['제목', '가사']
+
+        for (var i = 0; i < document.getElementById('numberOfSong').value; i++) {
+            for (var j = 0; j < 2; j++) {
+                var div = document.createElement('div')
+                div.innerHTML = title[j];
+
+                var input = document.createElement('textarea');
+                input.id = field[j] + i;
+                input.type = "text"
+                input.name = "songs[" + i + "]." + field[j];
+
+                songs.appendChild(div);
+                songs.appendChild(input);
+            }
+            songs.appendChild(document.createElement('hr'));
+        }
+    }
+</script>
 </html>
 

@@ -18,7 +18,7 @@ public class AlbumResponseDto {
 
     private String name;
 
-    private List<String> songsInAlbum;
+    private List<SongResponseDto> songsInAlbum;
 
     private LocalDate dateOfIssue;
 

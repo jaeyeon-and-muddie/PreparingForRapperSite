@@ -36,7 +36,7 @@
     <br>
     <span>수록곡</span>
     <div th:each = 'song : ${album.songsInAlbum}'>
-        <div th:text = "${song}"></div>
+        <div th:text = "${song.title}"></div>
     </div>
     <br>
     <hr/>

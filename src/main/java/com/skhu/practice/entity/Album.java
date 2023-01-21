@@ -1,5 +1,6 @@
 package com.skhu.practice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skhu.practice.dto.AlbumResponseDto;
 import com.skhu.practice.entity.base.BaseEntity;
 import lombok.AccessLevel;
@@ -19,10 +20,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @ToString
@@ -44,13 +47,10 @@ public class Album extends BaseEntity {
     @Column(name = "DATE_OF_ISSUE")
     private LocalDate dateOfIssue;
 
-    @ElementCollection
-    @CollectionTable(
-            name = "SONG",
-            joinColumns = @JoinColumn(name = "ID")
-    )
-    @Column(name = "SONGS_IN_ALBUM")
-    private List<String> songsInAlbum;
+    @OneToMany(mappedBy = "album")
+    @ToString.Exclude
+    @JsonIgnore
+    private List<Song> songsInAlbum;
 
     @ManyToOne(targetEntity = Users.class)
     @JoinColumn(name = "user_id") // 추후에 artist 도 등록할 수 있으면, 그 때 추가할 것임
@@ -77,7 +77,10 @@ public class Album extends BaseEntity {
                 .name(this.name)
                 .artist(artist.toResponseDto())
                 .dateOfIssue(this.dateOfIssue)
-                .songsInAlbum(this.songsInAlbum)
+                .songsInAlbum(this.songsInAlbum
+                        .stream()
+                        .map(Song::toResponseDto)
+                        .collect(Collectors.toList()))
                 .averageOfStar(averageOfStarFormatter(averageOfStar))
                 .numberOfReview(this.numberOfReview)
                 .hits(this.hits)

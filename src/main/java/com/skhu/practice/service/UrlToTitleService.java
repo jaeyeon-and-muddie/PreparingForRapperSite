@@ -58,7 +58,7 @@ public class UrlToTitleService {
         int depth = SPLIT_URL_START_NUMBER;
         Node currentNode = startNode.get(url[depth++]);
 
-        while (depth != url.length) {
+        while (depth < url.length) {
             currentNode = currentNode.findChild(url[depth++]);
         }
 

@@ -2,6 +2,7 @@ package com.skhu.practice.service;
 
 import com.skhu.practice.dto.AlbumRequestDto;
 import com.skhu.practice.dto.AlbumReviewRequestDto;
+import com.skhu.practice.dto.SongRequestDto;
 import com.skhu.practice.dto.UserSignupDto;
 import com.skhu.practice.entity.Album;
 import com.skhu.practice.repository.AlbumRepository;
@@ -58,17 +59,24 @@ public class InsertMokDataService {
 
     private void albumSave() {
         String name = "album";
-        String songsInAlbum = "intro, classic, old car";
+        String[] songsInAlbum = new String[] {"intro", "classic", "old car"};
+        List<SongRequestDto> songs = new ArrayList<>();
         LocalDate dateOfIssue = LocalDate.now();
         String introduction = "정민님의 노래는 개지린다";
+
+        for (int index = 0; index < 3; index++) {
+            songs.add(SongRequestDto.builder()
+                    .lyric("동그란 맘 속에 피어난 how is the life " + index)
+                    .title(songsInAlbum[index])
+                    .build());
+        }
 
         for (int addNumber = 1; addNumber <= ALBUM_ID_RANGE; addNumber++) {
             albumService.save(AlbumRequestDto.builder()
                             .name(name + addNumber)
-                            .songsInAlbum(songsInAlbum + addNumber)
                             .introduction(introduction + addNumber)
                             .dateOfIssue(dateOfIssue.minusDays(random.nextInt(32)))
-                            .build(), USERNAME + randomNumber(USER_ID_RANGE));
+                            .build(), songs, USERNAME + randomNumber(USER_ID_RANGE));
         }
     }
 

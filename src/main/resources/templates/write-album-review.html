@@ -20,7 +20,7 @@
         <div>수록곡 리뷰 작성하기</div>
         <div class="form-group" th:each = "song, i : ${album.songsInAlbum}">
             <br>
-            <div th:text = "${i.count} + '.' + ${song}"></div>
+            <div th:text = "${i.count} + '.' + ${song.title}"></div>
             <textarea cols = "50" rows = "10" th:id = "'name' + ${i.count}" th:name = "'reviewOfSongs[' + ${i.count - 1} + ']'"></textarea>
         </div>
         <br>

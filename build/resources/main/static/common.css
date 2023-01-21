@@ -16,3 +16,8 @@ img {
     width: 100px;
     height: 100px;
 }
+
+#constructor:hover {
+    background : blue;
+    transition: all 1s;
+}

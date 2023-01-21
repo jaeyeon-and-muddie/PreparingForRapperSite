@@ -18,7 +18,7 @@
     <span>수록곡 리뷰</span>
     <div class="form-group" th:each = "song, i : ${albumReview.album.songsInAlbum}">
         <br>
-        <div th:text = "${i.count} + '.' + ${song}"></div>
+        <div th:text = "${i.count} + '.' + ${song.title}"></div>
         <div th:text = "${albumReview.reviewOfSongs[i.count - 1]}"></div>
     </div>
     <br>
