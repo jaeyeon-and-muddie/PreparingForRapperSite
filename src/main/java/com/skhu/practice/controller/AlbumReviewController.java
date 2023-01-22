@@ -30,8 +30,8 @@ public class AlbumReviewController {
     private final UserService userService;
 
     @GetMapping("{id}")
-    public ModelAndView loadReviewPage(HttpServletRequest request, ModelAndView modelAndView
-            , @PathVariable("id") Long albumId, Principal principal) {
+    public ModelAndView loadReviewPage(HttpServletRequest request, ModelAndView modelAndView,
+                                       @PathVariable("id") Long albumId, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("album", albumService.findById(albumId));
         modelAndView.addObject("albumReview", albumReviewService.findAllReviewByAlbum(albumId)); // 전체 리뷰 다 가져와야한다.
@@ -41,8 +41,8 @@ public class AlbumReviewController {
     }
 
     @GetMapping("write/{id}") // 쓰기 페이지 돌입
-    public ModelAndView loadWriteReviewPage(HttpServletRequest request, ModelAndView modelAndView
-            , @PathVariable("id") Long albumId, Principal principal) {
+    public ModelAndView loadWriteReviewPage(HttpServletRequest request, ModelAndView modelAndView,
+                                            @PathVariable("id") Long albumId, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("album", albumService.findById(albumId));
         modelAndView.setViewName("write-album-review");
@@ -60,8 +60,8 @@ public class AlbumReviewController {
     }
 
     @GetMapping("detail/{id}")
-    public ModelAndView loadReviewDetailPage(HttpServletRequest request, ModelAndView modelAndView
-            , @PathVariable("id") Long reviewId, Principal principal) {
+    public ModelAndView loadReviewDetailPage(HttpServletRequest request, ModelAndView modelAndView,
+                                             @PathVariable("id") Long reviewId, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("albumReview", albumReviewService.getDetailReview(reviewId));
         modelAndView.setViewName("album-review-detail");

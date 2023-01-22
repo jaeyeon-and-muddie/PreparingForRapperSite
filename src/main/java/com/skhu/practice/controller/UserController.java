@@ -1,6 +1,7 @@
 package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.UserSignupDto;
+import com.skhu.practice.service.AlarmService;
 import com.skhu.practice.service.AlbumService;
 import com.skhu.practice.service.UrlToTitleService;
 import com.skhu.practice.service.UserService;
@@ -29,6 +30,7 @@ import java.security.Principal;
 public class UserController {
 
     private final UserService userService;
+    private final AlarmService alarmService;
 
     @GetMapping("login")
     public String login() {
@@ -54,11 +56,27 @@ public class UserController {
     }
 
     @GetMapping("detail/{id}")
-    public ModelAndView loadArtistPage(HttpServletRequest request, ModelAndView modelAndView
-            , @PathVariable("id") Long userId, Principal principal) {
+    public ModelAndView loadArtistPage(HttpServletRequest request, ModelAndView modelAndView,
+                                       @PathVariable("id") Long userId, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("artist", userService.findById(userId));
         modelAndView.setViewName("artist-detail"); // User 와 연관한 애들만을 가져와야함
+        return modelAndView;
+    }
+
+    @GetMapping("alarm")
+    public ModelAndView loadAlarmPage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
+        modelAndView.addObject("username", principal.getName());
+        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("alarms", alarmService.findAllAlarm(principal));
+        modelAndView.setViewName("alarm");
+
+        return modelAndView;
+    }
+
+    @GetMapping("alarm/{id}")
+    public ModelAndView redirectPageByAlarm(ModelAndView modelAndView, @PathVariable("id") Long alarmId) {
+        modelAndView.setViewName("redirect:/" + alarmService.redirectByAlarm(alarmId)); // 그래도 visit 할 때에만 저장하는 것이 나을것임
         return modelAndView;
     }
 }

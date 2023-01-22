@@ -2,10 +2,8 @@ package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.AlbumRequestDto;
 import com.skhu.practice.dto.SongInputDto;
-import com.skhu.practice.dto.SongRequestDto;
 import com.skhu.practice.service.AlbumCommentService;
 import com.skhu.practice.service.AlbumService;
-import com.skhu.practice.service.UrlToTitleService;
 import com.skhu.practice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -48,8 +45,8 @@ public class AlbumController {
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping("write")
-    public ModelAndView saveAlbum(ModelAndView modelAndView, AlbumRequestDto albumRequestDto
-            , SongInputDto song, Principal principal) {
+    public ModelAndView saveAlbum(ModelAndView modelAndView, AlbumRequestDto albumRequestDto,
+                                  SongInputDto song, Principal principal) {
         String viewName = "redirect:/album";
 
         if (!albumService.save(albumRequestDto, song.getSongs(), principal.getName())) { // save 시에, 실패하는 경우에만 실행
@@ -61,8 +58,8 @@ public class AlbumController {
     }
 
     @GetMapping("detail/{id}")
-    public ModelAndView loadAlbumDetailPage(HttpServletRequest request, ModelAndView modelAndView
-            , @PathVariable("id") Long id, Principal principal) {
+    public ModelAndView loadAlbumDetailPage(HttpServletRequest request, ModelAndView modelAndView,
+                                            @PathVariable("id") Long id, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("album", albumService.albumDetail(id));
         modelAndView.addObject("albumComment", albumCommentService.findAllCommentByAlbum(id));

@@ -76,6 +76,7 @@ public class UrlToTitleService {
                 put(5, "앨범 리뷰 쓰기");
                 put(6, "앨범 리뷰 보기");
                 put(8, "아티스트 정보"); // 7은 그냥 user
+                put(9, "알람함");
             }};
 
 
@@ -88,6 +89,7 @@ public class UrlToTitleService {
             Node albumReviewDetail = new Node(6, "detail");
             Node user = new Node(7, "user");
             Node userArtist = new Node(8, "detail");
+            Node userAlarm = new Node(9, "alarm");
 
             album.addChild(albumDetail);
             album.addChild(albumRate);
@@ -96,6 +98,7 @@ public class UrlToTitleService {
             albumReview.addChild(albumReviewWrite);
             albumReview.addChild(albumReviewDetail);
             user.addChild(userArtist);
+            user.addChild(userAlarm);
 
             startNode = new HashMap<>(){{
                 put("album", album);

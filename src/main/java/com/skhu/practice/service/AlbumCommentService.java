@@ -21,12 +21,14 @@ public class AlbumCommentService {
     private final AlbumCommentRepository albumCommentRepository;
     private final UserRepository userRepository;
     private final AlbumRepository albumRepository;
+    private final AlarmService alarmService;
 
     public void save(Long id, String content, String username) {
         Users users = userRepository.findByUsername(username).orElseThrow(NoSuchElementException::new);
         Album album = albumRepository.findById(id).orElseThrow(NoSuchElementException::new);
         album.turnBackHits();
         albumRepository.save(album);
+        alarmService.saveAlarmWhenTagContainMessage(content, "album/detail/" + id, username);
 
         albumCommentRepository.save(AlbumComment.builder()
                 .author(users)

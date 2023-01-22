@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Builder
 @Getter
@@ -21,6 +22,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Entity
 @ToString
+@Table(name = "visited")
 public class Visited {
 
     @Id
