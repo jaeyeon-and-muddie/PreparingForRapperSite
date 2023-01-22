@@ -52,9 +52,6 @@ public class AlbumController {
             , SongInputDto song, Principal principal) {
         String viewName = "redirect:/album";
 
-        System.out.println(song);
-        System.out.println(song.getSongs());
-
         if (!albumService.save(albumRequestDto, song.getSongs(), principal.getName())) { // save 시에, 실패하는 경우에만 실행
             viewName = "redirect:/album/write";
         }

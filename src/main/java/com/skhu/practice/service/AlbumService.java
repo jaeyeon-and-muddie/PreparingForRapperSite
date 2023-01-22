@@ -75,7 +75,7 @@ public class AlbumService {
     public List<AlbumResponseDto> findByMonthlyAlbum() {
         LocalDate endDate = LocalDate.now();
         LocalDate startDate = LocalDate.of(endDate.getYear(), endDate.getMonthValue(), 1);
-        return albumRepository.findByDateOfIssueBetweenOrderByDateOfIssueAsc(startDate, endDate)
+        return albumRepository.findByDateOfIssueBetweenOrderByDateOfIssueDesc(startDate, endDate)
                 .stream()
                 .map(Album::toResponseDto)
                 .collect(Collectors.toList());

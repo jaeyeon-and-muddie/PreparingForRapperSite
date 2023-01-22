@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface AlbumRepository extends JpaRepository<Album, Long> {
 
-    List<Album> findByDateOfIssueBetweenOrderByDateOfIssueAsc(LocalDate firstDateOfIssue, LocalDate secondDateOfIssue);
+    List<Album> findByDateOfIssueBetweenOrderByDateOfIssueDesc(LocalDate firstDateOfIssue, LocalDate secondDateOfIssue);
 
     List<Album> findTop5ByOrderByNumberOfReviewDesc();
 
