@@ -72,11 +72,17 @@ public class UrlToTitleService {
                 put(1, "앨범 상세");
                 put(2, "앨범 랭크");
                 put(3, "앨범 작성");
-                put(4, "앨범 리뷰");
-                put(5, "앨범 리뷰 쓰기");
-                put(6, "앨범 리뷰 보기");
+                put(4, "앨범 리뷰 보드");
+                put(5, "앨범 리뷰 작성");
+                put(6, "앨범 리뷰 상세");
                 put(8, "아티스트 정보"); // 7은 그냥 user
                 put(9, "알람함");
+                put(10, "믹스 테이프 보드");
+                put(11, "믹스 테이프 작성");
+                put(12, "믹스 테이프 상세");
+                put(13, "믹스 테이프 리뷰 보드");
+                put(14, "믹스 테이프 리뷰 작성");
+                put(15, "믹스 테이프 리뷰 상세");
             }};
 
 
@@ -90,6 +96,12 @@ public class UrlToTitleService {
             Node user = new Node(7, "user");
             Node userArtist = new Node(8, "detail");
             Node userAlarm = new Node(9, "alarm");
+            Node mixTape = new Node(10, "mixtape");
+            Node mixTapeWrite = new Node(11, "write");
+            Node mixTapeDetail = new Node(12, "detail");
+            Node mixTapeReview = new Node(13, "review");
+            Node mixTapeReviewWrite = new Node(14, "write");
+            Node mixTapeReviewDetail = new Node(15, "detail");
 
             album.addChild(albumDetail);
             album.addChild(albumRate);
@@ -99,10 +111,16 @@ public class UrlToTitleService {
             albumReview.addChild(albumReviewDetail);
             user.addChild(userArtist);
             user.addChild(userAlarm);
+            mixTape.addChild(mixTapeWrite);
+            mixTape.addChild(mixTapeDetail);
+            mixTape.addChild(mixTapeReview);
+            mixTapeReview.addChild(mixTapeReviewWrite);
+            mixTapeReview.addChild(mixTapeReviewDetail);
 
             startNode = new HashMap<>(){{
                 put("album", album);
                 put("user", user);
+                put("mixtape", mixTape);
             }};
         }
     }

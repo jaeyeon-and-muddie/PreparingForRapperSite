@@ -1,13 +1,11 @@
 package com.skhu.practice.entity;
 
 import com.skhu.practice.dto.AlarmResponseDto;
-import com.skhu.practice.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +21,7 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
+@Builder
 @Getter
 @ToString
 @Table(name = "alarm")
