@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>notableHome</title>
+</head>
+<body>
+<a th:href="@{home}">홈으로</a>
+<table>
+    <h3>리뷰 순</h3>
+    <tr th:each="reviewNote : ${notableList.reviewNotes}">
+        <td><a th:href="@{albumInform(albumId=${reviewNote.id})}">
+            <img th:src="${reviewNote.image}" style="width:100px; height:100px;">
+        </a></td>
+        <td>[[${reviewNote.title}]]</td>
+    </tr>
+</table>
+<table>
+    <h3>조회순</h3>
+    <tr th:each="viewNote : ${notableList.viewNotes}">
+        <td> <a th:href="@{albumInform(albumId=${viewNote.id})}">
+            <img th:src="${viewNote.image}" style="width:100px; height:100px;">
+        </a></td>
+        <td> [[${viewNote.title}]]</td>
+    </tr>
+</table>
+<table>
+    <h3>별점순</h3>
+    <tr th:each="starNote : ${notableList.starNotes}">
+        <td> <a th:href="@{albumInform(albumId=${starNote.id})}">
+            <img th:src="${starNote.image}" style="width:100px; height:100px;">
+        </a></td>
+        <td> [[${starNote.title}]]</td>
+    </tr>
+</table>
+</body>
+</html>

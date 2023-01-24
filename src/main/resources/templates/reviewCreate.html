@@ -17,6 +17,10 @@
             <td>제목</td>
             <td><input type="text" th:name="title"></td>
         </tr>
+        <tr>
+            <td>별점</td>
+            <td><input type="number" th:name="star"></td>
+        </tr>
         <tr th:each="review, i : ${albumReview.Reviews}">
             <td><textarea th:name = "'Reviews[' + ${i.count - 1} + ']'" ></textarea></td>
         </tr>

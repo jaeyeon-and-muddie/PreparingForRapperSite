@@ -23,7 +23,7 @@ public class AlbumReview {
 
     @ElementCollection
     @CollectionTable(name="albumReviews" ,joinColumns=@JoinColumn(name="reviewId"))
-    @Column(name="Reviews")
+    @Column(name="reviews")
     private List<String> reviews;
 
     @OneToMany(mappedBy = "albumReview", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
@@ -32,4 +32,10 @@ public class AlbumReview {
 
     @Column(name="TITLE")
     private String title;
+
+    @Column(name="view", columnDefinition = "integer default 0", nullable = false)
+    private int view;
+
+    @Column(name="star", nullable=false)
+    private double star;
 }

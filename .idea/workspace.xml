@@ -13,13 +13,31 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/Join.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/Join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/albumInform.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/albumInform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviewCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviewCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviews.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Configuration/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/AlbumController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/ReviewCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/ReviewCreateDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Album.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/AlbumReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/AlbumReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Join.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/AlbumReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/AlbumReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/ArtistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/ArtistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/AlbumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/albumInform.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/albumInform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewCreate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviews.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +57,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="practice" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -52,8 +75,8 @@
         <option value="Interface" />
         <option value="com.haulmont.jpb.JpaRepository" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>

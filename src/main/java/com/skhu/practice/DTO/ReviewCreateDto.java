@@ -15,5 +15,7 @@ public class ReviewCreateDto {
     Long albumId;
     String title;
 
+    double star;
+
     List<String> reviews;
 }

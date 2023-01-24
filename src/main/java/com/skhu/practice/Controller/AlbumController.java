@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +30,11 @@ public class AlbumController {
     }
 
     @PostMapping("plusAlbum")
-    public ModelAndView albumInsert(@ModelAttribute("plusAlbum") PlusAlbumDto plusAlbumDto){
+    public ModelAndView albumInsert(@ModelAttribute("plusAlbum") PlusAlbumDto plusAlbumDto) throws UnsupportedEncodingException {
         albumService.plusAlbum(plusAlbumDto);
+        String encodedParam = URLEncoder.encode(plusAlbumDto.getTitle(), "UTF-8");
         ModelAndView mv = new ModelAndView("redirect:plusSong?numberOfSongs="+plusAlbumDto.getNumberOfSongs()
-        +"&albumTitle="+plusAlbumDto.getTitle());
+        +"&albumTitle="+encodedParam);
         System.out.println(plusAlbumDto.getTitle());
 
         return mv;

@@ -9,6 +9,7 @@ import com.skhu.practice.Repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -20,6 +21,11 @@ public class ReviewService {
     private final AlbumReviewRepository albumReviewRepository;
     private final CommentRepository commentRepository;
 
+
+    @Transactional
+    public int updateView(Long id) {
+        return albumReviewRepository.updateView(id);
+    }
     public List<AlbumReview> albumReview(Long albumId){
         List<AlbumReview> albumReviews = reviewRepository.findAllByalbumId(albumId);
 
@@ -30,6 +36,7 @@ public class ReviewService {
         Album album = albumRepository.findById(reviewCreateDto.getAlbumId()).orElse(null);
         albumReview.setAlbum(album);
         albumReview.setUser(user);
+        albumReview.setStar(reviewCreateDto.getStar());
         albumReview.setTitle(reviewCreateDto.getTitle());
         albumReview.setReviews(reviewCreateDto.getReviews());
         albumReviewRepository.save(albumReview);

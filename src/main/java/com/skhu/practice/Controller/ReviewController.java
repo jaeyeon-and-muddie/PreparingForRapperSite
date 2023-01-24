@@ -59,6 +59,7 @@ public class ReviewController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("reviewDetail");
         AlbumReview albumReview= albumReviewRepository.findById(albumReviewId).orElse(null);
+        reviewService.updateView(albumReviewId);
 //        List<String> albumReviews = albumReview.getReviews();
         System.out.println(albumReview.getReviews().size());
         mv.addObject("albumReview", albumReview);

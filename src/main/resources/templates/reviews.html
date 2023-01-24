@@ -11,11 +11,15 @@
         <th>앨범</th>
         <th>제목</th>
         <th>작성자</th>
+        <th>별점</th>
+        <th>조회수</th>
     </tr>
     <tr th:each="albumReview : ${albumReviews}">
         <td> [[${albumReview.album.title}]]</td>
         <td><a th:href="@{reviewDetail(albumReviewId=${albumReview.id})}">[[${albumReview.title}]]</a></td>
         <td>[[${albumReview.user.email}]]</td>
+        <td>[[${albumReview.star}]]</td>
+        <td>[[${albumReview.view}]]</td>
     </tr>
         <td><a th:href="@{reviewCreate(albumId=${albumId})}">리뷰작성</a></td>
     </table>

@@ -28,4 +28,7 @@ public class Album {
     @Column(name="RELEASE_DATE")
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate releaseDate;
+
+    @Column(name="IMAGE", nullable = true)
+    private String image;
 }

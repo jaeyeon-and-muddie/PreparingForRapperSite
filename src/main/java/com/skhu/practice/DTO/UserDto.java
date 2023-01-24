@@ -21,7 +21,7 @@ public class UserDto {
         User user = User.builder()
                 .email(email)
                 .password(password)
-                .role(role.USER)
+                .role(role.ARTIST)
                 .build();
         return user;
 
