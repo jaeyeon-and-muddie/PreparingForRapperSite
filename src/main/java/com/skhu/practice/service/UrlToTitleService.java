@@ -13,7 +13,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UrlToTitleService {
 
-    private static final String BASE_URL = "http://localhost:8088/";
     private static final int SPLIT_URL_START_NUMBER = 3;
     private static Map<Integer, String> nodeToTitle;
     private static Map<String, Node> startNode;
@@ -84,7 +83,6 @@ public class UrlToTitleService {
                 put(14, "믹스 테이프 리뷰 작성");
                 put(15, "믹스 테이프 리뷰 상세");
             }};
-
 
             Node album = new Node(0, "album");
             Node albumDetail = new Node(1, "detail");

@@ -32,7 +32,7 @@ public class AlarmService {
                 .collect(Collectors.toList());
     }
 
-    public String redirectByAlarm(Long albumId) {
+    public String redirectByAlarm(Long albumId) { // 알람함 --> 알람의 체크를 처리하는 --> 앨범 상세
         Alarm alarm = alarmRepository.findById(albumId).orElseThrow(NoSuchElementException::new);
         alarm.userInquiry();
         alarmRepository.save(alarm); // 이전에 변경이 되어있었는지를 확인하여, 실제로 저장하지 않을 수 있을 것 같은데 지금은 여기까지의 최적화는 적용하지 말자.
