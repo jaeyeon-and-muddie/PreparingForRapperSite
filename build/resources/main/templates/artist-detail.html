@@ -16,6 +16,7 @@
     <strong>아티스트 이미지</strong>
     <br>
     <img th:src = "@{${artist.image}}"/>
+    <h2>앨범</h2>
     <table>
         <thead>
             <tr>
@@ -44,6 +45,38 @@
                 <td th:text = "${album.averageOfStar}"></td>
                 <td th:text = "${album.hits}"></td>
             </tr>
+        </tbody>
+    </table>
+
+    <h2>믹스테이프</h2>
+    <table>
+        <thead>
+        <tr>
+            <td>앨범이름</td>
+            <td>앨범재킷</td>
+            <td>수록곡 수</td>
+            <td>발매일</td>
+            <td>리뷰수</td>
+            <td>별점</td>
+            <td>조회수</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = 'mixTape : ${artist.mixTapes}'>
+            <td>
+                <a th:href = "@{'/mixtape/detail/' + ${mixTape.id}}" th:text = "${mixTape.name}"></a>
+            </td>
+            <td>
+                <a th:href = "@{'/mixtape/detail/' + ${mixTape.id}}">
+                    <img th:src = "@{${mixTape.image}}"/>
+                </a>
+            </td>
+            <td th:text = "${mixTape.songsInAlbum.size()}"></td>
+            <td th:text = "${mixTape.dateOfIssue}"></td>
+            <td th:text = "${mixTape.numberOfReview}"></td>
+            <td th:text = "${mixTape.averageOfStar}"></td>
+            <td th:text = "${mixTape.hits}"></td>
+        </tr>
         </tbody>
     </table>
 </body>

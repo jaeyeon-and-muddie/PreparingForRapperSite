@@ -44,7 +44,7 @@ public class MixTapeReview extends Review {
     @Column(name = "MIXTAPE_REVIEW_OF_SONGS")
     private List<String> reviewOfSongs;
 
-    @ManyToOne(targetEntity = Album.class)
+    @ManyToOne(targetEntity = MixTape.class)
     @JoinColumn(name = "mixtape_id")
     private MixTape mixTape;
 

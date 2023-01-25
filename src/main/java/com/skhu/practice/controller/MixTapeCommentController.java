@@ -14,7 +14,7 @@ import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("mixtape/comment")
+@RequestMapping("mixtape")
 public class MixTapeCommentController {
 
     private final MixTapeCommentService mixTapeCommentService;
@@ -22,7 +22,7 @@ public class MixTapeCommentController {
 
     @GetMapping("nested/write/{mixtape}/{comment}")
     public ModelAndView loadWriteNestedPage(ModelAndView modelAndView, @PathVariable("mixtape") Long mixTapeId, @PathVariable("comment") Long commentId) {
-        modelAndView.setViewName("write-album-nested-comment");
+        modelAndView.setViewName("write-mixtape-nested-comment");
         modelAndView.addObject("mixTapeId", mixTapeId);
         modelAndView.addObject("commentId", commentId);
 
@@ -32,13 +32,13 @@ public class MixTapeCommentController {
     @PostMapping("comment/{id}")
     public ModelAndView saveComment(ModelAndView modelAndView, @PathVariable("id") Long mixTapeId, String content, Principal principal) {
         mixTapeCommentService.save(mixTapeId, content, principal.getName());
-        modelAndView.setViewName("redirect:/mixTape/detail/" + mixTapeId);
+        modelAndView.setViewName("redirect:/mixtape/detail/" + mixTapeId);
 
         return modelAndView;
     } // 여기에 tag 검사 추가
 
     @PostMapping("nested/{mixtape}/{comment}")
-    public ModelAndView saveNestedComment(ModelAndView modelAndView, @PathVariable("album") Long mixTapeId,
+    public ModelAndView saveNestedComment(ModelAndView modelAndView, @PathVariable("mixtape") Long mixTapeId,
                                           @PathVariable("comment") Long commentId, String content, Principal principal) {
         mixTapeNestedCommentService.save(commentId, content, principal.getName());
         modelAndView.setViewName("redirect:/mixtape/detail/" + mixTapeId);

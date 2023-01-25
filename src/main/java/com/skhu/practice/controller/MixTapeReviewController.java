@@ -41,7 +41,7 @@ public class MixTapeReviewController {
                                             @PathVariable("id") Long mixTapeId, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("mixTape", mixTapeService.findById(mixTapeId));
-        modelAndView.setViewName("write-mixtape-review.html");
+        modelAndView.setViewName("write-mixtape-review");
 
         return modelAndView;
     }
@@ -59,7 +59,7 @@ public class MixTapeReviewController {
                                              @PathVariable("id") Long reviewId, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
         modelAndView.addObject("mixTapeReview", mixTapeReviewService.getDetailReview(reviewId));
-        modelAndView.setViewName("mixtape-review-detail");
+        modelAndView.setViewName("mixtape-review-detail.html");
 
         return modelAndView;
     }

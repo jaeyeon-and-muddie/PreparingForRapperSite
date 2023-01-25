@@ -44,10 +44,10 @@ public class MixTape extends BaseEntity {
     @Column(name = "date_of_issue")
     private LocalDate dateOfIssue;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "mixTape")
     @ToString.Exclude
     @JsonIgnore
-    private List<MixTapeSong> songsInAlbum;
+    private List<MixTapeSong> songsInMixTape;
 
     @ManyToOne(targetEntity = Users.class)
     @JoinColumn(name = "user_id")
@@ -78,7 +78,7 @@ public class MixTape extends BaseEntity {
                 .artist(artist.toResponseDto())
                 .dateOfIssue(this.dateOfIssue)
                 .soundCloud(this.soundCloud)
-                .songsInMixTape(this.songsInAlbum
+                .songsInMixTape(this.songsInMixTape
                         .stream()
                         .map(MixTapeSong::toResponseDto)
                         .collect(Collectors.toList()))
