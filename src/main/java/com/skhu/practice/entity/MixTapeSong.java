@@ -1,11 +1,13 @@
 package com.skhu.practice.entity;
 
-import com.skhu.practice.dto.SongResponseDto;
+import com.skhu.practice.dto.AlbumSongResponseDto;
+import com.skhu.practice.dto.MixTapeSongResponseDto;
+import com.skhu.practice.entity.base.Song;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,34 +17,29 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 @Entity
-@Builder
+@SuperBuilder
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Song {
+public class MixTapeSong extends Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @ManyToOne(targetEntity = MixTape.class)
+    @JoinColumn(name = "mix_tape")
+    private MixTape mixTape;
 
-    @ManyToOne(targetEntity = Album.class)
-    @JoinColumn(name = "album")
-    private Album album;
-
-    @Column(columnDefinition = "LONGTEXT")
-    private String lyric;
-
-    public SongResponseDto toResponseDto() {
-        return SongResponseDto.builder()
+    public MixTapeSongResponseDto toResponseDto() {
+        return MixTapeSongResponseDto.builder()
                 .id(this.id)
-                .title(this.title)
-                .lyric(this.lyric)
+                .title(getTitle())
+                .lyric(getLyric())
                 .build();
     }
 }

@@ -10,14 +10,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -60,6 +57,11 @@ public class Users {
     @ToString.Exclude
     private List<Album> albums;
 
+    @OneToMany(mappedBy = "artist")
+    @JsonIgnore
+    @ToString.Exclude
+    private List<MixTape> mixTapes;
+
     @PrePersist
     private void prePersist() {
         if (image == null) {
@@ -80,8 +82,11 @@ public class Users {
                 .email(this.email)
                 .username(username)
                 .image(this.image)
-                .albums(albums.stream()
+                .albums(this.albums.stream()
                         .map(Album::toResponseDto)
+                        .collect(Collectors.toList()))
+                .mixTapes(this.mixTapes.stream()
+                        .map(MixTape::toResponseDto)
                         .collect(Collectors.toList()))
                 .build();
     }

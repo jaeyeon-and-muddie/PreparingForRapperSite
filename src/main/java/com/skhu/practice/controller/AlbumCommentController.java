@@ -38,7 +38,7 @@ public class AlbumCommentController {
     } // 여기에 tag 검사 추가
 
     @PostMapping("nested/{album}/{comment}")
-    public ModelAndView saveNestedComment(ModelAndView modelAndView, @PathVariable("album") Long albumId,
+    public ModelAndView saveNestedComment(ModelAndView modelAndView, @PathVariable("mixtape") Long albumId,
                                           @PathVariable("comment") Long commentId, String content, Principal principal) {
         albumNestedCommentService.save(commentId, content, principal.getName());
         modelAndView.setViewName("redirect:/album/detail/" + albumId);

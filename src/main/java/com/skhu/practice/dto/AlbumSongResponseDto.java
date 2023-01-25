@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SongResponseDto {
+public class AlbumSongResponseDto {
 
     private Long id;
 

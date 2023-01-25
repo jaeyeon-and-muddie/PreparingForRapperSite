@@ -4,33 +4,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @Builder
-public class AlbumResponseDto {
-
-    private Long id;
+@ToString
+public class MixTapeRequestDto {
 
     private String name;
 
-    private List<AlbumSongResponseDto> songsInAlbum;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfIssue;
-
-    private UserResponseDto artist;
-
-    private Long numberOfReview;
-
-    private String averageOfStar;
-
-    private Long hits;
 
     private String introduction;
 
     private String image;
+
+    private String soundCloud;
 }

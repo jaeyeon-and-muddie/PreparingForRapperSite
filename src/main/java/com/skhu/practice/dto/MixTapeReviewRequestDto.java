@@ -1,25 +1,25 @@
 package com.skhu.practice.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
-@Getter
-@SuperBuilder
+@Builder
 @Setter
 @NoArgsConstructor
-@ToString
 @AllArgsConstructor
-public class ArtistDto extends UserResponseDto {
+@Getter
+@ToString
+public class MixTapeReviewRequestDto {
 
-    private String image;
+    private String title;
 
-    private List<AlbumResponseDto> albums;
+    private List<String> reviewOfSongs;
 
-    private List<MixTapeResponseDto> mixTapes;
+    private Double star;
 }

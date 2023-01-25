@@ -4,17 +4,14 @@ import com.skhu.practice.dto.AlbumRequestDto;
 import com.skhu.practice.dto.AlbumResponseDto;
 import com.skhu.practice.dto.SongRequestDto;
 import com.skhu.practice.entity.Album;
-import com.skhu.practice.entity.AlbumReview;
-import com.skhu.practice.entity.Song;
+import com.skhu.practice.entity.AlbumSong;
 import com.skhu.practice.repository.AlbumRepository;
-import com.skhu.practice.repository.SongRepository;
+import com.skhu.practice.repository.AlbumSongRepository;
 import com.skhu.practice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -25,7 +22,7 @@ public class AlbumService {
 
     private final AlbumRepository albumRepository;
     private final UserRepository userRepository;
-    private final SongRepository songRepository;
+    private final AlbumSongRepository albumSongRepository;
 
     public boolean save(AlbumRequestDto albumRequestDto, List<SongRequestDto> songs, String username) { // 여기에 validate 코드를 집어넣어서, 잘 못 입력한 경우 다시 redirection 할 수 있도록
         if (albumRequestDto.isNotIllegal()) { // albumRequestDto 에서 songs 에 대한 것들을 입력해줘야함
@@ -43,7 +40,7 @@ public class AlbumService {
 
     public void saveSongs(Album album, List<SongRequestDto> songs) {
         for (SongRequestDto song : songs) {
-            songRepository.save(Song.builder()
+            albumSongRepository.save(AlbumSong.builder()
                     .album(album)
                     .lyric(song.getLyric())
                     .title(song.getTitle())

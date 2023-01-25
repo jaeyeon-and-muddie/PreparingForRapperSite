@@ -9,11 +9,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -50,7 +47,7 @@ public class Album extends BaseEntity {
     @OneToMany(mappedBy = "album")
     @ToString.Exclude
     @JsonIgnore
-    private List<Song> songsInAlbum;
+    private List<AlbumSong> songsInAlbum;
 
     @ManyToOne(targetEntity = Users.class)
     @JoinColumn(name = "user_id") // 추후에 artist 도 등록할 수 있으면, 그 때 추가할 것임
@@ -79,7 +76,7 @@ public class Album extends BaseEntity {
                 .dateOfIssue(this.dateOfIssue)
                 .songsInAlbum(this.songsInAlbum
                         .stream()
-                        .map(Song::toResponseDto)
+                        .map(AlbumSong::toResponseDto)
                         .collect(Collectors.toList()))
                 .averageOfStar(averageOfStarFormatter(averageOfStar))
                 .numberOfReview(this.numberOfReview)

@@ -37,10 +37,10 @@ public class AlbumReview extends Review {
 
     @ElementCollection
     @CollectionTable(
-            name = "REVIEW_OF_SONG",
+            name = "ALBUM_REVIEW_OF_SONG",
             joinColumns = @JoinColumn(name = "ID")
     )
-    @Column(name = "REVIEW_OF_SONGS")
+    @Column(name = "ALBUM_REVIEW_OF_SONGS")
     private List<String> reviewOfSongs;
 
     @ManyToOne(targetEntity = Album.class)

@@ -1,7 +1,9 @@
 package com.skhu.practice.controller;
 
-import com.skhu.practice.dto.AlbumRequestDto;
+import com.skhu.practice.dto.MixTapeRequestDto;
 import com.skhu.practice.dto.SongInputDto;
+import com.skhu.practice.service.MixTapeCommentService;
+import com.skhu.practice.service.MixTapeService;
 import com.skhu.practice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,10 +23,14 @@ import java.security.Principal;
 public class MixTapeController {
 
     private final UserService userService;
+    private final MixTapeService mixTapeService;
+    private final MixTapeCommentService mixTapeCommentService;
 
     @GetMapping("")
     public ModelAndView loadMixTapeBoardPage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("mixTape", mixTapeService.findAll());
+        modelAndView.setViewName("mixtape-board");
 
         return modelAndView;
     }
@@ -33,14 +39,18 @@ public class MixTapeController {
     @GetMapping("write")
     public ModelAndView loadMixTapeWritePage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.setViewName("write-mixtape");
 
         return modelAndView;
     }
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping("write")
-    public ModelAndView saveMixTape(ModelAndView modelAndView, AlbumRequestDto albumRequestDto,
+    public ModelAndView saveMixTape(ModelAndView modelAndView,  MixTapeRequestDto mixTapeRequestDto,
                                   SongInputDto song, Principal principal) {
+        mixTapeService.save(mixTapeRequestDto, song.getSongs(), principal.getName());
+        modelAndView.setViewName("redirect:/mixtape");
+
         return modelAndView;
     }
 
@@ -48,6 +58,9 @@ public class MixTapeController {
     public ModelAndView loadMixTapeDetailPage(HttpServletRequest request, ModelAndView modelAndView,
                                             @PathVariable("id") Long id, Principal principal) {
         modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("mixTape", mixTapeService.mixTapeDetail(id));
+        modelAndView.addObject("mixTapeComment", mixTapeCommentService.findAllCommentByAlbum(id));
+        modelAndView.setViewName("mixtape-detail");
 
         return modelAndView;
     }
