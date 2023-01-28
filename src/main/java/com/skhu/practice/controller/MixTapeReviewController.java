@@ -28,7 +28,7 @@ public class MixTapeReviewController {
     @GetMapping("{id}")
     public ModelAndView loadReviewPage(HttpServletRequest request, ModelAndView modelAndView,
                                        @PathVariable("id") Long mixTapeId, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("mixTape", mixTapeService.findById(mixTapeId));
         modelAndView.addObject("mixTapeReview", mixTapeReviewService.findAllReviewByAlbum(mixTapeId)); // 전체 리뷰 다 가져와야한다.
         modelAndView.setViewName("mixtape-review");
@@ -39,7 +39,7 @@ public class MixTapeReviewController {
     @GetMapping("write/{id}") // 쓰기 페이지 돌입
     public ModelAndView loadWriteReviewPage(HttpServletRequest request, ModelAndView modelAndView,
                                             @PathVariable("id") Long mixTapeId, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("mixTape", mixTapeService.findById(mixTapeId));
         modelAndView.setViewName("write-mixtape-review");
 
@@ -57,7 +57,7 @@ public class MixTapeReviewController {
     @GetMapping("detail/{id}")
     public ModelAndView loadReviewDetailPage(HttpServletRequest request, ModelAndView modelAndView,
                                              @PathVariable("id") Long reviewId, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("mixTapeReview", mixTapeReviewService.getDetailReview(reviewId));
         modelAndView.setViewName("mixtape-review-detail.html");
 

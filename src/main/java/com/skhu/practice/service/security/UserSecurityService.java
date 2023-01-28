@@ -1,6 +1,5 @@
 package com.skhu.practice.service.security;
 
-import com.skhu.practice.dto.security.Role;
 import com.skhu.practice.entity.Users;
 import com.skhu.practice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +23,6 @@ public class UserSecurityService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Users> optionalUsers = userRepository.findByUsername(username);
-        final String ADMIN = "admin";
 
         if (optionalUsers.isEmpty()) {
             throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
@@ -32,14 +30,7 @@ public class UserSecurityService implements UserDetailsService {
 
         Users user = optionalUsers.get();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
-        if (ADMIN.equals(username)) {
-            authorities.add(new SimpleGrantedAuthority(Role.ADMIN.getPrivilege()));
-        }
-
-        if (!ADMIN.equals(username)) {
-            authorities.add(new SimpleGrantedAuthority(Role.USER.getPrivilege()));
-        }
+        authorities.add(new SimpleGrantedAuthority(user.getRole().getPrivilege()));
 
         return new User(user.getUsername(), user.getPassword(), authorities);
     }

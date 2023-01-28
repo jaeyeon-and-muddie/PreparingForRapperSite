@@ -1,8 +1,10 @@
 package com.skhu.practice.service;
 
 import com.skhu.practice.dto.ArtistDto;
+import com.skhu.practice.dto.UserResponseDto;
 import com.skhu.practice.dto.UserSignupDto;
 import com.skhu.practice.dto.VisitedResponseDto;
+import com.skhu.practice.dto.security.Role;
 import com.skhu.practice.entity.Users;
 import com.skhu.practice.entity.Visited;
 import com.skhu.practice.repository.UserRepository;
@@ -35,10 +37,17 @@ public class UserService {
     }
 
     public void save(UserSignupDto userSignupDto) {
+        Role assignRole = Role.ARTIST;
+
+
+        if (userSignupDto.getUsername().equals("admin")) {
+            assignRole = Role.ADMIN;
+        }
         userRepository.save(Users.builder()
                 .username(userSignupDto.getUsername())
                 .email(userSignupDto.getEmail())
                 .password(passwordEncoder.encode(userSignupDto.getPassword1()))
+                .role(assignRole)
                 .build());
     }
 
@@ -82,15 +91,12 @@ public class UserService {
         return removeIndex;
     }
 
-    public List<VisitedResponseDto> userVisited(Principal principal, String url) {
+    public UserResponseDto userVisitedAndGetUser(Principal principal, String url) {
         if (principal != null) {
             updateVisited(principal.getName(), url);
             return userRepository.findByUsername(principal.getName())
                     .orElseThrow(NoSuchElementException::new)
-                    .getVisited()
-                    .stream()
-                    .map(Visited::toResponseDto)
-                    .collect(Collectors.toList());
+                    .toResponseDto();
         }
 
         return null;

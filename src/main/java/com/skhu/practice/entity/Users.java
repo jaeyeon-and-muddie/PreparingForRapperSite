@@ -3,6 +3,7 @@ package com.skhu.practice.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skhu.practice.dto.ArtistDto;
 import com.skhu.practice.dto.UserResponseDto;
+import com.skhu.practice.dto.security.Role;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +13,8 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -52,6 +55,13 @@ public class Users {
     @ToString.Exclude
     private List<Visited> visited;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+
+    @Column(name = "point")
+    private Long point;
+
     @OneToMany(mappedBy = "artist")
     @JsonIgnore
     @ToString.Exclude
@@ -67,12 +77,21 @@ public class Users {
         if (image == null) {
             image = "https://www.shutterstock.com/image-vector/profile-picture-avatar-icon-vector-260nw-1760295569.jpg";
         }
+        if (point == null ){
+            point = 0L;
+        }
     }
+
     public UserResponseDto toResponseDto() {
         return UserResponseDto.builder()
                 .id(this.id)
                 .email(this.email)
-                .username(username)
+                .username(this.username)
+                .role(this.role)
+                .point(this.point)
+                .visited(this.visited.stream()
+                        .map(Visited::toResponseDto)
+                        .collect(Collectors.toList()))
                 .build();
     }
 

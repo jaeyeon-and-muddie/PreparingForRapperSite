@@ -28,7 +28,7 @@ public class MixTapeController {
 
     @GetMapping("")
     public ModelAndView loadMixTapeBoardPage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("mixTape", mixTapeService.findAll());
         modelAndView.setViewName("mixtape-board");
 
@@ -38,7 +38,7 @@ public class MixTapeController {
     @PreAuthorize("isAuthenticated()")
     @GetMapping("write")
     public ModelAndView loadMixTapeWritePage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.setViewName("write-mixtape");
 
         return modelAndView;
@@ -57,7 +57,7 @@ public class MixTapeController {
     @GetMapping("detail/{id}")
     public ModelAndView loadMixTapeDetailPage(HttpServletRequest request, ModelAndView modelAndView,
                                             @PathVariable("id") Long id, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("mixTape", mixTapeService.mixTapeDetail(id));
         modelAndView.addObject("mixTapeComment", mixTapeCommentService.findAllCommentByAlbum(id));
         modelAndView.setViewName("mixtape-detail");

@@ -28,7 +28,7 @@ public class AlbumController {
 
     @GetMapping("")
     public ModelAndView loadAlbumBoardPage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.setViewName("album-board"); // 여기서 album 들을 쏵 보여줘야 한단 말이야
         modelAndView.addObject("album", albumService.findAll());
 
@@ -38,7 +38,7 @@ public class AlbumController {
     @PreAuthorize("isAuthenticated()")
     @GetMapping("write")
     public ModelAndView loadAlbumWritePage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.setViewName("write-album");
         return modelAndView;
     }
@@ -60,7 +60,7 @@ public class AlbumController {
     @GetMapping("detail/{id}")
     public ModelAndView loadAlbumDetailPage(HttpServletRequest request, ModelAndView modelAndView,
                                             @PathVariable("id") Long id, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("album", albumService.albumDetail(id));
         modelAndView.addObject("albumComment", albumCommentService.findAllCommentByAlbum(id));
         modelAndView.setViewName("album-detail");
@@ -69,7 +69,7 @@ public class AlbumController {
 
     @GetMapping("rate")
     public ModelAndView loadAlbumRatePage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("monthlyAlbum", albumService.findByMonthlyAlbum());
         modelAndView.addObject("topAlbumByAverageOfStar", albumService.findTop5ByAverageOfStar());
         modelAndView.addObject("topAlbumByNumberOfReview", albumService.findTop5ByNumberOfReview());

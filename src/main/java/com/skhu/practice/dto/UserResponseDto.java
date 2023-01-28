@@ -1,5 +1,6 @@
 package com.skhu.practice.dto;
 
+import com.skhu.practice.dto.security.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,4 +23,10 @@ public class UserResponseDto {
     private String email;
 
     private String username;
+
+    private Role role;
+
+    private Long point;
+
+    private List<VisitedResponseDto> visited;
 }

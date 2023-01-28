@@ -58,7 +58,7 @@ public class UserController {
     @GetMapping("detail/{id}")
     public ModelAndView loadArtistPage(HttpServletRequest request, ModelAndView modelAndView,
                                        @PathVariable("id") Long userId, Principal principal) {
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("artist", userService.findById(userId));
         modelAndView.setViewName("artist-detail"); // User 와 연관한 애들만을 가져와야함
         return modelAndView;
@@ -66,8 +66,7 @@ public class UserController {
 
     @GetMapping("alarm")
     public ModelAndView loadAlarmPage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
-        modelAndView.addObject("username", principal.getName());
-        modelAndView.addObject("visited", userService.userVisited(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("alarms", alarmService.findAllAlarm(principal));
         modelAndView.setViewName("alarm");
 

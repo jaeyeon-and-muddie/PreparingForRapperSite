@@ -100,7 +100,6 @@ public class InsertMokDataService {
                     .star((double) random.nextInt(6))
                     .build()), USERNAME);
         }
-
     }
 
     private void albumCommentSave() {

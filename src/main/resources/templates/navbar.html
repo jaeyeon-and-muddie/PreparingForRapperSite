@@ -10,11 +10,15 @@
     <a th:href = "@{/mixtape/write}" sec:authorize = "isAuthenticated()">믹스테이프 추가</a>
     <a th:href = "@{/user/alarm}" sec:authorize = "isAuthenticated()">알람함 </a>
     <a th:href = "@{/album/rate}">레이팅 페이지 가기 </a>
+    <span sec:authorize = "isAuthenticated()" style = "float: right">
+        <span th:text = "${'포인트 : ' + user.point}"></span>
+        <span th:text = "${'유저 구분 : ' + user.role}"></span>
+    </span>
     <div sec:authorize = "isAuthenticated()">
         최근 방문 목록
     </div>
-    <span sec:authorize = "isAuthenticated()" th:each = 'visit, i : ${visited}'>
+    <span sec:authorize = "isAuthenticated()" th:each = 'visit, i : ${user.visited}'>
         <a th:href = "@{'/' + ${visit.url}}" th:text = "${visit.title}"></a>
-        <span th:if = "${i.count != visited.size()}">/</span>
+        <span th:if = "${i.count != user.visited.size()}">/</span>
     </span>
 </nav>
