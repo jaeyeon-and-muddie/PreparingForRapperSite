@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>믹스테잎 리뷰</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>앨범</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>별점</th>
+        <th>조회수</th>
+    </tr>
+    <tr th:each="mixtapeReview : ${mixtapeReviews.mixtapeReviewHomeDtoList}">
+        <td> [[${mixtapeReview.title}]]</td>
+        <td><a th:href="@{mixtapeReviewDetail(mixtapeReviewId=${mixtapeReview.id})}">[[${mixtapeReview.title}]]</a></td>
+        <td>[[${mixtapeReview.user.email}]]</td>
+        <td>[[${mixtapeReview.star}]]</td>
+        <td>[[${mixtapeReview.view}]]</td>
+    </tr>
+</table>
+<a th:href="@{mixtapeReviewCreate(mixtapeId=${mixtapeReviews.id})}">믹스테잎리뷰추가</a>
+</body>
+</html>

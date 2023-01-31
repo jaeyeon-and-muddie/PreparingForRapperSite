@@ -18,6 +18,8 @@ public class PlusAlbumDto {
 
     public String artistName;
 
+    public String image;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     public LocalDate releaseDate;
 

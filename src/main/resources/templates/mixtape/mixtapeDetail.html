@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>믹스테잎상세</title>
+</head>
+<body>
+<h1>[[${mixtapeDetail.title}]]</h1>
+<table>
+    <tr>
+        <td>수록곡 : [[${mixtapeDetail.numberOfSongs}]]</td>
+    </tr>
+    <tr>
+        <td>발매일자 : [[${mixtapeDetail.releaseDate}]]</td>
+    </tr>
+    <tr>
+        <td>[[${mixtapeDetail.introduction}]]</td>
+    </tr>
+<!--    <tr>-->
+<!--        <td><img th:src="${album.image}" style="width:300px; height:300px;"></td>-->
+<!--    </tr>-->
+    <tr>
+        <td>아티스트 : [[${mixtapeDetail.user.email}]]</td>
+    </tr>
+</table>
+<div id = "soundCloud"></div>
+<input type = "hidden" id = "soundCloudContent" th:value = "${mixtapeDetail.preTag}"/>
+<br>
+
+<div>
+    <a th:href="@{mixtapes}">뒤로</a>
+    <a th:href="@{mixtapeReview(mixtapeId=${mixtapeDetail.id})}">리뷰보기</a>
+</div>
+</body>
+<script>
+    window.onload = function() {
+        var soundCloud = document.getElementById('soundCloudContent').value;
+        var container = document.getElementById('soundCloud');
+        var pre = document.createElement('pre');
+        pre.innerHTML = soundCloud;
+        container.appendChild(pre);
+    }
+</script>
+</html>

@@ -38,6 +38,7 @@ public class AlbumService {
         album.setIntroduction(plusAlbum.getIntroduction());
         album.setReleaseDate(plusAlbum.getReleaseDate());
         album.setNumberOfSongs(plusAlbum.getNumberOfSongs());
+        album.setImage(plusAlbum.getImage());
         Artist artist =artistRepository.findByArtistName(plusAlbum.getArtistName()).orElse(null);
         album.setArtist(artist);
 

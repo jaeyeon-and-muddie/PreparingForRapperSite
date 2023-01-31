@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <br>
+                <hr/>
+                <div id = "soundCloud"></div>
+                <input type = "hidden" id = "soundCloudContent" th:value = "${soundCloud.preTag}"/>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                추천수:[[${soundCloud.recommendNumber}]]
+            </td>
+        </tr>
+        <form method="post"  th:action="@{recommend(id=${soundCloud.id})}">
+            <button type="submit">추천</button>
+        </form>
+    </table>
+<a th:href="@{mixtapehome}">뒤로</a>
+</body>
+<script>
+    window.onload = function() {
+        var soundCloud = document.getElementById('soundCloudContent').value;
+        var container = document.getElementById('soundCloud');
+        var pre = document.createElement('pre');
+        pre.innerHTML = soundCloud;
+        container.appendChild(pre);
+    }
+</script>
+</html>

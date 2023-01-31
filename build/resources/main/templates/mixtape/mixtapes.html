@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>믹스테입게시판</title>
+</head>
+<body>
+    <table>
+      <tr>
+        <th>제목</th>
+        <th>아이디</th>
+      </tr>
+      <tr th:each="mixtape : ${mixtapeList}">
+        <td><a th:href="@{mixtapeDetail(mixtapeId=${mixtape.id})}">[[${mixtape.title}]]</a></td>
+        <td th:text="${mixtape.user.email}"></td>
+      </tr>
+    </table>
+<a th:href="@{mixtapehome}">믹스테잎홈</a>
+</body>
+</html>
