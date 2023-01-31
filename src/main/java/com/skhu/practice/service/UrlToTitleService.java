@@ -82,6 +82,7 @@ public class UrlToTitleService {
                 put(13, "믹스 테이프 리뷰 보드");
                 put(14, "믹스 테이프 리뷰 작성");
                 put(15, "믹스 테이프 리뷰 상세");
+                put(16, "믹스 테이프 심사 보드");
             }};
 
             Node album = new Node(0, "album");
@@ -100,6 +101,7 @@ public class UrlToTitleService {
             Node mixTapeReview = new Node(13, "review");
             Node mixTapeReviewWrite = new Node(14, "write");
             Node mixTapeReviewDetail = new Node(15, "detail");
+            Node judge = new Node(16, "judge");
 
             album.addChild(albumDetail);
             album.addChild(albumRate);
@@ -119,6 +121,7 @@ public class UrlToTitleService {
                 put("album", album);
                 put("user", user);
                 put("mixtape", mixTape);
+                put("judge", judge);
             }};
         }
     }

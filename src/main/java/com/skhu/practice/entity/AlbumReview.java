@@ -66,7 +66,7 @@ public class AlbumReview extends Review {
                 .star(this.star)
                 .updateTime(getUpdateTime())
                 .title(getTitle())
-                .createdDate(this.getCreatedDate())
+                .createdDate(this.getCreatedDate().toLocalDate())
                 .build();
     }
 }

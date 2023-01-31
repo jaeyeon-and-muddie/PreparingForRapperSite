@@ -51,7 +51,7 @@ public class AlbumComment extends Comment {
                 .album(this.album.toResponseDto())
                 .content(getContent())
                 .isModified(getIsModified())
-                .createdDate(getCreatedDate())
+                .createdDate(getCreatedDate().toLocalDate())
                 .albumNestedComment(nestedComments.stream()
                         .map(AlbumNestedComment::toResponseDto)
                         .collect(Collectors.toList()))

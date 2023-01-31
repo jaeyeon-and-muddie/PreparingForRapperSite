@@ -1,7 +1,6 @@
 package com.skhu.practice.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.skhu.practice.dto.AlbumCommentResponseDto;
 import com.skhu.practice.dto.MixTapeCommentResponseDto;
 import com.skhu.practice.entity.base.Comment;
 import lombok.AllArgsConstructor;
@@ -51,7 +50,7 @@ public class MixTapeComment extends Comment {
                 .mixTape(this.mixTape.toResponseDto())
                 .content(getContent())
                 .isModified(getIsModified())
-                .createdDate(getCreatedDate())
+                .createdDate(getCreatedDate().toLocalDate())
                 .mixTapeNestedComment(nestedComments.stream()
                         .map(MixTapeNestedComment::toResponseDto)
                         .collect(Collectors.toList()))

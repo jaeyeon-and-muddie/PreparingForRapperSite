@@ -6,14 +6,18 @@
     <a th:href = "@{/user/logout}" sec:authorize = "isAuthenticated()">로그아웃 </a>
     <a th:href = "@{/user/signup}">회원가입 </a>
     <a th:href = "@{/album/write}" sec:authorize = "isAuthenticated()">앨범추가 </a>
-    <a th:href = "@{/mixtape}">믹스테이프 </a>
-    <a th:href = "@{/mixtape/write}" sec:authorize = "isAuthenticated()">믹스테이프 추가</a>
+    <a th:href = "@{/judge}">심사중인 믹스테이프 보러가기 </a>
+    <a th:href = "@{/mixtape}">믹스테이프 보러가기 </a>
+    <a th:href = "@{/mixtape/write}" sec:authorize = "isAuthenticated()">믹스테이프 추가 </a>
     <a th:href = "@{/user/alarm}" sec:authorize = "isAuthenticated()">알람함 </a>
     <a th:href = "@{/album/rate}">레이팅 페이지 가기 </a>
     <span sec:authorize = "isAuthenticated()" style = "float: right">
         <span th:text = "${'포인트 : ' + user.point}"></span>
+        <span th:text = "${'유저 이름 : ' + user.username}"></span>
         <span th:text = "${'유저 구분 : ' + user.role}"></span>
     </span>
+    <a th:href = "@{'/test/' + 'true'}" th:text = "참"></a>
+    <a th:href = "@{'/test/' + 'false'}" th:text = "거짓"></a>
     <div sec:authorize = "isAuthenticated()">
         최근 방문 목록
     </div>

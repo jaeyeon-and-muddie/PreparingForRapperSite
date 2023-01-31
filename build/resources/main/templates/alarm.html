@@ -10,7 +10,6 @@
 </head>
 <body>
     <div th:replace = "~{navbar :: navbarFragment}"></div>
-    <h1 th:text = "${user.username} + '님의 알람함'"></h1>
 
     <div th:each = 'alarm : ${alarms}'>
         <a th:href = "@{'/user/alarm/' +  ${alarm.id}}" th:text = "${alarm.message}"></a>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{/common.css}" rel = "stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
+    <input type = "hidden" id = "mixTapeSize" th:value = "${judgeMixTape.size()}">
+    <h2>사운드 클라우드 모음 (심사해주세요!) </h2>
+    <div th:each = "tape, i : ${judgeMixTape}">
+        <input th:id = "'soundCloud' + ${i.count - 1}" type = "hidden" th:value = "${tape.soundCloud}">
+        <div th:id = "'container' + ${i.count - 1}"></div>
+        <div>
+            <a th:href = "'/judge/emote/true/' + ${tape.id}" th:text = "'추천! '"></a>
+            <span th:text = "'추천 개수 : ' + ${tape.recommend}"></span>
+        </div>
+        <div>
+            <a th:href = "'judge/emote/false/' + ${tape.id}" th:text = "'비추천! '"></a>
+            <span th:text = "'비추천 개수 : ' + ${tape.unRecommend}"></span>
+        </div>
+    </div>
+</body>
+    <script>
+        window.onload = function() {
+            var mixTapeSize = document.getElementById("mixTapeSize").value;
+
+            for (var i = 0; i < mixTapeSize; i++) {
+                var soundCloud = document.getElementById('soundCloud' + i).value;
+                var container = document.getElementById('container' + i);
+                var pre = document.createElement('pre');
+                pre.innerHTML = soundCloud;
+                container.appendChild(pre);
+            }
+        }
+    </script>
+</html>

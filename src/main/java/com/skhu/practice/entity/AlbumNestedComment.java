@@ -38,7 +38,7 @@ public class AlbumNestedComment extends Comment {
                 .author(getAuthor().toResponseDto())
                 .content(getContent())
                 .isModified(getIsModified())
-                .createdDate(getCreatedDate())
+                .createdDate(getCreatedDate().toLocalDate())
                 .build();
     }
 }

@@ -42,7 +42,7 @@ public class MixTapeNestedComment extends Comment {
                 .author(getAuthor().toResponseDto())
                 .content(getContent())
                 .isModified(getIsModified())
-                .createdDate(getCreatedDate())
+                .createdDate(getCreatedDate().toLocalDate())
                 .build();
     }
 }
