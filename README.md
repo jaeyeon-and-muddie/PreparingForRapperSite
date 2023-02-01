@@ -8,3 +8,5 @@
 ### [3주차 미션 구현 사항 정리](docs/3week/README.md)
 
 ### [4주차 미션 구현 사항 정리](docs/4week/README.md)
+
+### [5주차 미션 구현 사항 정리](docs/5week/README.md)
