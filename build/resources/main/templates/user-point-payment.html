@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{/common.css}" rel = "stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
+
+    <form role="form" th:action="@{/user/point}" action="#" id="postForm" method="post">
+        <strong> 결제창 </strong>
+        <div class="form-group">
+            <div>결제할 금액을 선택하세요</div>
+            <label for = "settlementPrice1">5000원</label>
+            <input type = "radio" id = "settlementPrice1" name = "settlementPrice" value = "5000"/>
+            <label for = "settlementPrice2">10000원</label>
+            <input type = "radio" id = "settlementPrice2" name = "settlementPrice" value = "10000"/>
+            <label for = "settlementPrice3">20000원</label>
+            <input type = "radio" id = "settlementPrice3" name = "settlementPrice" value = "20000"/>
+            <label for = "settlementPrice4">30000원</label>
+            <input type = "radio" id = "settlementPrice4" name = "settlementPrice" value = "30000"/>
+        </div>
+
+        <div class="form-group">
+            <div>결제 수단을 선택하세요</div>
+            <label for = "methodOfPayment1">카카오페이</label>
+            <input type = "radio" id = "methodOfPayment1" name = "methodOfPayment" value = "카카오페이"/>
+            <label for = "methodOfPayment2">신용카드</label>
+            <input type = "radio" id = "methodOfPayment2" name = "methodOfPayment" value = "신용카드"/>
+        </div>
+        <button type="submit" class="btn btn-primary block full-width m-b">작성 완료</button>
+    </form>
+
+</body>
+</html>

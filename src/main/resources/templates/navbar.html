@@ -5,6 +5,8 @@
     <a th:href = "@{/user/login}" sec:authorize = "isAnonymous()">로그인 </a>
     <a th:href = "@{/user/logout}" sec:authorize = "isAuthenticated()">로그아웃 </a>
     <a th:href = "@{/user/signup}">회원가입 </a>
+    <a th:href = "@{/user/point}" sec:authorize = "isAuthenticated()">포인트 결제 </a>
+    <a th:href = "@{/user/point/receipt}" sec:authorize = "isAuthenticated()">포인트 결제 내역 </a>
     <a th:href = "@{/album/write}" sec:authorize = "isAuthenticated()">앨범추가 </a>
     <a th:href = "@{/judge}">심사중인 믹스테이프 보러가기 </a>
     <a th:href = "@{/mixtape}">믹스테이프 보러가기 </a>

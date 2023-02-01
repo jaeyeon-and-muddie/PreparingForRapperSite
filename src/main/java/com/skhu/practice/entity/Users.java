@@ -95,6 +95,10 @@ public class Users {
                 .build();
     }
 
+    public void paymentPoint(Long point) {
+        this.point += point;
+    }
+
     public ArtistDto toArtistDto() {
         return ArtistDto.builder()
                 .id(this.id)

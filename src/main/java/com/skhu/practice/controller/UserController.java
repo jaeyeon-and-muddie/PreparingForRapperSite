@@ -1,12 +1,15 @@
 package com.skhu.practice.controller;
 
+import com.skhu.practice.dto.PaymentRequestDto;
 import com.skhu.practice.dto.UserSignupDto;
 import com.skhu.practice.service.AlarmService;
 import com.skhu.practice.service.AlbumService;
+import com.skhu.practice.service.PaymentService;
 import com.skhu.practice.service.UrlToTitleService;
 import com.skhu.practice.service.UserService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.Banner;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
@@ -31,6 +34,7 @@ public class UserController {
 
     private final UserService userService;
     private final AlarmService alarmService;
+    private final PaymentService paymentService;
 
     @GetMapping("login")
     public String login() {
@@ -76,6 +80,28 @@ public class UserController {
     @GetMapping("alarm/{id}")
     public ModelAndView redirectPageByAlarm(ModelAndView modelAndView, @PathVariable("id") Long alarmId) {
         modelAndView.setViewName("redirect:/" + alarmService.redirectByAlarm(alarmId)); // 그래도 visit 할 때에만 저장하는 것이 나을것임
+        return modelAndView;
+    }
+
+    @GetMapping("point")
+    public ModelAndView loadPaymentPage(ModelAndView modelAndView, HttpServletRequest request, Principal principal) {
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
+        modelAndView.setViewName("user-point-payment");
+        return modelAndView;
+    }
+
+    @PostMapping("point")
+    public ModelAndView savePayment(ModelAndView modelAndView, PaymentRequestDto paymentRequestDto, Principal principal) {
+        paymentService.save(paymentRequestDto, principal.getName());
+        modelAndView.setViewName("redirect:/album");
+        return modelAndView;
+    }
+
+    @GetMapping("point/receipt")
+    public ModelAndView loadReceiptPage(ModelAndView modelAndView, HttpServletRequest request, Principal principal) {
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("paymentLog", paymentService.findUserLog(principal.getName()));
+        modelAndView.setViewName("user-point-payment-log");
         return modelAndView;
     }
 }
