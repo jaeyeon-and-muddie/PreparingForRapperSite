@@ -16,8 +16,6 @@
         <span th:text = "${'유저 이름 : ' + user.username}"></span>
         <span th:text = "${'유저 구분 : ' + user.role}"></span>
     </span>
-    <a th:href = "@{'/test/' + 'true'}" th:text = "참"></a>
-    <a th:href = "@{'/test/' + 'false'}" th:text = "거짓"></a>
     <div sec:authorize = "isAuthenticated()">
         최근 방문 목록
     </div>

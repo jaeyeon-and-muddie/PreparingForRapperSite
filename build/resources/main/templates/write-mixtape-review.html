@@ -17,12 +17,16 @@
     </div>
     <br>
     <hr>
-    <div>수록곡 리뷰 작성하기</div>
-    <div class="form-group" th:each = "song, i : ${mixTape.songsInMixTape}">
+    <h2>수록곡들</h2>
+    <div class="form-group" th:each = "song : ${mixTape.songsInMixTape}">
         <br>
-        <div th:text = "${i.count} + '.' + ${song.title}"></div>
-        <textarea cols = "50" rows = "10" th:id = "'name' + ${i.count}" th:name = "'reviewOfSongs[' + ${i.count - 1} + ']'"></textarea>
+        <div>제목</div>
+        <div th:text = "${song.title}"></div>
+        <div>가사</div>
+        <div th:text = "${song.lyric}"></div>
     </div>
+    <h2>수록곡 리뷰 작성하기 </h2>
+    <textarea cols = "50" rows = "10" name = "reviewOfSong"></textarea>
     <br>
     <hr>
     <div class="form-group">

@@ -36,13 +36,8 @@ public class MixTapeReview extends Review {
     @Column(name = "id")
     private Long id;
 
-    @ElementCollection
-    @CollectionTable(
-            name = "MIXTAPE_REVIEW_OF_SONG",
-            joinColumns = @JoinColumn(name = "ID")
-    )
-    @Column(name = "MIXTAPE_REVIEW_OF_SONGS")
-    private List<String> reviewOfSongs;
+    @Column(columnDefinition = "LONGTEXT")
+    private String reviewOfSong;
 
     @ManyToOne(targetEntity = MixTape.class)
     @JoinColumn(name = "mixtape_id")
@@ -51,9 +46,9 @@ public class MixTapeReview extends Review {
     @Column(name = "STAR", nullable = false)
     private Double star;
 
-    public void modified(String title, List<String> reviewOfSongs, Double star) {
+    public void modified(String title, String reviewOfSong, Double star) {
         super.modified(title);
-        this.reviewOfSongs = reviewOfSongs;
+        this.reviewOfSong = reviewOfSong;
         this.star = star;
     }
 
@@ -62,7 +57,7 @@ public class MixTapeReview extends Review {
                 .id(this.id)
                 .hits(getHits())
                 .author(getAuthor().toResponseDto())
-                .reviewOfSongs(this.reviewOfSongs)
+                .reviewOfSong(this.reviewOfSong)
                 .mixTape(this.mixTape.toResponseDto())
                 .star(this.star)
                 .updateTime(getUpdateTime())

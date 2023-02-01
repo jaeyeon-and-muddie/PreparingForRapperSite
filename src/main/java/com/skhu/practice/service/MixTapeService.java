@@ -3,8 +3,6 @@ package com.skhu.practice.service;
 import com.skhu.practice.dto.MixTapeResponseDto;
 import com.skhu.practice.entity.MixTape;
 import com.skhu.practice.repository.MixTapeRepository;
-import com.skhu.practice.repository.MixTapeSongRepository;
-import com.skhu.practice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +18,13 @@ public class MixTapeService {
 
     public List<MixTapeResponseDto> findAll() {
         return mixTapeRepository.findAll()
+                .stream()
+                .map(MixTape::toResponseDto)
+                .collect(Collectors.toList());
+    }
+
+    public List<MixTapeResponseDto> findTop5MixTapeByAverageOfStar() {
+        return mixTapeRepository.findTop5ByNumberOfReviewGreaterThanEqualOrderByAverageOfStarDesc(5L)
                 .stream()
                 .map(MixTape::toResponseDto)
                 .collect(Collectors.toList());

@@ -15,12 +15,16 @@
 <div th:text = "${mixTapeReview.title}"></div>
 <br>
 <hr>
-<span>수록곡 리뷰</span>
-<div class="form-group" th:each = "song, i : ${mixTapeReview.mixTape.songsInMixTape}">
+<h2>수록곡</h2>
+<div class="form-group" th:each = "song : ${mixTapeReview.mixTape.songsInMixTape}">
     <br>
-    <div th:text = "${i.count} + '.' + ${song.title}"></div>
-    <div th:text = "${mixTapeReview.reviewOfSongs[i.count - 1]}"></div>
+    <div>제목</div>
+    <div th:text = "${song.title}"></div>
+    <div>가사</div>
+    <div th:text = "${song.lyric}"></div>
 </div>
+<h2>리뷰 내용</h2>
+<div th:text = "${mixTapeReview.reviewOfSong}"></div>
 <br>
 <hr>
 <span>작성자</span>

@@ -19,7 +19,7 @@ public class MixTapeReviewRequestDto {
 
     private String title;
 
-    private List<String> reviewOfSongs;
+    private String reviewOfSong;
 
     private Double star;
 }

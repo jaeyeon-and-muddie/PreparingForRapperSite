@@ -2,8 +2,10 @@ package com.skhu.practice.controller;
 
 import com.skhu.practice.dto.AlbumRequestDto;
 import com.skhu.practice.dto.SongInputDto;
+import com.skhu.practice.repository.MixTapeRepository;
 import com.skhu.practice.service.AlbumCommentService;
 import com.skhu.practice.service.AlbumService;
+import com.skhu.practice.service.MixTapeService;
 import com.skhu.practice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -25,6 +27,7 @@ public class AlbumController {
     private final AlbumService albumService;
     private final AlbumCommentService albumCommentService;
     private final UserService userService;
+    private final MixTapeService mixTapeService;
 
     @GetMapping("")
     public ModelAndView loadAlbumBoardPage(HttpServletRequest request, ModelAndView modelAndView, Principal principal) {
@@ -74,6 +77,7 @@ public class AlbumController {
         modelAndView.addObject("topAlbumByAverageOfStar", albumService.findTop5ByAverageOfStar());
         modelAndView.addObject("topAlbumByNumberOfReview", albumService.findTop5ByNumberOfReview());
         modelAndView.addObject("topAlbumByHits", albumService.findTop5ByHits());
+        modelAndView.addObject("topMixTapeByAverageOfStar", mixTapeService.findTop5MixTapeByAverageOfStar());
         modelAndView.setViewName("album-rate.html");
 
         return modelAndView;

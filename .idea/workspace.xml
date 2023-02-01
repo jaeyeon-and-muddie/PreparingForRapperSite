@@ -5,46 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba328ba3-7c33-4b89-abc9-7c376ca56200" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/JudgeMixTapeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/Judge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/JudgeMixTapeResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Emote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/JudgeMixTape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/JudgeMixTapeSong.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/base/Mix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/EmoteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/JudgeMixTapeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/JudgeMixTapeSongRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/EmoteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/JudgeMixTapeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/judge.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/alarm.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/alarm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/write-mixtape.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/write-mixtape.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/MixTapeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/MixTapeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumNestedComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumNestedComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/AlbumReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTapeComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTapeComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTapeNestedComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTapeNestedComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/AlbumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/MixTapeReviewRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/MixTapeReviewRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/MixTapeReviewResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/MixTapeReviewResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/JudgeMixTape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/JudgeMixTape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTapeReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/MixTapeReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/base/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/base/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/MixTapeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/MixTapeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/MixTapeReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/MixTapeReviewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/MixTapeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/MixTapeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UrlToTitleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UrlToTitleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/alarm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/alarm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/album-rate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/album-rate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mixtape-review-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mixtape-review-detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/write-mixtape.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/write-mixtape.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/write-mixtape-review.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/write-mixtape-review.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +147,7 @@
       <workItem from="1673741933031" duration="12733000" />
       <workItem from="1674185064721" duration="43234000" />
       <workItem from="1674573167278" duration="27768000" />
-      <workItem from="1675126039086" duration="10178000" />
+      <workItem from="1675126039086" duration="12391000" />
     </task>
     <servers />
   </component>

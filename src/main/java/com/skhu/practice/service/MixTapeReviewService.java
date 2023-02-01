@@ -41,7 +41,7 @@ public class MixTapeReviewService {
                 .mixTape(mixTape)
                 .title(mixTapeReviewRequestDto.getTitle())
                 .author(userRepository.findByUsername(username).orElseThrow(NoSuchElementException::new))
-                .reviewOfSongs(mixTapeReviewRequestDto.getReviewOfSongs())
+                .reviewOfSong(mixTapeReviewRequestDto.getReviewOfSong())
                 .star(mixTapeReviewRequestDto.getStar())
                 .build());
     }

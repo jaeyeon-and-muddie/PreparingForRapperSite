@@ -121,5 +121,35 @@
         </tr>
         </tbody>
     </table>
+    <table>
+        <thead>
+        <tr>
+            <td>앨범이름</td>
+            <td>앨범재킷</td>
+            <td>아티스트명</td>
+            <td>수록곡 수</td>
+            <td>발매일</td>
+            <td>별점</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = 'mixTape : ${topMixTapeByAverageOfStar}'>
+            <td>
+                <a th:href = "@{'/mixtape/detail/' + ${mixTape.id}}" th:text = "${mixTape.name}"></a>
+            </td>
+            <td>
+                <a th:href = "@{'/mixtape/detail/' + ${mixTape.id}}">
+                    <img th:src = "@{${mixTape.image}}"/>
+                </a>
+            </td>
+            <td>
+                <a th:href = "@{'/user/detail/' + ${mixTape.artist.id}}" th:text = "${mixTape.artist.username}"></a>
+            </td>
+            <td th:text = "${mixTape.songsInMixTape.size()}"></td>
+            <td th:text = "${mixTape.dateOfIssue}"></td>
+            <td th:text = "${mixTape.averageOfStar}"></td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -19,7 +19,7 @@ public class MixTapeReviewResponseDto {
 
     private MixTapeResponseDto mixTape;
 
-    private List<String> reviewOfSongs; // review 의 순서는 동일하다.
+    private String reviewOfSong; // review 의 순서는 동일하다.
 
     private Double star;
 
