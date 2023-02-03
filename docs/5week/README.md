@@ -23,6 +23,7 @@
 - 굿즈 조회
 
 ![img_5.png](img_5.png)
+
 ![img_6.png](img_6.png)
 
 - 기능 구현 리스트

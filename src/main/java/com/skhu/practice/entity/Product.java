@@ -56,6 +56,22 @@ public class Product extends BaseEntity {
         }
     }
 
+    public void sale(Long buysCount) {
+        this.stock -= buysCount;
+    }
+
+    public Long remainStock(Long buysCount) {
+        return this.stock - buysCount;
+    }
+
+    public Long totalPrice(Long buysCount) {
+        return this.price * buysCount;
+    }
+
+    public boolean isPossibleToSale(Long buysCount) {
+        return this.stock - buysCount >= 0;
+    }
+
     public ProductResponseDto toResponseDto() {
         return ProductResponseDto.builder()
                 .id(this.id)

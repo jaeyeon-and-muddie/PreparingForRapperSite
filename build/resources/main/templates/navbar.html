@@ -13,6 +13,8 @@
     <a th:href = "@{/mixtape/write}" sec:authorize = "isAuthenticated()">믹스테이프 추가 </a>
     <a th:href = "@{/user/alarm}" sec:authorize = "isAuthenticated()">알람함 </a>
     <a th:href = "@{/album/rate}">레이팅 페이지 가기 </a>
+    <a th:href = "@{/user/point/sale}">내가 판매한 목록 보기 </a>
+    <a th:href = "@{/user/point/basket}">장바구니 </a>
     <a th:href = "@{/product/write}" sec:authorize = "isAuthenticated()">굿즈 등록하기 </a>
     <a th:href = "@{/product}">굿즈 보러가기 </a>
     <span sec:authorize = "isAuthenticated()" style = "float: right">

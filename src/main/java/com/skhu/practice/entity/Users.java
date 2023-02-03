@@ -72,6 +72,21 @@ public class Users {
     @ToString.Exclude
     private List<MixTape> mixTapes;
 
+    @OneToMany(mappedBy = "purchaser")
+    @JsonIgnore
+    @ToString.Exclude
+    private List<Basket> myBasket;
+
+    @OneToMany(mappedBy = "seller")
+    @JsonIgnore
+    @ToString.Exclude
+    private List<Sales> mySales;
+
+    @OneToMany(mappedBy = "purchaser")
+    @JsonIgnore
+    @ToString.Exclude
+    private List<Purchases> myPurchases;
+
     @PrePersist
     private void prePersist() {
         if (image == null) {
@@ -80,6 +95,22 @@ public class Users {
         if (point == null ){
             point = 0L;
         }
+    }
+
+    public void paymentPoint(Long point) {
+        this.point += point;
+    }
+
+    public void usePoint(Long usePoint) {
+        this.point -= usePoint;
+    }
+
+    public void saleProduct(Long price) {
+        this.point += price;
+    }
+
+    public boolean isPossibleToBuy(Long usePoint) {
+        return this.point - usePoint >= 0;
     }
 
     public UserResponseDto toResponseDto() {
@@ -95,9 +126,6 @@ public class Users {
                 .build();
     }
 
-    public void paymentPoint(Long point) {
-        this.point += point;
-    }
 
     public ArtistDto toArtistDto() {
         return ArtistDto.builder()

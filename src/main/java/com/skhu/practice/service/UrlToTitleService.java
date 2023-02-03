@@ -88,6 +88,8 @@ public class UrlToTitleService {
                 put(19, "상품 보드");
                 put(20, "상품 상세");
                 put(21, "상품 등록");
+                put(22, "판매 목록");
+                put(23, "장바구니");
             }};
 
             Node album = new Node(0, "album");
@@ -112,6 +114,8 @@ public class UrlToTitleService {
             Node product = new Node(19, "product");
             Node productDetail = new Node(20, "detail");
             Node productWrite = new Node(21, "write");
+            Node userPointSale = new Node(22, "sale");
+            Node userPointBasket = new Node(23, "basket");
 
             album.addChild(albumDetail);
             album.addChild(albumRate);
@@ -130,6 +134,8 @@ public class UrlToTitleService {
             userPoint.addChild(userReceipt);
             product.addChild(productDetail);
             product.addChild(productWrite);
+            userPoint.addChild(userPointSale);
+            userPoint.addChild(userPointBasket);
 
             startNode = new HashMap<>(){{
                 put("album", album);

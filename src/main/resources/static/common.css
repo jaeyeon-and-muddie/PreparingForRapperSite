@@ -18,6 +18,12 @@ img {
 }
 
 #constructor:hover {
-    background : blue;
+    background: red;
     transition: all 1s;
+}
+
+#purchaseButton:hover {
+    background: red;
+    transition: all 1s;
+    border-radius: 50%;
 }

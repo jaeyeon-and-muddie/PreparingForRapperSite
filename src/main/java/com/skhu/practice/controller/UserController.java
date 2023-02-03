@@ -4,7 +4,10 @@ import com.skhu.practice.dto.PaymentRequestDto;
 import com.skhu.practice.dto.UserSignupDto;
 import com.skhu.practice.service.AlarmService;
 import com.skhu.practice.service.AlbumService;
+import com.skhu.practice.service.BasketService;
 import com.skhu.practice.service.PaymentService;
+import com.skhu.practice.service.PurchasesService;
+import com.skhu.practice.service.SalesService;
 import com.skhu.practice.service.UrlToTitleService;
 import com.skhu.practice.service.UserService;
 import lombok.Getter;
@@ -23,6 +26,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.management.loading.PrivateClassLoader;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.security.Principal;
@@ -35,6 +39,9 @@ public class UserController {
     private final UserService userService;
     private final AlarmService alarmService;
     private final PaymentService paymentService;
+    private final PurchasesService purchasesService;
+    private final SalesService salesService;
+    private final BasketService basketService;
 
     @GetMapping("login")
     public String login() {
@@ -101,7 +108,53 @@ public class UserController {
     public ModelAndView loadReceiptPage(ModelAndView modelAndView, HttpServletRequest request, Principal principal) {
         modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
         modelAndView.addObject("paymentLog", paymentService.findUserLog(principal.getName()));
+        modelAndView.addObject("purchases", purchasesService.findAllByUser(principal.getName()));
         modelAndView.setViewName("user-point-payment-log");
+        return modelAndView;
+    }
+
+    @GetMapping("point/sale")
+    public ModelAndView loadSalePage(ModelAndView modelAndView, HttpServletRequest request, Principal principal) {
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("sales", salesService.findAllByUser(principal.getName()));
+        modelAndView.setViewName("user-point-sale");
+        return modelAndView;
+    }
+
+    @GetMapping("point/basket")
+    public ModelAndView loadBasketPage(ModelAndView modelAndView, HttpServletRequest request, Principal principal) {
+        modelAndView.addObject("user", userService.userVisitedAndGetUser(principal, request.getRequestURL().toString()));
+        modelAndView.addObject("baskets", basketService.findAllByUser(principal.getName()));
+        modelAndView.setViewName("user-point-basket");
+        return modelAndView;
+    }
+
+    @PostMapping("point/basket/{id}")
+    public ModelAndView saveBasket(ModelAndView modelAndView, Long buysCount,
+                                   @PathVariable("id") Long productId, Principal principal) {
+        modelAndView.setViewName("redirect:/user/point/basket");
+
+        if (!basketService.save(buysCount, productId, principal.getName())) {
+            modelAndView.setViewName("redirect:/product/detail/" + productId);
+        }
+
+        return modelAndView;
+    }
+
+    @PostMapping("point/basket/confirm")
+    public ModelAndView buyProduct(ModelAndView modelAndView, HttpServletRequest request, Long id, Principal principal) {
+        modelAndView.addObject("warningMessage", basketService.confirm(id));
+        modelAndView.addObject("baskets", basketService.findAllByUser(principal.getName()));
+        modelAndView.addObject("user",
+                userService.userVisitedAndGetUser(principal, request.getRequestURL().toString().substring(0, request.getRequestURL().toString().lastIndexOf("/"))));
+        modelAndView.setViewName("user-point-basket");
+        return modelAndView;
+    }
+
+    @PostMapping("point/basket/cancel")
+    public ModelAndView dontBuyProduct(ModelAndView modelAndView, Long id) {
+        basketService.delete(id);
+        modelAndView.setViewName("redirect:/user/point/basket");
         return modelAndView;
     }
 }

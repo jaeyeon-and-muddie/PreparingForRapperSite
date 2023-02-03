@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -29,5 +30,13 @@
     <br>
     <span>설명글</span>
     <div th:text = "${product.explain}"></div>
+    <hr>
+    <form sec:authorize = "isAuthenticated()" role="form" th:action="@{'/user/point/basket/' + ${product.id}}" action="#" id="postForm" method="post">
+        <div th:if = "${user.id != product.registrant.id}">
+            <label for = "buysCount">구매 수량</label>
+            <input type = "text" id = "buysCount" name = "buysCount"/>
+            <button type="submit" class="btn btn-primary block full-width m-b">장바구니에 담기</button>
+        </div>
+    </form>
 </body>
 </html>

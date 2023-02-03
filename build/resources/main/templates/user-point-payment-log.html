@@ -10,9 +10,18 @@
 </head>
 <body>
     <div th:replace = "~{navbar :: navbarFragment}"></div>
-    <h2> 결제 내역 </h2>
+    <h2> 포인트 결제 내역 </h2>
     <div th:each = "log : ${paymentLog}">
         <div th:text = "${log.message}"></div>
+    </div>
+
+    <h2> 굿즈 구매 내역 </h2>
+    <div th:each = "purchase : ${purchases}">
+        <span th:text = "${purchase.buyDate} + '시에 '"></span>
+        <a th:href = "'/user/detail/' + ${purchase.seller.id}" th:text = "${purchase.seller.username} + ' '"></a>
+        <span>님의 </span>
+        <a th:href = "'/product/detail/' + ${purchase.product.id}" th:text = "${purchase.product.name}"></a>
+        <span th:text = "'을(를) ' + ${purchase.buysCount} + '개(' + ${purchase.totalPrice} + '원) 구매하였습니다.'"></span>
     </div>
 </body>
 </html>

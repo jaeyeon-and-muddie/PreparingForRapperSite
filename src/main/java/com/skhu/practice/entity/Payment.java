@@ -2,6 +2,7 @@ package com.skhu.practice.entity;
 
 import com.skhu.practice.dto.PaymentLogDto;
 import com.skhu.practice.entity.base.BaseEntity;
+import com.skhu.practice.service.DateToString;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,11 +44,7 @@ public class Payment extends BaseEntity {
 
     public PaymentLogDto toPaymentLog() {
         return PaymentLogDto.builder()
-                .message(dateToString(getCreatedDate()) + "에 " + methodOfPayment + "로 " + settlementPrice + "원을 결제하셨습니다.")
+                .message(DateToString.dateToString(getCreatedDate()) + "에 " + methodOfPayment + "로 " + settlementPrice + "원을 결제하셨습니다.")
                 .build();
-    }
-
-    private String dateToString(LocalDateTime localDateTime) {
-        return localDateTime.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 hh시 mm분 ss초"));
     }
 }
