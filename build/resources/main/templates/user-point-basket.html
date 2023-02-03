@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{/common.css}" rel = "stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
+    <h2>장바구니!</h2>
+    <strong style = "color:red" th:text = "${warningMessage}"></strong>
+    <div th:each = "basket : ${baskets}">
+        <span th:text = "${basket.createdDate} + '시에 '"></span>
+        <a th:href = "'/user/detail/' + ${basket.seller.id}" th:text = "${basket.seller.username}"></a>
+        <span>님의 판매상품 </span>
+        <a th:href = "'/product/detail/' + ${basket.product.id}" th:text = "${basket.product.name}"></a>
+        <span th:text = "'을(를) 장바구니에 ' + ${basket.buysCount} + '개 담으셨습니다.'"></span>
+        <form role="form" th:action="@{/user/point/basket/confirm}" action="#" method="post">
+            <input type = "hidden" name = "id" th:value = "${basket.id}">
+            <button type="submit" class="btn btn-primary block full-width m-b">구매 확정</button>
+        </form>
+        <form role="form" th:action="@{/user/point/basket/cancel}" action="#" method="post">
+            <input type = "hidden" name = "id" th:value = "${basket.id}">
+            <button type="submit" class="btn btn-primary block full-width m-b">구매 취소</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{/common.css}" rel = "stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
+    <table>
+        <thead>
+        <tr>
+            <td>상품명</td>
+            <td>상품사진</td>
+            <td>등록자</td>
+            <td>가격</td>
+            <td>등록일</td>
+            <td>재고수</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = 'product : ${products}'>
+            <td>
+                <a th:href = "@{'/product/detail/' + ${product.id}}" th:text = "${product.name}"></a>
+            </td>
+            <td>
+                <a th:href = "@{'/product/detail/' + ${product.id}}">
+                    <img th:src = "@{${product.image}}"/>
+                </a>
+            </td>
+            <td>
+                <a th:href = "@{'/user/detail/' + ${product.registrant.id}}" th:text = "${product.registrant.username}"></a>
+            </td>
+            <td th:text = "${product.price}"></td>
+            <td th:text = "${product.createdDate}"></td>
+            <td th:text = "${product.stock}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

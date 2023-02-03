@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, users-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href = "@{/common.css}" rel = "stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+    <div th:replace = "~{navbar :: navbarFragment}"></div>
+    <table>
+        <thead>
+            <tr>
+                <td>앨범이름</td>
+                <td>앨범재킷</td>
+                <td>아티스트명</td>
+                <td>수록곡 수</td>
+                <td>발매일</td>
+                <td>리뷰수</td>
+                <td>별점</td>
+                <td>조회수</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each = 'mixTape : ${mixTape}'>
+                <td>
+                    <a th:href = "@{'/mixtape/detail/' + ${mixTape.id}}" th:text = "${mixTape.name}"></a>
+                </td>
+                <td>
+                    <a th:href = "@{'/mixtape/detail/' + ${mixTape.id}}">
+                        <img th:src = "@{${mixTape.image}}"/>
+                    </a>
+                </td>
+                <td>
+                    <a th:href = "@{'/user/detail/' + ${mixTape.artist.id}}" th:text = "${mixTape.artist.username}"></a>
+                </td>
+                <td th:text = "${mixTape.songsInMixTape.size()}"></td>
+                <td th:text = "${mixTape.dateOfIssue}"></td>
+                <td th:text = "${mixTape.numberOfReview}"></td>
+                <td th:text = "${mixTape.averageOfStar}"></td>
+                <td th:text = "${mixTape.hits}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

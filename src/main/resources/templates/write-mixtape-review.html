@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div th:replace = "~{navbar :: navbarFragment}"></div>
+<br>
+<form role="form" th:action="@{'/mixtape/review/' + ${mixTape.id}}" action="#" id="postForm" method="post">
+    <div class="form-group">
+        <label for = "title">제목</label>
+        <input type = "text" id = "title" name = "title"/>
+    </div>
+    <br>
+    <hr>
+    <h2>수록곡들</h2>
+    <div class="form-group" th:each = "song : ${mixTape.songsInMixTape}">
+        <br>
+        <div>제목</div>
+        <div th:text = "${song.title}"></div>
+        <div>가사</div>
+        <div th:text = "${song.lyric}"></div>
+    </div>
+    <h2>수록곡 리뷰 작성하기 </h2>
+    <textarea cols = "50" rows = "10" name = "reviewOfSong"></textarea>
+    <br>
+    <hr>
+    <div class="form-group">
+        <label for = "star">별점 (0 ~ 5 점 사이의 점수만 가능합니다.)</label>
+        <input type = "text" id = "star" name = "star"/>
+    </div>
+    <button type="submit" class="btn btn-primary block full-width m-b">작성하기</button>
+</form>
+</body>
+</html>

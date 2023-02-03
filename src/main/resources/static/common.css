@@ -1,0 +1,29 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border-style: solid;
+}
+
+span {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+#constructor:hover {
+    background: red;
+    transition: all 1s;
+}
+
+#purchaseButton:hover {
+    background: red;
+    transition: all 1s;
+    border-radius: 50%;
+}
