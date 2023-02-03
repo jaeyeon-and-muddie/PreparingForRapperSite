@@ -81,13 +81,11 @@ public class JudgeMixTape extends Mix {
         }
 
         if (recommend == null) {
-//            this.recommend = 0L;
-            this.recommend = 4L;
+            this.recommend = 0L;
         }
 
         if (unRecommend == null) {
-//            this.unRecommend = 0L;
-            this.unRecommend = 4L;
+            this.unRecommend = 0L;
         }
     }
 

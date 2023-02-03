@@ -12,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @ToString
-public class PaymentLog {
+public class PaymentLogDto {
 
     private String message;
 }

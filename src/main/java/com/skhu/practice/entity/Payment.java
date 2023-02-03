@@ -1,12 +1,10 @@
 package com.skhu.practice.entity;
 
-import com.skhu.practice.dto.PaymentLog;
+import com.skhu.practice.dto.PaymentLogDto;
 import com.skhu.practice.entity.base.BaseEntity;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
@@ -43,8 +41,8 @@ public class Payment extends BaseEntity {
     @Column(name = "method_of_payment")
     private String methodOfPayment;
 
-    public PaymentLog toPaymentLog() {
-        return PaymentLog.builder()
+    public PaymentLogDto toPaymentLog() {
+        return PaymentLogDto.builder()
                 .message(dateToString(getCreatedDate()) + "에 " + methodOfPayment + "로 " + settlementPrice + "원을 결제하셨습니다.")
                 .build();
     }

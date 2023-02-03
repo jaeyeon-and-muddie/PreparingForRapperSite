@@ -5,11 +5,8 @@ import com.skhu.practice.dto.MixTapeRequestDto;
 import com.skhu.practice.dto.SongRequestDto;
 import com.skhu.practice.entity.JudgeMixTape;
 import com.skhu.practice.entity.JudgeMixTapeSong;
-import com.skhu.practice.entity.MixTape;
-import com.skhu.practice.entity.MixTapeSong;
 import com.skhu.practice.repository.JudgeMixTapeRepository;
 import com.skhu.practice.repository.JudgeMixTapeSongRepository;
-import com.skhu.practice.repository.MixTapeSongRepository;
 import com.skhu.practice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -40,17 +37,6 @@ public class JudgeMixTapeService {
             }
         }
     }
-
-//    @Scheduled(fixedRate = 60000)
-//    public void expireRateForTest() { // 테스트 용
-//        List<JudgeMixTape> judgeMixTapes = judgeMixTapeRepository.findAll();
-//
-//        for (JudgeMixTape mixTape : judgeMixTapes) {
-//            if (mixTape.isExpire(LocalDateTime.now())) {
-//                judgeMixTapeRepository.delete(mixTape);
-//            }
-//        }
-//    }
 
     public List<JudgeMixTapeResponseDto> findAll() {
         return judgeMixTapeRepository.findAll()

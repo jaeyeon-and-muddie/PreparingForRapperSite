@@ -9,7 +9,6 @@ import com.skhu.practice.entity.MixTapeSong;
 import com.skhu.practice.entity.Users;
 import com.skhu.practice.repository.EmoteRepository;
 import com.skhu.practice.repository.JudgeMixTapeRepository;
-import com.skhu.practice.repository.JudgeMixTapeSongRepository;
 import com.skhu.practice.repository.MixTapeRepository;
 import com.skhu.practice.repository.MixTapeSongRepository;
 import com.skhu.practice.repository.UserRepository;

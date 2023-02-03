@@ -1,6 +1,6 @@
 package com.skhu.practice.service;
 
-import com.skhu.practice.dto.PaymentLog;
+import com.skhu.practice.dto.PaymentLogDto;
 import com.skhu.practice.dto.PaymentRequestDto;
 import com.skhu.practice.entity.Payment;
 import com.skhu.practice.entity.Users;
@@ -32,7 +32,7 @@ public class PaymentService {
                 .build());
     }
 
-    public List<PaymentLog> findUserLog(String username) {
+    public List<PaymentLogDto> findUserLog(String username) {
         return paymentRepository.findByUserId(userRepository.findByUsername(username).orElseThrow(NoSuchElementException::new).getId())
                 .stream()
                 .map(Payment::toPaymentLog)
