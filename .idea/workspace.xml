@@ -5,42 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba328ba3-7c33-4b89-abc9-7c376ca56200" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/BasketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/BasketResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/PurchasesResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/dto/SalesResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Basket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Purchases.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Sales.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/BasketRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/PurchasesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/repository/SalesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/BasketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/DateToString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/PurchasesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/SalesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user-point-basket.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user-point-sale.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/6week/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/6week/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/6week/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/6week/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/6week/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/6week/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/6week/img_5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/product-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/product-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/5week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/5week/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UrlToTitleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/service/UrlToTitleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/user-point-sale.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/user-point-sale.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/controller/BasketController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/product-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user-point-payment-log.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user-point-payment-log.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +145,7 @@
       <workItem from="1674185064721" duration="43234000" />
       <workItem from="1674573167278" duration="27768000" />
       <workItem from="1675126039086" duration="28071000" />
-      <workItem from="1675395325749" duration="14287000" />
+      <workItem from="1675395325749" duration="17148000" />
     </task>
     <servers />
   </component>
