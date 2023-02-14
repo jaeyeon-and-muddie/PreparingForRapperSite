@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Mixtape {
     @Id
@@ -41,15 +42,5 @@ public class Mixtape {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate releaseDate;
 
-    @Builder
-    public Mixtape(Long id, String preTag, String introduction,LocalDate releaseDate, int numberOfSongs, String title, User user) {
-        this.id=id;
-        this.preTag=preTag;
-        this.numberOfSongs=numberOfSongs;
-        this.introduction=introduction;
-        this.releaseDate=releaseDate;
-        this.title=title;
-        this.user=user;
-    }
     //이미지는 이미지를 업로드 해야하는 문제가 잇음.
 }

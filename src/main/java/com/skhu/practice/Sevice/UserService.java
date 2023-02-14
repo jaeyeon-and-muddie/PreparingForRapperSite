@@ -1,7 +1,10 @@
 package com.skhu.practice.Sevice;
+import com.skhu.practice.DTO.NavbarDto;
 import com.skhu.practice.DTO.UserDto;
 import com.skhu.practice.DTO.UserSessionDto;
 import com.skhu.practice.Entity.User;
+import com.skhu.practice.Entity.market.Point;
+import com.skhu.practice.Repository.Market.PointRepository;
 import com.skhu.practice.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,12 +22,30 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PointRepository pointRepository;
     private final BCryptPasswordEncoder encoder;
 
     @Transactional
     public Long join(UserDto dto){
         dto.setPassword(encoder.encode(dto.getPassword()));
-        return userRepository.save(dto.toEntity()).getId();
+        Long id = userRepository.save(dto.toEntity()).getId();
+        User user = userRepository.findById(id).orElse(null);
+        Point point = Point.builder()
+                .user(user)
+                .build();
+        pointRepository.save(point);
+        return id;
+    }
+
+    public NavbarDto navbar(UserSessionDto user) {
+        User user1 = userRepository.findByEmail(user.getEmail()).orElse(null);
+        Point point = pointRepository.findByUserId(user1.getId());
+        NavbarDto navBarDto = NavbarDto.builder()
+                .user(user1)
+                .point(point)
+                .build();
+        return navBarDto;
+
     }
 
 //    private final String LOGIN_SUCCESS = "home";

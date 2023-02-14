@@ -1,9 +1,12 @@
 package com.skhu.practice.Controller;
 
 
-import com.skhu.practice.DTO.PlusAlbumDto;
-import com.skhu.practice.DTO.PlusSongDto;
-import com.skhu.practice.Sevice.AlbumService;
+import com.skhu.practice.DTO.AlbumDto.PlusAlbumDto;
+import com.skhu.practice.DTO.AlbumDto.PlusSongDto;
+import com.skhu.practice.DTO.NavbarDto;
+import com.skhu.practice.DTO.UserSessionDto;
+import com.skhu.practice.Sevice.Album.AlbumService;
+import com.skhu.practice.Sevice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +23,7 @@ import java.util.List;
 public class AlbumController {
 
     private final AlbumService albumService;
+    private final UserService userService;
     @GetMapping("plusAlbum")
     public ModelAndView albumPlus(PlusAlbumDto plusAlbumDto){
         ModelAndView mv = new ModelAndView();
@@ -44,14 +48,8 @@ public class AlbumController {
                                  @RequestParam("albumTitle") String albumTitle
                                  ){
         ModelAndView mv = new ModelAndView();
-        List<PlusSongDto> plusSongDto = new ArrayList<PlusSongDto>(NumberOfSongs);
-        for(int i=0; i<NumberOfSongs; i++){
-            PlusSongDto plusSongDto1 = new PlusSongDto();
-            plusSongDto.add(plusSongDto1);
-        }
-        System.out.println(plusSongDto.size());
         mv.setViewName("plusSong");
-        mv.addObject("plusSongs", plusSongDto);
+        mv.addObject("plusSongs", albumService.makeSongList(NumberOfSongs));
         mv.addObject("albumTitle", albumTitle);
         return mv;
     }

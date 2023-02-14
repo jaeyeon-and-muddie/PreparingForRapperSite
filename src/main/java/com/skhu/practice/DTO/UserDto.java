@@ -1,12 +1,9 @@
 package com.skhu.practice.DTO;
 
 
-import com.skhu.practice.Entity.Role;
+import com.skhu.practice.Entity.album.Role;
 import com.skhu.practice.Entity.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -27,4 +24,6 @@ public class UserDto {
 
 
     }
+
+
 }

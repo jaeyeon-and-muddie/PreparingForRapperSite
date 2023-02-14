@@ -1,20 +1,14 @@
 package com.skhu.practice.Controller;
 
 import com.skhu.practice.DTO.UserDto;
-import com.skhu.practice.Entity.User;
 import com.skhu.practice.Repository.UserRepository;
-import com.skhu.practice.Sevice.AlbumService;
+import com.skhu.practice.Sevice.Album.AlbumService;
 import com.skhu.practice.Sevice.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequiredArgsConstructor // 빈을 알아서 주입해줌

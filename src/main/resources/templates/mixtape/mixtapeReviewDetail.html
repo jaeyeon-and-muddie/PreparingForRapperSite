@@ -4,9 +4,15 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/css.css}">
     <title>리뷰</title>
 </head>
 <body>
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
 <a th:href="@{mixtapehome}">홈으로</a>
     <table>
       <caption>[[${mixtapeReview.title}]]</caption>

@@ -3,11 +3,16 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>앨범</title>
+    <link rel="stylesheet" th:href="@{/css/css.css}">
 </head>
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
 <body>
     <table>
         <tr>
@@ -30,6 +35,7 @@
     <a th:href="@{plusAlbum}" sec:authorize="hasRole('ROLE_ADMIN')">앨범등록</a>
     <a th:href="@{notableHome}">주목앨범</a>
     <a th:href="@{mixtape/mixtapehome}">믹스테잎게시판</a>
+    <a th:href="@{market/merchandise}">장터</a>
     <a th:href="@{doLogout}">로그아웃</a>
 </body>
 </html>

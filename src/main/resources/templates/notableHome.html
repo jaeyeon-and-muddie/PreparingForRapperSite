@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>notableHome</title>
+    <link rel="stylesheet" th:href="@{/css/css.css}">
 </head>
 <body>
 <a th:href="@{home}">홈으로</a>
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
 <table>
     <h3>리뷰 순</h3>
     <tr th:each="reviewNote : ${notableList.reviewNotes}">

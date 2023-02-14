@@ -4,17 +4,29 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/css.css}">
     <title>믹스테잎</title>
 <!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>-->
 </head>
 <body>
-<th:block th:each="mixtape : ${mixtapeIntroList}">
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
+<th:block th:each="mixtape, i : ${mixtapeIntroList}">
+    <input type = "hidden" id = "mixTapeSize" th:value = "${mixtapeIntroList.size()}">
                 <span th:text="${mixtape.title}"></span><br>
                 <span th:text="${mixtape.numberOfSongs}"></span><br>
                 <span th:text="${mixtape.releaseDate}"></span><br>
                 <span th:text="${mixtape.user.email}"></span><br>
                 <span th:text="${mixtape.recommendNumber}"></span><br>
-                <a th:href="@{soundCloud(mixtapeId=${mixtape.id})}">청취</a>
+                <input th:id = "'soundCloud' + ${i.count - 1}" type = "hidden" th:value = "${mixtape.preTag}">
+                <div th:id = "'container' + ${i.count - 1}"></div>
+                <br>
+                <form method="post"  th:action="@{recommend(id=${mixtape.id})}">
+                    <button type="submit">추천</button>
+                </form>
             <br>
             <hr/>
 <!--            <div class = "soundCloud"></div>-->
@@ -22,17 +34,20 @@
 <!--            <br>-->
 </th:block>
 <a th:href="@{mixtapeCreate}">믹스테잎등록</a>
+<a th:href="@{/market/merchandise}">장터</a>
 <a th:href="@{mixtapes}">믹스테잎목록</a>
 </body>
 <script>
+window.onload = function() {
+            var mixTapeSize = document.getElementById("mixTapeSize").value;
 
-
-<!--  $(document).ready(function() {-->
-<!--          var soundCloud = $('.soundCloudContent').get();-->
-<!--        var container = $('.soundCloud');-->
-<!--        for(var i=0; i<soundCloud.length; i++){-->
-<!--        container.append($('<pre>').html(soundCloud[i].value));-->
-<!--        }-->
-<!--    });-->
+            for (var i = 0; i < mixTapeSize; i++) {
+                var soundCloud = document.getElementById('soundCloud' + i).value;
+                var container = document.getElementById('container' + i);
+                var pre = document.createElement('pre');
+                pre.innerHTML = soundCloud;
+                container.appendChild(pre);
+            }
+        }
 </script>
 </html>

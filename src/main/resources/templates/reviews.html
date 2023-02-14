@@ -4,8 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>albumReview</title>
+    <link rel="stylesheet" th:href="@{/css/css.css}">
 </head>
 <body>
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
     <table>
     <tr>
         <th>앨범</th>

@@ -1,7 +1,6 @@
 package com.skhu.practice.Entity.mixtape;
 
 
-import com.skhu.practice.Entity.Album;
 import lombok.Data;
 
 import javax.persistence.*;

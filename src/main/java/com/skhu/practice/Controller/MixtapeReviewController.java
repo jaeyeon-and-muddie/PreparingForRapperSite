@@ -1,26 +1,21 @@
 package com.skhu.practice.Controller;
 
-import com.skhu.practice.DTO.MixtapeReviewCreateDto;
-import com.skhu.practice.DTO.ReviewCreateDto;
+import com.skhu.practice.DTO.MixtapeDto.MixtapeReviewCreateDto;
+import com.skhu.practice.DTO.NavbarDto;
 import com.skhu.practice.DTO.UserSessionDto;
-import com.skhu.practice.Entity.Album;
-import com.skhu.practice.Entity.AlbumReview;
-import com.skhu.practice.Entity.Comment;
-import com.skhu.practice.Entity.mixtape.Mixtape;
 import com.skhu.practice.Entity.mixtape.MixtapeComment;
 import com.skhu.practice.Entity.mixtape.MixtapeReview;
-import com.skhu.practice.Repository.MixtapeRepository;
-import com.skhu.practice.Repository.MixtapeReviewRepository;
+import com.skhu.practice.Repository.Mixtape.MixtapeRepository;
+import com.skhu.practice.Repository.Mixtape.MixtapeReviewRepository;
 import com.skhu.practice.Repository.UserRepository;
-import com.skhu.practice.Sevice.MixtapeReviewService;
+import com.skhu.practice.Sevice.Mixtape.MixtapeReviewService;
+import com.skhu.practice.Sevice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,12 +26,14 @@ public class MixtapeReviewController {
     private final MixtapeReviewRepository mixtapeReviewRepository;
     private final UserRepository userRepository;
     private final MixtapeRepository mixtapeRepository;
+    private final UserService userService;
 
     @GetMapping("mixtapeReview")
-    public ModelAndView mixtapeReview(Long mixtapeId){
+    public ModelAndView mixtapeReview(Long mixtapeId,@ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView("mixtape/mixtapeReviews");
         mixtapeReviewService.updateView(mixtapeId);
         mv.addObject("mixtapeReviews", mixtapeReviewService.reviewHome(mixtapeId));
+        mv.addObject("navbar", userService.navbar(user));
         return mv;
     }
     @GetMapping("mixtapeReviewCreate")
@@ -55,10 +52,10 @@ public class MixtapeReviewController {
     }
 
     @GetMapping("mixtapeReviewDetail")
-    public ModelAndView mixtapeReviewDetail(Long mixtapeReviewId){
+    public ModelAndView mixtapeReviewDetail(Long mixtapeReviewId,@ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView("mixtape/mixtapeReviewDetail");
         mv.addObject("mixtapeReview", mixtapeReviewService.reviewDetail(mixtapeReviewId));
-
+        mv.addObject("navbar", userService.navbar(user));
         return mv;
     }
     @PostMapping("mixtapeReviewComment")

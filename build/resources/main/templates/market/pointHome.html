@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <h1>[[${userPoint.user.email}]]님의 포인트 정보</h1>
+  <h3>[[${userPoint.user.role}]]</h3>
+  <h3>총 [[${userPoint.havingPoint.point}]] 쿵야</h3>
+    <p><a th:href="@{/market/plusPoint}">충전하러가기</a></p>
+    <p><a th:href="@{/home}">홈으로</a></p>
+</head>
+<body>
+
+</body>
+</html>

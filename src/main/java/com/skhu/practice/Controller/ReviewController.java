@@ -1,22 +1,22 @@
 package com.skhu.practice.Controller;
 
-import com.skhu.practice.DTO.ReviewCreateDto;
+import com.skhu.practice.DTO.AlbumDto.CommentDto;
+import com.skhu.practice.DTO.AlbumDto.ReviewCreateDto;
 import com.skhu.practice.DTO.UserSessionDto;
-import com.skhu.practice.Entity.Album;
-import com.skhu.practice.Entity.AlbumReview;
-import com.skhu.practice.Entity.Comment;
+import com.skhu.practice.Entity.album.Album;
+import com.skhu.practice.Entity.album.Comment;
 import com.skhu.practice.Entity.User;
-import com.skhu.practice.Repository.AlbumRepository;
-import com.skhu.practice.Repository.AlbumReviewRepository;
+import com.skhu.practice.Repository.Album.AlbumRepository;
+import com.skhu.practice.Repository.Album.AlbumReviewRepository;
 import com.skhu.practice.Repository.UserRepository;
-import com.skhu.practice.Sevice.AlbumService;
-import com.skhu.practice.Sevice.ReviewService;
+import com.skhu.practice.Sevice.Album.AlbumService;
+import com.skhu.practice.Sevice.Album.ReviewService;
+import com.skhu.practice.Sevice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,13 +30,14 @@ public class ReviewController {
     private final AlbumRepository albumRepository;
     private final ReviewService reviewService;
     private final AlbumReviewRepository albumReviewRepository;
+    private final UserService userService;
 
     @GetMapping("home")
-    public ModelAndView home(){
+    public ModelAndView home(@ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home");
         mv.addObject("albums",albumService.albumList());
-
+        mv.addObject("navbar",userService.navbar(user));
         return mv;
     }
     @GetMapping("albumInform")
@@ -47,36 +48,32 @@ public class ReviewController {
         return mv;
     }
     @GetMapping("reviews")
-    public ModelAndView reviews(@RequestParam("albumId") Long albumId){
+    public ModelAndView reviews(@RequestParam("albumId") Long albumId,@ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("reviews");
+        mv.addObject("albums",albumService.albumList());
         mv.addObject("albumReviews", reviewService.albumReview(albumId));
+        mv.addObject("navbar",userService.navbar(user));
         mv.addObject("albumId", albumId);
         return mv;
     }
     @GetMapping("reviewDetail")
-    public ModelAndView reviewDetail(@RequestParam("albumReviewId") Long albumReviewId){
+    public ModelAndView reviewDetail(@RequestParam("albumReviewId") Long albumReviewId , @ModelAttribute("user") UserSessionDto user
+                                     ,CommentDto commented){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("reviewDetail");
-        AlbumReview albumReview= albumReviewRepository.findById(albumReviewId).orElse(null);
         reviewService.updateView(albumReviewId);
-//        List<String> albumReviews = albumReview.getReviews();
-        System.out.println(albumReview.getReviews().size());
-        mv.addObject("albumReview", albumReview);
+        mv.addObject("navbar",userService.navbar(user));
+        mv.addObject("albums",albumService.albumList());
+        mv.addObject("commented", commented);
+        mv.addObject("albumReview", reviewService.findReview(albumReviewId));
         return mv;
     }
     @PostMapping("reviewComment")
     public ModelAndView reviewDetail(@ModelAttribute("user") UserSessionDto user,
-                                     Comment commented, Long albumId,
-                                     Principal principal){
-        AlbumReview albumReview = albumReviewRepository.findById(albumId).orElse(null);
-        commented.setAlbumReview(albumReview);
-//        System.out.println(memberEmail);
-//        System.out.println(commented.getComment());
-        commented.setUser(userRepository.findByEmail(user.getEmail()).orElse(null));
-//        System.out.println(commented.getAlbumReview().getId());
-        reviewService.reviewComment(commented);
-        ModelAndView mv = new ModelAndView("redirect:reviewDetail?albumReviewId="+albumId);
+                                     CommentDto commented){
+        reviewService.reviewComment(commented,user);
+        ModelAndView mv = new ModelAndView("redirect:reviewDetail?albumReviewId="+commented.getAlbumReviewId());
         return mv;
 
     }

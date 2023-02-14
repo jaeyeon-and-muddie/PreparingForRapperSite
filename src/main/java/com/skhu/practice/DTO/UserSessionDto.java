@@ -1,7 +1,7 @@
 package com.skhu.practice.DTO;
 
 
-import com.skhu.practice.Entity.Role;
+import com.skhu.practice.Entity.album.Role;
 import com.skhu.practice.Entity.User;
 import lombok.Getter;
 

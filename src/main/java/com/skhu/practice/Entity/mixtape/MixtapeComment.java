@@ -1,6 +1,5 @@
 package com.skhu.practice.Entity.mixtape;
 
-import com.skhu.practice.Entity.AlbumReview;
 import com.skhu.practice.Entity.Base.BaseEntity;
 import com.skhu.practice.Entity.User;
 import lombok.Data;

@@ -1,10 +1,10 @@
 package com.skhu.practice.Controller;
 
-import com.skhu.practice.DTO.MixtapeCreateDto;
-import com.skhu.practice.DTO.MixtapeDetailDto;
+import com.skhu.practice.DTO.MixtapeDto.MixtapeCreateDto;
+import com.skhu.practice.DTO.NavbarDto;
 import com.skhu.practice.DTO.UserSessionDto;
-import com.skhu.practice.Entity.User;
-import com.skhu.practice.Sevice.MixtapeService;
+import com.skhu.practice.Sevice.Mixtape.MixtapeService;
+import com.skhu.practice.Sevice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class MixtapeController {
 
     private final MixtapeService mixtapeService;
+    private final UserService userService;
     @GetMapping("mixtapehome")
-    public ModelAndView home(){
+    public ModelAndView home(@ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView("mixtape/mixtapehome");
         mv.addObject("mixtapeIntroList",mixtapeService.mixtapeIntroList());
+        mv.addObject("navbar", userService.navbar(user));
         return mv;
     }
     @GetMapping("soundCloud")
@@ -46,22 +48,25 @@ public class MixtapeController {
     @PostMapping("recommend")
     public ModelAndView recommend(@RequestParam Long id,@ModelAttribute("user") UserSessionDto user){
         System.out.println(user.getEmail());
+        System.out.println(id);
         mixtapeService.recommend(id, user);
         ModelAndView mv = new ModelAndView("redirect:mixtapehome");
 
         return mv;
     }
     @GetMapping("mixtapes")
-    public ModelAndView mixtapes(){
+    public ModelAndView mixtapes(@ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView("mixtape/mixtapes");
         mv.addObject("mixtapeList", mixtapeService.mixtapeList());
+        mv.addObject("navbar", userService.navbar(user));
         return mv;
     }
 
     @GetMapping("mixtapeDetail")
-    public ModelAndView mixtapes(Long mixtapeId){
+    public ModelAndView mixtapes(Long mixtapeId, @ModelAttribute("user") UserSessionDto user){
         ModelAndView mv = new ModelAndView("mixtape/mixtapeDetail");
         mv.addObject("mixtapeDetail", mixtapeService.mixtapeDetail(mixtapeId));
+        mv.addObject("navbar", userService.navbar(user));
         return mv;
     }
 

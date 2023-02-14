@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<th:block th:each="buy :${buyList.buyListDtoList}">
+    <div>
+        <image th:src="${buy.merchandise.image}" style="width:100px; height:100px;"></image><br>
+        <p>상품이름:<span th:text="${buy.merchandise.name}"></span></p>
+        <p>가격:<span th:text="${buy.merchandise.point}"></span>쿵야</p>
+        <form th:action="@{delete(basketId=${buy.basketId})}" method="post">
+        <button type="submit">삭제</button>
+        </form>
+    </div>
+</th:block>
+
+<p>총 [[${buyList.sum}]] 쿵야</p>
+<form th:action="@{buyBasket(sum=${buyList.sum})}" method="post">
+    <button type="submit">전부 구매</button>
+</form>
+<a th:href="@{merchandise}">장터로</a>
+</body>
+</html>

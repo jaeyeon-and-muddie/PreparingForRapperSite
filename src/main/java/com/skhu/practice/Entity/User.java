@@ -1,5 +1,8 @@
 package com.skhu.practice.Entity;
 
+import com.skhu.practice.Entity.album.AlbumReview;
+import com.skhu.practice.Entity.album.Role;
+import com.skhu.practice.Entity.market.Point;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -30,4 +33,7 @@ public class User {
 
     @OneToMany(mappedBy="user")
     List<AlbumReview> albumReviews;
+
+    @OneToOne(mappedBy="user")
+    private Point point;
 }
