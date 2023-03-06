@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>ReviewDetail</title>
     <link rel="stylesheet" th:href="@{/css/css.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="bar">
@@ -12,7 +13,15 @@
     <p th:text="${navbar.user.role}"></p>
     <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
 </div>
-<a th:href="@{home}">홈으로</a>
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{home}">홈으로</a>
+            </li>
+        </ul>
+    </div>
+</nav>
     <table>
         <tr>
             <th>수록곡순서</th>
@@ -32,5 +41,6 @@
         <input type="hidden" th:name="albumReviewId" th:value="${albumReview.id}">
         <button type="submit">등록</button>
     </form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

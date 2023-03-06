@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba328ba3-7c33-4b89-abc9-7c376ca56200" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,76 +15,30 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/Join.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/Join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/albumInform.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/albumInform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapeDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapeDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapeReviewDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapeReviewDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapeReviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapeReviews.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapehome.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapehome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapes.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/mixtape/mixtapes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/notableHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/notableHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/plusAlbum.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/plusAlbum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/plusSong.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/plusSong.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviewCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviewCreate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviewDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviewDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviews.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/AlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/MarketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/MarketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/MixtapeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/MixtapeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/MixtapeReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/MixtapeReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/NotableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/NotableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeCreateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeDetailDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeIntroDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeIntroDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeReviewCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeReviewCreateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeReviewDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeReviewDetailDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeReviewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeReviewDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeReviewHomeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/MixtapeDto/MixtapeReviewHomeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/NotableHomeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/AlbumDto/NotableHomeDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/PlusAlbumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/AlbumDto/PlusAlbumDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/PlusSong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/AlbumDto/PlusSong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/PlusSongDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/AlbumDto/PlusSongDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/ReviewCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/AlbumDto/ReviewCreateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/SongReviewCreateDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/AlbumDto/SongReviewCreateDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/SoundCloudDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/AlbumDto/SoundCloudDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/UserLoginDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/UserSessionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/DTO/UserSessionDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/album/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/AlbumReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/album/AlbumReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/album/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/album/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/album/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/album/Song.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/mixtape/Mixtape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/mixtape/Mixtape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/mixtape/MixtapeComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/mixtape/MixtapeComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/mixtape/MixtapeSong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Entity/mixtape/MixtapeSong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/AlbumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Album/AlbumRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/AlbumReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Album/AlbumReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/ArtistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Album/ArtistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Album/CommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/MixtapeCommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Mixtape/MixtapeCommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/MixtapeIntroRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Mixtape/MixtapeIntroRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/MixtapeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Mixtape/MixtapeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/MixtapeReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Mixtape/MixtapeReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Album/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/SongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Repository/Album/SongRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/Album/AlbumService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/MixtapeReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/Mixtape/MixtapeReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/MixtapeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/Mixtape/MixtapeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/NotableService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/Album/NotableService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/Album/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/Sevice/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/1week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/1week/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/2week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/2week/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/3week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/3week/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Join.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/albumInform.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/albumInform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapeDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapeDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapeReviewDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapeReviewDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapeReviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapeReviews.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapehome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapehome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/mixtape/mixtapes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notableHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notableHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plusAlbum.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plusAlbum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plusSong.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plusSong.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewCreate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviews.html" afterDir="false" />
     </list>
@@ -104,12 +60,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="practice" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -143,23 +94,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/java/project/PreparingForRapperSite&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/java/project/PreparingForRapperSite/docs/4week",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\java\project\PreparingForRapperSite\docs\4week" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\java\project\PreparingForRapperSite\src\main\resources\static\css" />
       <recent name="C:\java\project\PreparingForRapperSite\src\main\resources\static" />

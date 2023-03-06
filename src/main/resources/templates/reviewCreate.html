@@ -2,10 +2,12 @@
 <html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <title>reviewCreate</title>
 </head>
 <body>
+
 <form th:action="@{reviewCreate}" th:object="${albumReview}" method="post">
     <table>
         <tbody>
@@ -24,8 +26,12 @@
         <tr th:each="review, i : ${albumReview.Reviews}">
             <td><textarea th:name = "'Reviews[' + ${i.count - 1} + ']'" ></textarea></td>
         </tr>
+        <tr>
+            <td><button type="submit">등록</button></td>
+        </tr>
         </tbody>
-        <button type="submit">등록</button>
     </table>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
