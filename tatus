@@ -1,0 +1,75 @@
+[33mcommit e42c464760f807753552c0a2d3ab9acad57918e1[m[33m ([m[1;36mHEAD -> [m[1;32mmuddie[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: bluemudd <parkjm0817@gmail.com>
+Date:   Fri Dec 23 18:53:50 2022 +0900
+
+    configure: first페이지, 로그인 구현
+
+[33mcommit 5e7a058162d168f73cf168cc9ce4c39026f27670[m
+Author: bluemudd <parkjm0817@gmail.com>
+Date:   Fri Dec 23 16:43:12 2022 +0900
+
+    configuer 홈페이지구성
+
+[33mcommit 2a0831717becd4f3d1bae932732fd8be9fcccfcf[m
+Merge: 0c373d8 b1bcbbe
+Author: kpeel5839 <89840550+kpeel5839@users.noreply.github.com>
+Date:   Mon Dec 19 16:03:50 2022 +0900
+
+    Merge pull request #3 from kpeel5839/main
+    
+    feat : 프로젝트 추가
+
+[33mcommit b1bcbbe9fbc1f3ab72ce114f109447630be92182[m
+Merge: 561f8ad 0c373d8
+Author: kpeel5839 <89840550+kpeel5839@users.noreply.github.com>
+Date:   Mon Dec 19 16:03:39 2022 +0900
+
+    Merge branch 'main' into main
+
+[33mcommit 561f8adaeb14e73ed79f356e29f9e22ac8c32540[m
+Author: jaeyeon kim <jakind@naver.com>
+Date:   Mon Dec 19 15:59:18 2022 +0900
+
+    feat : 프로젝트 추가
+
+[33mcommit 0c373d8a36dceb125a6ec35f7e7609a64d2fd8b0[m
+Merge: 4031a4c 0aa0b6f
+Author: kpeel5839 <89840550+kpeel5839@users.noreply.github.com>
+Date:   Mon Dec 19 15:49:17 2022 +0900
+
+    Merge pull request #2 from kpeel5839/main
+    
+    프로젝트 삭제
+
+[33mcommit 0aa0b6f4b0102d4bc7e638ab12c612a672ca4532[m
+Author: jaeyeon kim <jakind@naver.com>
+Date:   Mon Dec 19 15:48:51 2022 +0900
+
+    fix : 숨김파일도 삭제
+
+[33mcommit 80630ef37c295ef8339bf8e870c5a9570e791cc4[m
+Author: jaeyeon kim <jakind@naver.com>
+Date:   Mon Dec 19 15:47:31 2022 +0900
+
+    fix : 기존 프로젝트 삭제
+
+[33mcommit 4031a4ce9c413c3e3ccef537f74c01b82713dd2a[m
+Merge: 7a6f8d1 adc3611
+Author: kpeel5839 <89840550+kpeel5839@users.noreply.github.com>
+Date:   Mon Dec 19 15:33:10 2022 +0900
+
+    Merge pull request #1 from kpeel5839/main
+    
+    chore : 프로젝트 추가
+
+[33mcommit adc361171df85cd6c366ef19982c981c80eed824[m
+Author: jaeyeon kim <jakind@naver.com>
+Date:   Mon Dec 19 15:31:57 2022 +0900
+
+    chore : 프로젝트 추가
+
+[33mcommit 7a6f8d1aa793a369cb91ddeb9a2526b330ad91e8[m
+Author: kpeel5839 <89840550+kpeel5839@users.noreply.github.com>
+Date:   Mon Dec 19 15:27:28 2022 +0900
+
+    Initial commit

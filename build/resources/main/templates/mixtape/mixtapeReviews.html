@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/css.css}">
+    <title>믹스테잎 리뷰</title>
+</head>
+<body>
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
+<table>
+    <tr>
+        <th>앨범</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>별점</th>
+        <th>조회수</th>
+    </tr>
+    <tr th:each="mixtapeReview : ${mixtapeReviews.mixtapeReviewHomeDtoList}">
+        <td> [[${mixtapeReview.title}]]</td>
+        <td><a th:href="@{mixtapeReviewDetail(mixtapeReviewId=${mixtapeReview.id})}">[[${mixtapeReview.title}]]</a></td>
+        <td>[[${mixtapeReview.user.email}]]</td>
+        <td>[[${mixtapeReview.star}]]</td>
+        <td>[[${mixtapeReview.view}]]</td>
+    </tr>
+</table>
+<a th:href="@{mixtapeReviewCreate(mixtapeId=${mixtapeReviews.id})}">믹스테잎리뷰추가</a>
+<a th:href="@{mixtapeDetail(mixtapeId=${mixtapeReviews.id})}">믹스테잎으로</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        p {font-size:5px;}
+    </style>
+    <title>장터</title>
+  <link rel="stylesheet" th:href="@{/css/css.css}">
+</head>
+<body>
+<th:block th:each="merchandise :${merchandises}">
+    <div>
+        <a th:href="@{/market/merchandiseDetail(merchandiseId=${merchandise.id})}"><image th:src="${merchandise.image}" style="width:100px; height:100px;"></image><br></a>
+        <p>상품이름:<span th:text="${merchandise.name}"></span></p>
+        <p>가격:<span th:text="${merchandise.point}"></span>쿵야</p>
+    </div>
+</th:block>
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
+<a th:href="@{/home}">홈으로</a>
+<a th:href="@{buy}">장바구니</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/css.css}">
+</head>
+<body>
+<h1>[[${merchandiseDetail.name}]]</h1>
+<img th:src="${merchandiseDetail.image}" style="width:100px; height:100px;">
+<p>가격:[[${merchandiseDetail.point}]] 쿵야</p>
+<p>재고:[[${merchandiseDetail.lefted}]]</p>
+<input type="hidden" th:value="${merchandiseDetail.id}">
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
+<form th:action="@{merchandiseBasket}"  th:object="${basketListDto}" method="post">
+    <select th:field="*{num}">
+        <option th:value="1">1개</option>
+        <option th:value="2">2개</option>
+        <option th:value="3">3개</option>
+    </select><br>
+    <input type="hidden" th:field="*{merchandiseId}" th:value="${merchandiseDetail.id}">
+    <button type="submit">등록</button>
+</form>
+<a th:href="@{merchandise}">장터로</a>
+</body>
+</html>

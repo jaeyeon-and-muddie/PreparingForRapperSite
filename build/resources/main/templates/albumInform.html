@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>앨범정보</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{reviews(albumId=${album.id})}">리뷰보기</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{home}">홈으로</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1>[[${album.title}]]</h1>
+    <table>
+        <tr>
+            <td>수록곡 : [[${album.numberOfSongs}]]</td>
+        </tr>
+        <tr>
+            <td>발매일자 : [[${album.releaseDate}]]</td>
+        </tr>
+        <tr>
+            <td>[[${album.introduction}]]</td>
+        </tr>
+        <tr>
+            <td><img th:src="${album.image}" style="width:300px; height:300px;"></td>
+        </tr>
+        <tr>
+            <td>아티스트 : [[${album.artist.artistName}]]</td>
+        </tr>
+        <tr>
+            <td>장르 : [[${album.artist.genre}]]</td>
+        </tr>
+    </table>
+<table class="table table-hover">
+        <caption align="right">노래목록</caption>
+        <tr th:each="song : ${album.songs}">
+            <td>[[${song.number}]]</a></td>
+            <td th:text="${song.title}"></td>
+            <td>[[${song.participants}]]</td>
+        </tr>
+    </table>
+<br>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

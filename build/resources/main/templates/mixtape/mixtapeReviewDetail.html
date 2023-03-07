@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/css.css}">
+    <title>리뷰</title>
+</head>
+<body>
+<div class="bar">
+    <p th:text="'사용자:'+${navbar.user.email}"></p>
+    <p th:text="${navbar.user.role}"></p>
+    <p><a th:href="@{/market/point}">포인트: [[${navbar.point.point}]]</a></p>
+</div>
+<a th:href="@{mixtapehome}">홈으로</a>
+    <table>
+      <caption>[[${mixtapeReview.title}]]</caption>
+      <p>[[${mixtapeReview.user.email}]]</p>
+      <tr>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td>[[${mixtapeReview.review}]]</td>
+      </tr>
+      <tr th:each ="comment :${mixtapeReview.mixtapeComments}">
+        <td>[[${comment.content}]]</td>
+        <td>[[${comment.User.email}]]</td>
+      </tr>
+    </table>
+    <form th:action="@{mixtapeReviewComment}" th:object="${commented}" method="post">
+      <input type="text" th:name="content">
+      <input type="hidden" th:name="'mixtapeReviewId'" th:value="${mixtapeReview.id}">
+      <button type="submit">등록</button>
+    </form>
+</body>
+</html>
