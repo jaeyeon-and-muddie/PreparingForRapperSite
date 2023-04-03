@@ -5,42 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba328ba3-7c33-4b89-abc9-7c376ca56200" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/Join.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/Join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/albumInform.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/albumInform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/notableHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/notableHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/plusAlbum.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/plusAlbum.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/plusSong.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/plusSong.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviewCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviewCreate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviewDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviewDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/reviews.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/1week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/1week/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/2week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/2week/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/3week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/3week/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skhu/practice/PracticeApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Join.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/albumInform.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/albumInform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/notableHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/notableHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plusAlbum.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plusAlbum.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/plusSong.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/plusSong.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewCreate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewCreate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviewDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviewDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/reviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +74,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/java/project/PreparingForRapperSite/docs/4week",
+    "last_opened_file_path": "C:/java/project/PreparingForRapperSite",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
